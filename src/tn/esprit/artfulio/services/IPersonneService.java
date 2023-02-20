@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package tn.esprit.artfulio.services;
 
-import entites.Personne;
+import tn.esprit.artfulio.entites.Personne;
 import java.util.List;
 
 /**

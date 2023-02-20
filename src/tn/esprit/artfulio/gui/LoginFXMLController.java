@@ -1,4 +1,4 @@
-package tn.esprit.artfulio.presentation;
+package tn.esprit.artfulio.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;

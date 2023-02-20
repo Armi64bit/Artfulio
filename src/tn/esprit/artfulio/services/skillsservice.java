@@ -1,6 +1,6 @@
-package services;
+package tn.esprit.artfulio.services;
 
-import entites.skills;
+import tn.esprit.artfulio.entites.skills;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import utils.MyConnection;
+import tn.esprit.artfulio.utils.MyConnection;
 
 /**
  *

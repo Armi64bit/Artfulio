@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package tn.esprit.artfulio.services;
 
-import entites.Personne;
+import tn.esprit.artfulio.entites.Personne;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utils.MyConnection;
+import tn.esprit.artfulio.utils.MyConnection;
 
 /**
  *

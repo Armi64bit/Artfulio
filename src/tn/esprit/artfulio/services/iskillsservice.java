@@ -1,6 +1,6 @@
-package services;
+package tn.esprit.artfulio.services;
 
-import entites.skills;
+import tn.esprit.artfulio.entites.skills;
 import java.util.List;
 
 /**

@@ -1,9 +1,9 @@
 
-import entites.Profile;
+import tn.esprit.artfulio.entites.Profile;
 import java.sql.*;
-import services.ProfileService;
-import services.skillsservice;
-import entites.skills;
+import tn.esprit.artfulio.services.ProfileService;
+import tn.esprit.artfulio.services.skillsservice;
+import tn.esprit.artfulio.entites.skills;
 
 public class Main {
  

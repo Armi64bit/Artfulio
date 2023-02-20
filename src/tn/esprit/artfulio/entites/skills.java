@@ -1,4 +1,4 @@
-package entites;
+package tn.esprit.artfulio.entites;
 
 /**
  *
