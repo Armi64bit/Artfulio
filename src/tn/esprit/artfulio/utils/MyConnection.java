@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author dell
  */
 public class MyConnection {
-      String url="jdbc:mysql://localhost:3306/projetpi";
+      String url="jdbc:mysql://localhost:3306/artfulio";
       String login="root";
       String password="";
       Connection myconnex;

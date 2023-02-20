@@ -39,6 +39,14 @@ public class Profile {
         this.ytb = ytb;
     }
 
+    public Profile(String bio, String ig, String fb, String twitter, String ytb) {
+        this.bio = bio;
+        this.ig = ig;
+        this.fb = fb;
+        this.twitter = twitter;
+        this.ytb = ytb;
+    }
+
     public int getId_profil() {
         return id_profil;
     }
