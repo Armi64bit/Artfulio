@@ -40,8 +40,8 @@ public class ProfileService implements IProfileService {
     @Override
     public boolean modifierProfile(Profile p) {
         try {
-            int id_util = 7;
-            String bio = "salwa";
+            int id_util = 2;
+            String bio =p.getBio();
             String ig = "salwa";
             String fb = "salwa";
             String twitter = "salwa";
@@ -79,7 +79,7 @@ public class ProfileService implements IProfileService {
             String req = "delete from profile where id_profil= ? ";
             PreparedStatement ps = myconnex
                     .prepareStatement(req);
-            ps.setInt(1, 2);
+            ps.setInt(1, 3);
             ps.executeUpdate();
             return true;
 
