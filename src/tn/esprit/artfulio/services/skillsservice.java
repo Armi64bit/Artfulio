@@ -22,7 +22,7 @@ Connection myconnex
         
 int id=-1;
         try {
-           String req1 ="INSERT INTO `skills` (`id_skill`, `titre_skill`, `desc_skill`) VALUES (NULL, '"+s.getTitre_skill()+"', '"+s.getDesc_skill()+"');";
+           String req1 ="INSERT INTO `skills` (`id_skill`, `titre_skill`, `desc_skill`,`id_profile`) VALUES (NULL, '"+s.getTitre_skill()+"', '"+s.getDesc_skill()+"',10);";
            
            Statement ste = myconnex.createStatement();
           id= ste.executeUpdate(req1);
@@ -63,7 +63,7 @@ try {
            String req="delete from skills where id_skill= ? ";
            PreparedStatement ps = myconnex
                    .prepareStatement(req);
-           ps.setInt(1, 1);
+           ps.setInt(1, 4);
            ps.executeUpdate();
        return true;
        
