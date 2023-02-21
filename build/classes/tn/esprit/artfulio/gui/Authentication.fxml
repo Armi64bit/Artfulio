@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -33,13 +34,21 @@
                <opaqueInsets>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </opaqueInsets></Button>
-            <ChoiceBox fx:id="listprofilebox" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #DB5397;" stylesheets="@application.css" />
+            <Separator prefHeight="8.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+            <ChoiceBox fx:id="listprofilebox" prefHeight="28.0" prefWidth="89.0" style="-fx-background-color: #DB5397;" stylesheets="@application.css" />
+            <Separator prefHeight="8.0" prefWidth="200.0" />
             <Button fx:id="btnac" mnemonicParsing="false" onAction="#switcheditprofile" prefHeight="32.0" prefWidth="178.0" text="Acceuil" />
+            <Separator prefHeight="8.0" prefWidth="200.0" />
             <Button mnemonicParsing="false" onAction="#test" prefHeight="42.0" prefWidth="181.0" text="Images" />
+            <Separator prefHeight="8.0" prefWidth="200.0" />
             <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="181.0" text="Musique" />
+            <Separator prefHeight="8.0" prefWidth="200.0" />
             <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="182.0" text="Videos" />
+            <Separator prefHeight="8.0" prefWidth="200.0" />
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="181.0" text="Shop" />
+            <Separator prefHeight="8.0" prefWidth="200.0" />
             <Button mnemonicParsing="false" onAction="#switcheditprofile" prefHeight="49.0" prefWidth="178.0" text="ajouter profile" />
+            <Separator prefHeight="8.0" prefWidth="200.0" />
             <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="181.0" text="Log out" />
          </children>
          <opaqueInsets>

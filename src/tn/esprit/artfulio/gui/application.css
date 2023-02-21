@@ -64,5 +64,10 @@
     -fx-text-fill: white;
 }
 
-
-
+.context-menu {
+-fx-background-color: #F2EBE9;
+-fx-font-weight: bold;
+}
+#choice-box-menu-item:hover {
+-fx-background-color: #B8236E;
+}
