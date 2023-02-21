@@ -44,7 +44,7 @@ public class MainWindow extends Application {
             primaryStage.setTitle("Artfulio");
             //Image image =new Image("logo.png");
           //  primaryStage.getIcons().add(image);
-        //  primaryStage.getIcons().add(new Image("file:logo.png"));
+        //   primaryStage.getIcons().add(new Image("file:logo.png"));
             primaryStage.setScene(scene);
             primaryStage.show();
         
