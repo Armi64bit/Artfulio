@@ -69,21 +69,20 @@ public class EditprofileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 // TODO
-        ProfileService ps=new ProfileService();
-        List <Profile> L =ps.afficherProfile();
-        
-          // Personne p = new Personne(22, "Esprit", "Ariana");
-           String[] str = new String[L.size()];
- 
+        ProfileService ps = new ProfileService();
+        List<Profile> L = ps.afficherProfile();
+
+        // Personne p = new Personne(22, "Esprit", "Ariana");
+        String[] str = new String[L.size()];
+
         for (int i = 0; i < L.size(); i++) {
             str[i] = L.get(i).getFb();
         }
-       for (int i = 0; i < L.size(); i++) {
-      listview.getItems().add(L.get(i).getFb());
-  
-         
-        
-    }}
+        for (int i = 0; i < L.size(); i++) {
+            listview.getItems().add(L.get(i).getFb());
+
+        }
+    }
 
     @FXML
     public void switcheditprofile(ActionEvent event) throws IOException {
@@ -91,19 +90,20 @@ public class EditprofileController implements Initializable {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         String css;
-            css = this.getClass().getResource("application.css").toExternalForm();
-   scene.getStylesheets().add(css);
+        css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
 
     }
+
     public void switchprofile(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Authentication.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         String css;
-            css = this.getClass().getResource("application.css").toExternalForm();
-   scene.getStylesheets().add(css);
+        css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
 
@@ -119,9 +119,7 @@ public class EditprofileController implements Initializable {
         ProfileService ps = new ProfileService();
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
 
-        /*if(txtcin1.getText().length() > 8 || txtcin1.getText().length() < 8){
-            JOptionPane.showMessageDialog(null,"cin non valide, cin doit étre contient 8 chiffres"); }
-         */
+      
         if (tfytb.getText().length() < 1) {
             JOptionPane.showMessageDialog(null, "champ youtube vide !!!");
         } else if (tftwitter.getText().length() < 1) {
@@ -142,26 +140,24 @@ public class EditprofileController implements Initializable {
             ProfileService profileService = new ProfileService();
             if (profileService.ajouterProfile(p) == -1) {
                 showAlertWithHeaderText("AJOUTER PROFILE", "AJOUTER PROFILE", "PROFILE pas AJOUTé");
-                
             } else {
                 {
                     showAlertWithHeaderText("AJOUTER PROFILE", "AJOUTER PROFILE", "PROFILE AJOUTé");
-                    
                 }
             }
         }
 
-        List <Profile> L =ps.afficherProfile();
-        
-          // Personne p = new Personne(22, "Esprit", "Ariana");
-           String[] str = new String[L.size()];
- 
+        List<Profile> L = ps.afficherProfile();
+
+        // Personne p = new Personne(22, "Esprit", "Ariana");
+        String[] str = new String[L.size()];
+
         for (int i = 0; i < L.size(); i++) {
             str[i] = L.get(i).getFb();
         }
-       for (int i = 0; i < L.size(); i++) {
-      listview.getItems().add(L.get(i).getFb());
-       }
+        for (int i = 0; i < L.size(); i++) {
+            listview.getItems().add(L.get(i).getFb());
+        }
     }
 
     private void showAlertWithHeaderText(String title, String header, String content) {
@@ -173,16 +169,16 @@ public class EditprofileController implements Initializable {
         alert.showAndWait();
     }
 
-    public void delprofile(){
-     String bio = tfbio.getText();
+    public void delprofile() {
+        String bio = tfbio.getText();
         String ig = tfig.getText();
         String fb = tffb.getText();
         String twitter = tftwitter.getText();
         String ytb = tfytb.getText();
         ProfileService ps = new ProfileService();
-       Profile p = new Profile(bio, ig, fb, twitter, ytb);
-      
-      if (ps.supprimerProfile(p) != true) {
+        Profile p = new Profile(bio, ig, fb, twitter, ytb);
+
+        if (ps.supprimerProfile(p) != true) {
             JOptionPane.showMessageDialog(null, "PROFILE pas supprimé");
         } else {
             {
@@ -190,7 +186,6 @@ public class EditprofileController implements Initializable {
             }
         }
 
-}
+    }
 
-    
 }

@@ -27,7 +27,7 @@ public class ProfileService implements IProfileService {
     public int ajouterProfile(Profile p) {
         int id = -1;
         try {
-            String req1 = "INSERT INTO `profile` (`id_profil`, `id_util`, `bio`, `ig`, `fb`, `twitter`, `ytb`)VALUES (NULL, '" + p.getId_util() + "','" + p.getIg() + "','" + p.getIg() + "' , '" + p.getFb() + "', '" + p.getTwitter() + "', '" + p.getYtb() + "');";
+            String req1 = "INSERT INTO `profile` (`id_profil`, `id_util`, `bio`, `ig`, `fb`, `twitter`, `ytb`)VALUES (NULL, '" + p.getId_util() + "','" + p.getBio()+ "','" + p.getIg() + "' , '" + p.getFb() + "', '" + p.getTwitter() + "', '" + p.getYtb() + "');";
 
             Statement ste = myconnex.createStatement();
             id = ste.executeUpdate(req1);
