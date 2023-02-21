@@ -195,6 +195,9 @@ static Connection myconnex
   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
   
   scene = new Scene(root);
+  String css;
+            css = this.getClass().getResource("application.css").toExternalForm();
+   scene.getStylesheets().add(css);
   stage.setScene(scene);
   stage.show();
  }
@@ -231,6 +234,9 @@ UpdateprofileController.updatepreloadtxt(bio, ig, fb, twitter, ytb);
   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
   
   scene = new Scene(root);
+  String css;
+            css = this.getClass().getResource("application.css").toExternalForm();
+   scene.getStylesheets().add(css);
   stage.setScene(scene);
   stage.show();
  }

@@ -1,14 +1,19 @@
 .button
 {
--fx-background-color : #05071F;
--fx-text-fill : #e7e5e5;
+-fx-background-color : #DB5397;
+-fx-text-fill : #FFFFFF;
+-fx-font-weight: bold;
+	-fx-font-size: 14px;
+        -fx-background-radius: 15px;
+    
 }
+
 .button:hover{
--fx-background-color : #10165F;
+-fx-background-color : #B8236E;
 }
 .button:pressed
 {
--fx-background-color : #1620A1;
+-fx-background-color : #a42263;
 }
 
 .scroll-pane {
@@ -46,17 +51,18 @@
      -fx-pref_height: 60;
      
 }
+.list-cell:even { /* <=== changed to even */
+    -fx-background-color: #F2EBE9;
+}
+.list-cell {
+    -fx-cell-hover-color: #F2EBE9;
+    
+    -fx-text-fill: #232323;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #B8236E;
+    -fx-text-fill: white;
+}
 
-.tab-header-background
-{
--fx-background-color : #05071F;
--fx-text-fill : #e7e5e5;
-}
-.tab-header-background:hover{
--fx-background-color : #10165F;
-}
-.tab-header-background:pressed
-{
--fx-background-color : #1620A1;
-}
+
 

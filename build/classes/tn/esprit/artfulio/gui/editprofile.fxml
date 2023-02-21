@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="789.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.EditprofileController">
+<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="789.0" style="-fx-background-color: #EDDCD9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.EditprofileController">
    <children>
       <VBox layoutX="14.0" layoutY="79.0" prefHeight="410.0" prefWidth="356.0">
          <children>

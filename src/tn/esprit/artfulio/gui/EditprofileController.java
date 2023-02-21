@@ -90,6 +90,9 @@ public class EditprofileController implements Initializable {
         root = FXMLLoader.load(getClass().getResource("Authentication.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        String css;
+            css = this.getClass().getResource("application.css").toExternalForm();
+   scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
 
@@ -98,6 +101,9 @@ public class EditprofileController implements Initializable {
         root = FXMLLoader.load(getClass().getResource("Authentication.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        String css;
+            css = this.getClass().getResource("application.css").toExternalForm();
+   scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
 

@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -41,6 +42,8 @@ public class MainWindow extends Application {
             css = this.getClass().getResource("application.css").toExternalForm();
    scene.getStylesheets().add(css);
             primaryStage.setTitle("Artfulio");
+            //Image image =new Image("logo.png");
+          //  primaryStage.getIcons().add(image);
             primaryStage.setScene(scene);
             primaryStage.show();
         
