@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="piartfulio.FXMLCollaborateurController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="186.0" style="-fx-background-color: pink;">
+         <children>
+            <Button fx:id="buttonViewCollection" layoutX="37.0" layoutY="251.0" mnemonicParsing="false" onAction="#ViewCollection" prefHeight="30.0" prefWidth="83.0" text="afficher">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-7.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="37.0" layoutY="349.0" mnemonicParsing="false" text="supprimer">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonModifier" layoutX="37.0" layoutY="302.0" mnemonicParsing="false" onAction="#modifer" prefHeight="30.0" prefWidth="83.0" text="modifier">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="187.0" prefHeight="400.0" prefWidth="412.0">
+         <children>
+            <Label fx:id="labelCurrentCollaborator" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="412.0" text="Collaborations">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listViewCollaborator" layoutX="3.0" layoutY="61.0" prefHeight="339.0" prefWidth="412.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
