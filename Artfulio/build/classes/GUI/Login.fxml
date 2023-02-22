@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root type="javafx.scene.layout.AnchorPane" id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="GUI.LogIn">
+  <children>
+    <SplitPane dividerPositions="0.49586776859504134" focusTraversable="true" layoutX="-7.0" layoutY="0.0" prefHeight="400.0" prefWidth="607.0">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="336.0" style="-fx-background-color:#232323">
+          <children>
+            <ImageView id="327771596_1156253308397426_6805221060823898730_n.png" fitHeight="325.0" fitWidth="277.0" layoutX="6.0" layoutY="37.0">
+              <image>
+                <Image url="@../img/327771596_1156253308397426_6805221060823898730_n.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="313.0" style="-fx-background-color:#232323">
+          <children>
+            <Label layoutX="33.0" layoutY="199.0" text="Username" textAlignment="CENTER" underline="false">
+              <font>
+                <Font name="System Bold" size="16.0" fx:id="x1" />
+              </font>
+              <textFill>
+                <Color blue="0.584" green="0.200" red="1.000" fx:id="x2" />
+              </textFill>
+            </Label>
+            <Label font="$x1" layoutX="33.0" layoutY="255.0" text="Password" textFill="$x2" />
+            <Button id="login" fx:id="LogIn" layoutX="142.0" layoutY="324.0" mnemonicParsing="false" onAction="#userLogIn" style="-fx-background-color:#ff3395" text="LogIn" textFill="WHITE">
+              <font>
+                <Font name="System Bold" size="12.0" />
+              </font>
+            </Button>
+            <TextField fx:id="username" layoutX="142.0" layoutY="199.0" prefWidth="117.0" promptText="Username" />
+            <TextField fx:id="password" layoutX="142.0" layoutY="255.0" prefWidth="117.0" promptText="Password" />
+            <ImageView id="login-xxl.png" fitHeight="109.0" fitWidth="126.0" layoutX="79.0" layoutY="37.0">
+              <image>
+                <Image url="@../../../../../Desktop/login-xxl.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+            <Label id="w" fx:id="wrongLogIn" layoutX="109.0" layoutY="155.0" text="" textFill="#cc0000">
+              <font>
+                <Font name="System Bold" size="14.0" />
+              </font>
+            </Label>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</fx:root>
