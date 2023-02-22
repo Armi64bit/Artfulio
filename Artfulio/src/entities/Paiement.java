@@ -12,5 +12,14 @@ package entities;
 public enum Paiement {
     Cash_on_delivery,
         Paiment_by_card;
+        
+        public Paiement fromString(String text){
+            for(Paiement paie:Paiement.values()){
+                if(paie.name().equalsIgnoreCase(text)){
+                    return paie;}}
+            return null;
+                   
+        }
 
 }
+

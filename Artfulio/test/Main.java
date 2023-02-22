@@ -22,11 +22,13 @@ public class Main {
     public static void main(String[] args) {
          User a = new User("amine");
          Piece_Art p = new Piece_Art("monalisaa");
-         VenteProduit v = new VenteProduit(0, 0, 0, Paiement.Paiment_by_card, 0, 0);
+         VenteProduit v = new VenteProduit(1, 1, 1, Paiement.Paiment_by_card, 2, 1);
          UserService serviceUser = new UserService();
          PieceService servicePiece = new PieceService();
          VenteService serviceVente = new VenteService();
-         System.out.println(serviceVente.ajouterVente(v));
+        // System.out.println(serviceVente.ajouterVente(v));
+         //System.out.println(serviceVente.modifierVente(v));
+         //System.out.println(serviceVente.supprimerVente(v));
          //System.out.println( serviceUser.ajouterUser(a));
          //System.out.println(servicePiece.ajouterArt(p));
           //System.out.println(servicePiece.modifierArt(p));
@@ -34,7 +36,7 @@ public class Main {
          //System.out.println(servicePiece.supprimerArt(p));
          //System.out.println( serviceUser.supprimerUser(a));
           //System.out.println( serviceUser.afficherUsers());
-          
+          System.out.println(serviceVente.afficheventes());
           //System.out.println( servicePiece.afficherArts());
     }
 }
