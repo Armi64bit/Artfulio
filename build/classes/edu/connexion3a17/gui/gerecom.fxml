@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: f2ebe9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.connexion3a17.gui.UserCommentaireController">
+   <children>
+      <Text fill="#db5397" layoutX="151.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gérer votre commentaire">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <TableView fx:id="table" layoutX="283.0" layoutY="57.0" prefHeight="243.0" prefWidth="299.0" style="-fx-background-color: eddcd9;">
+        <columns>
+          <TableColumn fx:id="commentsec" prefWidth="207.0" text="Mes commentaires" />
+          <TableColumn fx:id="datesec" prefWidth="85.0" text="Date de post" />
+        </columns>
+      </TableView>
+      <MenuButton fx:id="btnmenu" layoutX="215.0" layoutY="316.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Gérer Commentaire" textFill="WHITE">
+        <items>
+          <MenuItem fx:id="btnmof" mnemonicParsing="false" onAction="#modCommentaire" text="Modifier" />
+          <MenuItem fx:id="btnsupp" mnemonicParsing="false" onAction="#suppCommentaire" text="Supprimer" />
+        </items>
+      </MenuButton>
+      <TextArea fx:id="textmodcom" layoutX="14.0" layoutY="57.0" prefHeight="243.0" prefWidth="240.0" />
+   </children>
+</AnchorPane>

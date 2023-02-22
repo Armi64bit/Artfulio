@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: f2ebe2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.connexion3a17.gui.AdminReclamationController">
+   <children>
+      <Button fx:id="btnmod" layoutX="250.0" layoutY="310.0" mnemonicParsing="false" onAction="#modifyrec" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: black;" text="Modifier" textFill="WHITE" />
+      <Button layoutX="16.0" layoutY="352.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: black;" text="Retourner" textFill="WHITE" />
+      <Button fx:id="btnsupp" layoutX="250.0" layoutY="352.0" mnemonicParsing="false" onAction="#supprec" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: black;" text="Supprimer" textFill="WHITE" />
+      <Label fx:id="modlabel" layoutX="149.0" layoutY="27.0" text="Gérer vos reclamations" textFill="#db5397">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <ListView fx:id="reclist" layoutX="13.0" layoutY="103.0" prefHeight="197.0" prefWidth="263.0" />
+      <TextArea fx:id="modtxt" layoutX="373.0" layoutY="102.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
