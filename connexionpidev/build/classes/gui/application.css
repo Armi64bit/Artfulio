@@ -1,0 +1,68 @@
+.button
+{
+-fx-background-color : #DB5397;
+-fx-text-fill : #FFFFFF;
+-fx-font-weight: bold;
+	-fx-font-size: 14px;
+        -fx-background-radius: 15px;
+    
+}
+
+.button:hover{
+-fx-background-color : #B8236E;
+}
+.button:pressed
+{
+-fx-background-color : #a42263;
+}
+
+.scroll-pane {
+    -fx-background-color: #02030A;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #10165F;
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: black;
+}
+.tab{
+     -fx-background-color: #02030A;
+     -fx-pref_width: 350;
+     -fx-pref_height: 60;
+     
+}
+.list-cell:even { /* <=== changed to even */
+    -fx-background-color: #F2EBE9;
+}
+.list-cell {
+    -fx-cell-hover-color: #F2EBE9;
+    
+    -fx-text-fill: #232323;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #B8236E;
+    -fx-text-fill: white;
+}
+
+
+
