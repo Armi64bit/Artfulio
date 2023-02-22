@@ -126,6 +126,7 @@ public class ProfileService implements IProfileService {
                 p.setFb(res.getString("fb"));
                 p.setTwitter(res.getString("twitter"));
                 p.setYtb(res.getString("ytb"));
+                p.setId_profil(res.getInt("id_profil"));
 
                 
             }

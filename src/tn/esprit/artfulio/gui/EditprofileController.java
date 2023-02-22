@@ -27,6 +27,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -62,6 +63,16 @@ public class EditprofileController implements Initializable {
             = MyConnection.getInstance().getConnection();
     @FXML
     private ListView<String> listview;
+    @FXML
+    private Label warninbio;
+    @FXML
+    private Label warninig;
+    @FXML
+    private Label warninfb;
+    @FXML
+    private Label warnintwitter;
+    @FXML
+    private Label warninytb;
 
     /**
      * Initializes the controller class.
@@ -121,17 +132,17 @@ public class EditprofileController implements Initializable {
 
       
         if (tfytb.getText().length() < 1) {
-            JOptionPane.showMessageDialog(null, "champ youtube vide !!!");
+           warninytb.setText("champ youtube vide !!!");
         } else if (tftwitter.getText().length() < 1) {
-            JOptionPane.showMessageDialog(null, "champ twitter vide !!!");
+          warnintwitter.setText("champ twitter vide !!!");
         } else if (tfig.getText().length() < 1) {
-            JOptionPane.showMessageDialog(null, "champ ig vide !!!");
+            warninig.setText("champ ig vide !!!");
         } else if (tffb.getText().length() < 1) {
-            JOptionPane.showMessageDialog(null, "champ fb vide !!!");
+            warninfb.setText("champ fb vide !!!");
         } else if (tfbio.getText().matches(regex) == true) {
-            JOptionPane.showMessageDialog(null, "bio invalid");
+            warninbio.setText(" bio invalid");
         } else if (tfbio.getText().length() < 1) {
-            JOptionPane.showMessageDialog(null, "bio vide");
+            warninbio.setText("bio vide");
         } else if (ps.checkRedonnondance(tfig.getText(), tffb.getText(), tftwitter.getText(), tfytb.getText()) != 1) {
             JOptionPane.showMessageDialog(null, " profile existe déja");
         } else {
@@ -147,7 +158,7 @@ public class EditprofileController implements Initializable {
             }
         }
 
-        List<Profile> L = ps.afficherProfile();
+       /* List<Profile> L = ps.afficherProfile();
 
         // Personne p = new Personne(22, "Esprit", "Ariana");
         String[] str = new String[L.size()];
@@ -157,7 +168,7 @@ public class EditprofileController implements Initializable {
         }
         for (int i = 0; i < L.size(); i++) {
             listview.getItems().add(L.get(i).getFb());
-        }
+        }*/
     }
 
     private void showAlertWithHeaderText(String title, String header, String content) {

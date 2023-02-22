@@ -114,7 +114,7 @@ static Connection myconnex
     listprofilebox.setOnAction(this::displayprofile);
           }
         skillsservice ss=new skillsservice();
-        List <skills> Ls =ss.afficherskills() ; //mocdifier ca bech tsallah fazet el skilsl tab
+        List <skills> Ls =ss.afficherskills(/*txtfb.getText()*/) ; //mocdifier ca bech tsallah fazet el skilsl tab
        //   String[] strs = new String[Ls.size()];
   for (int i = 0; i < Ls.size(); i++) {
         Tab tab1 =new Tab(Ls.get(i).getTitre_skill());

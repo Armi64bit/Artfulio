@@ -25,8 +25,9 @@ public class Main {
         //System.out.println( skillservice.afficherskills());
       //  System.out.println( skillservice.supprimerskills(s));
         // System.out.println( skillservice.modifierskills(s));
-          //      System.out.println( skillservice.afficherskills());
-
+              //  System.out.println( skillservice.afficherskills("fb"));
+ p=profileService.afficherProfilefb("z");
+        System.out.println(p.getId_profil());
 }
     
 }

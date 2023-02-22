@@ -20,6 +20,11 @@
             </Label>
             <Separator prefHeight="26.0" prefWidth="354.0" />
             <TextField fx:id="tfbio" prefHeight="40.0" prefWidth="318.0" />
+            <Label fx:id="warninbio" textFill="RED">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
             <Label text="Instagram">
                <font>
                   <Font size="23.0" />
@@ -27,6 +32,11 @@
             </Label>
             <Separator prefHeight="26.0" prefWidth="354.0" />
             <TextField fx:id="tfig" prefHeight="40.0" prefWidth="318.0" />
+            <Label fx:id="warninig" textFill="RED">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
             <Label text="fb">
                <font>
                   <Font size="23.0" />
@@ -34,6 +44,11 @@
             </Label>
             <Separator prefHeight="26.0" prefWidth="354.0" />
             <TextField fx:id="tffb" prefHeight="40.0" prefWidth="318.0" />
+            <Label fx:id="warninfb" textFill="RED">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
             <Label text="twitter">
                <font>
                   <Font size="23.0" />
@@ -41,6 +56,11 @@
             </Label>
             <Separator prefHeight="26.0" prefWidth="354.0" />
             <TextField fx:id="tftwitter" prefHeight="40.0" prefWidth="318.0" />
+            <Label fx:id="warnintwitter" textFill="RED">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
             <Label text="ytb">
                <font>
                   <Font size="23.0" />
@@ -48,6 +68,11 @@
             </Label>
             <Separator prefHeight="26.0" prefWidth="354.0" />
             <TextField fx:id="tfytb" prefHeight="40.0" prefWidth="318.0" />
+            <Label fx:id="warninytb" textFill="RED">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
       <Button layoutX="438.0" layoutY="470.0" mnemonicParsing="false" onAction="#edit" prefHeight="45.0" prefWidth="102.0" text="valider" />

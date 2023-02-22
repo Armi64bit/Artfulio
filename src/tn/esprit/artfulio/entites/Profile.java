@@ -79,6 +79,10 @@ public class Profile {
         this.id_util = id_util;
     }
 
+    public void setId_profil(int id_profil) {
+        this.id_profil = id_profil;
+    }
+
     public void setBio(String bio) {
         this.bio = bio;
     }

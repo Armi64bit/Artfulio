@@ -9,8 +9,15 @@ public class skills {
     private int id_skill;
     private String titre_skill;
     private String desc_skill;
+    private int id_profil;
+
+    
+    
 
     public skills() {
+    }
+    public void setId_profil(int id_profil) {
+        this.id_profil = id_profil;
     }
 
     public skills( String titre_skill, String desc_skill) {
