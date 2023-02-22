@@ -45,12 +45,7 @@
 .scroll-pane > .corner {
     -fx-background-color: black;
 }
-.tab{
-     -fx-background-color: #02030A;
-     -fx-pref_width: 350;
-     -fx-pref_height: 60;
-     
-}
+
 .list-cell:even { /* <=== changed to even */
     -fx-background-color: #F2EBE9;
 }

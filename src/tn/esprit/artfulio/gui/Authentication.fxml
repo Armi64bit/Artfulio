@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,7 +22,15 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eddcd9" height="582.0" opacity="0.21" stroke="TRANSPARENT" strokeType="INSIDE" width="226.0" />
       <VBox alignment="TOP_CENTER" layoutY="4.0" prefHeight="572.0" prefWidth="195.0" style="-fx-background-color: EDDCD9;">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="51.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logoblack.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+               </VBox.margin>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <Text fill="#232323" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
                <font>
                   <Font name="Roboto Bold" size="34.0" />
@@ -124,6 +133,12 @@
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eddcd9" height="581.0" layoutX="-42.0" layoutY="-5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
             <Text fx:id="txtytb" fill="#232323" layoutX="436.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="youtube">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TabPane fx:id="tabskil" layoutX="42.0" layoutY="286.0" prefHeight="200.0" prefWidth="553.0" tabClosingPolicy="UNAVAILABLE" />
+            <Text fx:id="txtig1" fill="#232323" layoutX="59.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="add skill">
                <font>
                   <Font size="15.0" />
                </font>

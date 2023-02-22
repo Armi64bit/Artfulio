@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static tn.esprit.artfulio.services.ProfileService.myconnex;
 import tn.esprit.artfulio.utils.MyConnection;
 
 /**
@@ -91,4 +94,26 @@ try {
         }
         return list;    }
     
-}
+public skills findskill(String ig,String fb,String twitter,String ytb ){
+ String sql ="SELECT * FROM profile WHERE ig=? and fb=? and twitter=? and ytb=? " ;//zid where id_profile == w a3ml fn yjiblk id el profile
+ skills s = new skills();
+     try {
+         PreparedStatement prst  = myconnex.prepareStatement(sql) ;
+         prst.setString(1,ig) ;
+         prst.setString(2,fb) ;
+         prst.setString(3,twitter) ;
+         prst.setString(4,ytb) ;
+         
+       ResultSet rs =prst.executeQuery() ;
+       
+       while(rs.next()){
+           
+           return null;
+       }
+     }catch (SQLException se ){
+         
+     }
+           return null ;
+ }}
+
+

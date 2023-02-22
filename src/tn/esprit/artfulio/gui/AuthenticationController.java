@@ -20,6 +20,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import tn.esprit.artfulio.entites.Profile;
 import tn.esprit.artfulio.services.ProfileService;
+import tn.esprit.artfulio.entites.skills;
+import tn.esprit.artfulio.services.skillsservice;
+
 import java.awt.Desktop;
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -29,8 +32,12 @@ import java.sql.SQLException;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import tn.esprit.artfulio.utils.MyConnection;
@@ -55,14 +62,6 @@ static Connection myconnex
     
  
     @FXML
-    private Button btnig;
-    @FXML
-    private Button btnfb;
-    @FXML
-    private Button btnTwitter;
-    @FXML
-    private Button btnytb;
-    @FXML
     private Label id_twitter;
      private Stage stage;
  private Scene scene;
@@ -80,6 +79,20 @@ static Connection myconnex
     private Text txttwt;
     @FXML
     private Text txtytb;
+    @FXML
+    private Pane imgig;
+    @FXML
+    private ImageView imgfb;
+    @FXML
+    private ImageView imgtwtr;
+    @FXML
+    private ImageView imgytb;
+    @FXML
+    private Tab txtnameskill;
+    @FXML
+    private Text txtdesc;
+    @FXML
+    private TabPane tabskil;
 
     /**
      * Initializes the controller class.
@@ -100,6 +113,22 @@ static Connection myconnex
       listprofilebox.getItems().add(L.get(i).getFb());
     listprofilebox.setOnAction(this::displayprofile);
           }
+        skillsservice ss=new skillsservice();
+        List <skills> Ls =ss.afficherskills() ; //mocdifier ca bech tsallah fazet el skilsl tab
+       //   String[] strs = new String[Ls.size()];
+  for (int i = 0; i < Ls.size(); i++) {
+        Tab tab1 =new Tab(Ls.get(i).getTitre_skill());
+        tab1.setClosable( false);
+        //txtdescc.setText(Ls.get(i).getDesc_skill());
+   Text txtdescc= new Text(Ls.get(i).getDesc_skill());
+  
+   tab1.setContent(txtdescc);
+         tabskil.getTabs().add(tab1);
+          
+        }
+  
+        
+            
 // PersonneCRUD pcd = new PersonneCRUD();
          ////List<Personne> pp=pcd.listeDesEntites();
          //Personne first=pp.get(0);
@@ -201,7 +230,6 @@ static Connection myconnex
   stage.setScene(scene);
   stage.show();
  }
-    @FXML
     public void upd(ActionEvent event) throws IOException {
   try {
       root = FXMLLoader.load(getClass().getResource("updateprofile.fxml"));
