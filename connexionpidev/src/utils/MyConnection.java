@@ -14,15 +14,29 @@ import java.sql.SQLException;
  * @author dell
  */
 public class MyConnection {
-      String url="jdbc:mysql://localhost:3306/projetpi";
-      String login="root";
-      String password="";
-       Connection myconnex;
-       static MyConnection moncnx;
+     
+    private String login="root";
+      private String password="";
+      private Connection myconn;
+   private static MyConnection instance;
+       private String url="jdbc:mysql://localhost:3306/projetpi";
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+       
 
     public MyConnection() {
         try{
-        myconnex= DriverManager.getConnection(url,login,password);
+        myconn= DriverManager.getConnection(url,login,password);
        System.out.println("reussi!!");
             
         }
@@ -30,13 +44,18 @@ public class MyConnection {
                  System.out.println(ex.getMessage());
                     }
     }
-       public static MyConnection getInstance(){
-    if(moncnx==null)
-       moncnx= new MyConnection();
-    return moncnx;
-    }
+       
     public Connection getConnection(){
-        return myconnex;
+        return myconn;
     }
+     public static MyConnection getInstance() {
+         if(instance == null)
+         {
+             instance = new MyConnection();
+         }
+         
+       
+   return instance;
+     }
     
 }
