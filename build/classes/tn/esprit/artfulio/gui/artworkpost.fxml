@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="565.0" styleClass="post-background" stylesheets="@artworkpost.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.ArtworkpostController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="565.0" styleClass="post-backgroundwithshadow" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.ArtworkpostController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0">
          <children>
@@ -141,7 +141,7 @@
             </HBox>
          </children>
       </StackPane>
-      <HBox styleClass="top-border" stylesheets="@artworkpost.css">
+      <HBox styleClass="post-background" stylesheets="@feed.css">
          <children>
             <HBox fx:id="likeContainer" alignment="CENTER" onKeyReleased="#onlikecontainermousereleased" onMouseReleased="#onlikecontainermousereleased" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>

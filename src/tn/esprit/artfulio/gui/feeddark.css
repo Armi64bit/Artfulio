@@ -1,6 +1,15 @@
 /*
  * Empty Stylesheet file.
  */
+
+/*
+ * Empty Stylesheet file.
+ */
+.text { 
+ -fx-font:roboto;
+ -fx-fill: white;
+ 
+}
 .round-button{
     -fx-background : grey;
     -fx-background-radius :50;
@@ -19,7 +28,7 @@
 
 }
 .background{
-    -fx-background-color : #E6DDDB;
+    -fx-background-color : #242424;
 }
 
 .scroll-pane .viewport {
@@ -27,7 +36,7 @@
 }
 .post-background{
     
-    -fx-background-color : #E1D1CE;
+    -fx-background-color : #3C3C3C;
     -fx-background-radius :15;
 
 
@@ -41,8 +50,9 @@
 
 }
 .texfield{
-    -fx-background-color : #F0F2F5;
+    -fx-background-color : #CECECE;
       -fx-background-radius :10;
+      
     
 }
 .scroll-bar:horizontal .thumb {
@@ -70,6 +80,7 @@
         -fx-background-color: #C7A9A3;
 
 }
+
 
 
 

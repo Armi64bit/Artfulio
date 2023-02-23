@@ -39,8 +39,8 @@ public class MainWindow extends Application {
                     load(getClass().getResource("feed.fxml"));
             Scene scene = new Scene(root);
            String css;
-            //css = this.getClass().getResource("application.css").toExternalForm();
-   //scene.getStylesheets().add(css);
+            css = this.getClass().getResource("feed.css").toExternalForm();
+   scene.getStylesheets().add(css);
             primaryStage.setTitle("Artfulio");
             //Image image =new Image("logo.png");
           //  primaryStage.getIcons().add(image);

@@ -2,9 +2,12 @@ package tn.esprit.artfulio.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -14,6 +17,8 @@ import javafx.scene.layout.VBox;
  */
 public class FeedController implements Initializable {
 
+     @FXML
+    private BorderPane parent;
     @FXML
     private VBox postscontainer;
 
@@ -35,8 +40,30 @@ public class FeedController implements Initializable {
         } catch (Exception e) {
         }
     }
+    
+    private boolean islightmode=true;
+    public  void changemode(ActionEvent e){
+        islightmode=!islightmode;
+        if(islightmode){
+        setlightmode();
+        }
+        else 
+        {setdarkmode();}
+    }
 
+public  void setlightmode()
+{
+    parent.getStylesheets().remove("file:feeddark.css");
+    parent.getStylesheets().add("feed.css");
+    /*Image img = new Image("url");
+    imgmode.setImage(img);*/
 
+}
+
+public  void setdarkmode(){
+     parent.getStylesheets().remove("feed.css");
+    parent.getStylesheets().add("feeddark.css");
+}
     
     
 }
