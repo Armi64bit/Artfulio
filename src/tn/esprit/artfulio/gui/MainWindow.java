@@ -36,7 +36,7 @@ public class MainWindow extends Application {
 
 
             Parent root = FXMLLoader.
-                    load(getClass().getResource("Authentication.fxml"));
+                    load(getClass().getResource("artworkpost.fxml"));
             Scene scene = new Scene(root);
            String css;
             css = this.getClass().getResource("application.css").toExternalForm();
