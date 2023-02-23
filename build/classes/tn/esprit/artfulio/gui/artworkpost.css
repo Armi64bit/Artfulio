@@ -9,6 +9,13 @@
     -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),5.0,0.0,0.0,5);
 
 }
+.navbar{
+    
+    -fx-background-color : #fff;
+   
+    -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),5.0,0.0,0.0,5);
+
+}
 .reactions-container{
   -fx-background-color : #fff;
     -fx-background-radius :50;
@@ -21,4 +28,10 @@
       -fx-border-width:1;
       -fx_border-color:#606266;
   
+}
+
+.texfield{
+    -fx-background-color : #F0F2F5;
+      -fx-background-radius :50;
+    
 }

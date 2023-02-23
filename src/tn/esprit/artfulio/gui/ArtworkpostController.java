@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.*;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
@@ -102,6 +104,8 @@ reactionsContainer.setVisible(false);
 Image react= new Image(getClass().getResourceAsStream("tongue-out.png"));
 postrec.setImage(react);
 reactionname.setText("Haha");
+reactionname.setTextFill(Color.web("red"));
+
 //}
 }
 public void setreactatomic(MouseEvent me){
@@ -111,6 +115,8 @@ reactionsContainer.setVisible(false);
 Image react= new Image(getClass().getResourceAsStream("love.png"));
 postrec.setImage(react);
 reactionname.setText("Atomic");
+reactionname.setTextFill(Color.web("purple"));
+
 //}
 }
 public void setreact(MouseEvent me){
@@ -120,6 +126,8 @@ reactionsContainer.setVisible(false);
 Image react= new Image(getClass().getResourceAsStream("like.png"));
 postrec.setImage(react);
 reactionname.setText("Like");
+
+reactionname.setTextFill(Color.web("blue"));
 //}
 }
 public void setreactlove(MouseEvent me){
@@ -129,6 +137,8 @@ reactionsContainer.setVisible(false);
 Image react= new Image(getClass().getResourceAsStream("heart.png"));
 postrec.setImage(react);
 reactionname.setText("Love");
+reactionname.setTextFill(Color.web("red"));
+
 //}
 }
 

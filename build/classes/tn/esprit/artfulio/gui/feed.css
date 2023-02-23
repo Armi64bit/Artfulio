@@ -1,0 +1,25 @@
+/*
+ * Empty Stylesheet file.
+ */
+.round-button{
+    -fx-background : grey;
+    -fx-background-radius :50;
+    
+    
+}
+.texfield{
+     -fx_border-color:#F0F2F5; 
+    
+}
+.navbar{
+    
+    -fx_border-color:#FFF;
+   
+    -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),5.0,0.0,0.0,5);
+
+}
+.scroll-pane > .viewpoint{
+       -fx-background : transparent;
+
+    
+}
