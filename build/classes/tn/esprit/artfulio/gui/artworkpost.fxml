@@ -116,17 +116,17 @@
                         <Image url="@../img/like.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="love" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="love" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#setreactlove" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/heart.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="atomic" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="atomic" fitHeight="50.0" fitWidth="50.0" onMousePressed="#setreactatomic" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/love.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tongue" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tongue" fitHeight="50.0" fitWidth="50.0" onMousePressed="#setreacttongue" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/tongue-out.png" />
                      </image>

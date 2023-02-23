@@ -82,8 +82,37 @@ switch (((ImageView) me.getSource()).getId())
 { case "like":
     setreact(me);
     break;
+    case "love":
+    setreactlove(me);
+    break;
+    case "atomic":
+    setreactatomic(me);
+    break;
+    
+    case "tongue":
+    setreacttongue(me);
+    break;
+    
     
 }}
+public void setreacttongue(MouseEvent me){
+
+//if(System.currentTimeMillis()-starttime>50){
+reactionsContainer.setVisible(false);
+Image react= new Image(getClass().getResourceAsStream("tongue-out.png"));
+postrec.setImage(react);
+reactionname.setText("Haha");
+//}
+}
+public void setreactatomic(MouseEvent me){
+
+//if(System.currentTimeMillis()-starttime>50){
+reactionsContainer.setVisible(false);
+Image react= new Image(getClass().getResourceAsStream("love.png"));
+postrec.setImage(react);
+reactionname.setText("Atomic");
+//}
+}
 public void setreact(MouseEvent me){
 
 //if(System.currentTimeMillis()-starttime>50){
@@ -91,6 +120,15 @@ reactionsContainer.setVisible(false);
 Image react= new Image(getClass().getResourceAsStream("like.png"));
 postrec.setImage(react);
 reactionname.setText("Like");
+//}
+}
+public void setreactlove(MouseEvent me){
+
+//if(System.currentTimeMillis()-starttime>50){
+reactionsContainer.setVisible(false);
+Image react= new Image(getClass().getResourceAsStream("heart.png"));
+postrec.setImage(react);
+reactionname.setText("Love");
 //}
 }
 
