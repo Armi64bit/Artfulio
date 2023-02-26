@@ -28,10 +28,10 @@
 .post-background{
     
     -fx-background-color : #E1D1CE;
-    -fx-background-radius :15;
-
+ 
 
 }
+
 .post-backgroundwithshadow{
     
     -fx-background-color : #E6DDDB;

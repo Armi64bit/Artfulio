@@ -27,9 +27,9 @@
             </ImageView>
             <Button fx:id="chnagemode" mnemonicParsing="false" onAction="#changemode" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                      <image>
-                        <Image url="@heart.png" />
+                        <Image url="@../img/loupe.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -132,9 +132,9 @@
    <left>
       <ScrollPane prefHeight="825.0" prefWidth="291.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefHeight="440.0" prefWidth="324.0" spacing="12.0" stylesheets="@feed.css">
+            <VBox prefHeight="463.0" prefWidth="324.0" spacing="12.0" stylesheets="@feed.css">
                <children>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
                         <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -148,7 +148,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -162,112 +162,42 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@logo.png" />
+                              <Image url="@../img/interface.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="Source Funding">
+                        <Label prefHeight="18.0" prefWidth="220.0" text="Categorie">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@logo.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="username">
+                        <Label prefHeight="18.0" prefWidth="220.0" text="Croud sourcing">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@logo.png" />
+                              <Image url="@../img/lead.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="username">
+                        <Label prefHeight="18.0" prefWidth="220.0" text="Leadboard">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -291,11 +221,11 @@
                   <Insets top="10.0" />
                </HBox.margin>
                <content>
-                  <VBox fx:id="postscontainer" alignment="TOP_CENTER" prefHeight="214.0" prefWidth="656.0" spacing="20.0" styleClass="background">
+                  <VBox fx:id="postscontainer" alignment="TOP_CENTER" prefHeight="241.0" prefWidth="656.0" spacing="9.0" styleClass="background">
                      <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="162.0" prefWidth="596.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css">
+                        <VBox alignment="TOP_CENTER" prefHeight="172.0" prefWidth="635.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="84.0" prefWidth="459.0" spacing="10.0">
+                              <HBox alignment="CENTER" prefHeight="84.0" prefWidth="626.0" spacing="10.0">
                                  <children>
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -406,107 +336,7 @@
             </HBox>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="background" stylesheets="@feed.css" VBox.vgrow="ALWAYS">
                <content>
-                  <VBox prefHeight="493.0" prefWidth="329.0" spacing="10.0" styleClass="background" stylesheets="@feed.css">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@logo.png" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@logo.png" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@logo.png" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@logo.png" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@logo.png" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@logo.png" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="elementt">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@logo.png" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="18.0" prefWidth="220.0" text="username">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
+                  <VBox fx:id="usercontainer" prefHeight="493.0" prefWidth="329.0" spacing="10.0" styleClass="background" stylesheets="@feed.css">
                      <padding>
                         <Insets top="10.0" />
                      </padding>

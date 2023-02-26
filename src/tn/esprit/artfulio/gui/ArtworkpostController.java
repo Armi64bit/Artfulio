@@ -1,13 +1,28 @@
 package tn.esprit.artfulio.gui;
 
+import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
+import tn.esprit.artfulio.entites.User;
+import tn.esprit.artfulio.entites.artwork;
+import tn.esprit.artfulio.services.ArtworkService;
+import java.text.DateFormat; 
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
+import java.util.Calendar; 
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
+import tn.esprit.artfulio.services.UserService;
+
 import javafx.scene.paint.*;
 
 import javafx.scene.input.MouseEvent;
@@ -60,24 +75,79 @@ public class ArtworkpostController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setdata();
+       
     }    
     
-private void setdata(){
-Image img= new Image(getClass().getResourceAsStream("post.jpg"));
-Image pdp= new Image(getClass().getResourceAsStream("logo.png"));
+public void setdata(artwork a) {
+ 
+ 
+//Image img= new Image(getClass().getResourceAsStream(a.getImg_artwork()));
+//Image pdp= new Image(getClass().getResourceAsStream("logo.png"));
+setImage(a.getImg_artwork());
+setpdp(a.getId_artist());
+   // Imgpost.setImage(img);
+  //imgprofile.setImage(pdp);
+   Date currentDate = a.getDate();
+           SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String dateString = dateFormat.format(currentDate);
 
-    Imgpost.setImage(img);
-    imgprofile.setImage(pdp);
-    
-    fbname.setText("Bahaa Eddine Bouzid");
+   // String date =DateFormat.format(a.getDate());
+    datepost.setText(dateString);
+    txtcaption.setText(a.getDescription_artwork());
+        setartistename(a.getId_artist());
+   
+            
+       
     
 }
-private long starttime=0;
-public void onlikecontainerpressed(MouseEvent me){
 
-starttime=System.currentTimeMillis();
+public void setImage(String imagePath) {
+    File imageFile = new File(imagePath);
+    Image image = new Image(imageFile.toURI().toString());
+    Imgpost.setImage(image);
+      
 }
+public void setpdp( int id) {
+     User u = new User();
+     UserService us = new UserService();
+u=us.afficherProfilefb(id);
+    File imageFile = new File(u.getImg_user());
+    Image image = new Image(imageFile.toURI().toString());
+    imgprofile.setImage(image);
+    
+      
+}
+public void setartistename(int id ){
+     User u = new User();
+     UserService us = new UserService();
+u=us.afficherProfilefb(id);
+  fbname.setText(u.getUsername());
+}
+
+private Image getRoundImage(Image image, int radius) {
+    int width = (int) image.getWidth();
+    int height = (int) image.getHeight();
+
+    WritableImage wImage = new WritableImage(radius * 2, radius * 2);
+    PixelWriter pixelWriter = wImage.getPixelWriter();
+    PixelReader pixelReader = image.getPixelReader();
+    Color c1 = new Color(0, 0, 0, 0);
+
+    int w = (width / 2);
+    int h = (height / 2);
+    int r = radius * radius;
+
+    for (int i = (width / 2) - radius, k = 0; i < w + radius; i++, k++)
+        for (int j = (height / 2) - radius, b = 0; j < h + radius; j++, b++) {
+            if ((i - w) * (i - w) + (j - h) * (j - h) > r)
+                pixelWriter.setColor(k, b, c1);
+            else
+                pixelWriter.setColor(k, b, pixelReader.getColor(i, j));
+        }
+    return wImage;
+}
+
+
 public void onreactionpressed(MouseEvent me){
 
 switch (((ImageView) me.getSource()).getId())

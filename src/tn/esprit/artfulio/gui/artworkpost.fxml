@@ -12,16 +12,24 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="565.0" styleClass="post-backgroundwithshadow" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.ArtworkpostController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="60.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="13.0">
          <children>
-            <ImageView fx:id="imgprofile" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
-            <VBox alignment="CENTER" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0">
+               <children>
+                  <ImageView fx:id="imgprofile" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../artworkimg/pdp/128031848_3563748170408569_6112004551603132267_n.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" spacing="3.0">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
                         <Label fx:id="fbname" text="Username">
                            <font>
-                              <Font name="Segoe UI Black" size="10.0" />
+                              <Font name="Segoe UI Black" size="14.0" />
                            </font>
                         </Label>
                         <ImageView fx:id="imgbadge" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
@@ -36,8 +44,14 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <Label fx:id="datepost" text="1h" textFill="GREY" />
+                        <Label fx:id="datepost" text="1h" textFill="GREY">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                      </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
@@ -94,12 +108,12 @@
                      </children>
                   </HBox>
                   <Pane HBox.hgrow="ALWAYS" />
-                  <Label fx:id="nbcomments" text="nb comments" textFill="GREY">
+                  <Label fx:id="nbcomments" text="nb comments">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="nbshare" text="nb share" textFill="GREY">
+                  <Label fx:id="nbshare" text="nb share">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -150,7 +164,7 @@
                         <Image url="@../img/like-131-64.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="reactionname" text="React" textFill="#606266">
+                  <Label fx:id="reactionname" text="React">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -164,7 +178,7 @@
                         <Image url="@../img/comment-25-64.png" />
                      </image>
                   </ImageView>
-                  <Label text="Comment" textFill="#606266">
+                  <Label text="Comment">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -178,7 +192,7 @@
                         <Image url="@../img/share-457-64.png" />
                      </image>
                   </ImageView>
-                  <Label text="Share" textFill="#606266">
+                  <Label text="Share">
                      <font>
                         <Font size="18.0" />
                      </font>
