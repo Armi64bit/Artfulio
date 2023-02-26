@@ -122,6 +122,9 @@ public void setartistename(int id ){
      UserService us = new UserService();
 u=us.afficherProfilefb(id);
   fbname.setText(u.getUsername());
+   if(u.getIs_pro()==0)
+    {
+   imgbadge.setVisible(false);}
 }
 
 private Image getRoundImage(Image image, int radius) {

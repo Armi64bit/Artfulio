@@ -113,7 +113,9 @@ return true;}
             u.setEmail_user(rs.getString("email_user"));
             u.setRole(rs.getString("type_role"));
                         u.setImg_user(rs.getString("img_user"));
+                u.setIs_pro(rs.getInt("is_pro"));
 
+        
         
             
 
@@ -142,7 +144,8 @@ return true;}
                 p.setEmail_user(res.getString("email_user"));
                 p.setRole(res.getString("type_role"));
                  p.setImg_user(res.getString("img_user"));
-                
+                 p.setIs_pro(res.getInt("is_pro"));
+
                
                 return p;
             }

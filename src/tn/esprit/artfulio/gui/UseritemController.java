@@ -43,6 +43,9 @@ public class UseritemController implements Initializable {
     Image image = new Image(imageFile.toURI().toString());
     img.setImage(image);
     username.setText(u.getUsername());
+    if(u.getIs_pro()==0)
+    {
+   imgbadge.setVisible(false);}
     
       
 }

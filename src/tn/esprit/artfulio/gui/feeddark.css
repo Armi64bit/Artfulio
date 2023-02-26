@@ -43,7 +43,7 @@
 }
 .post-backgroundwithshadow{
     
-    -fx-background-color : #E6DDDB;
+    -fx-background-color : #242424;
     -fx-background-radius :15;
 -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),5.0,0.0,0.0,5);
  -fx-border-color:#FFF;
@@ -73,7 +73,7 @@
     -fx-background-radius: 3em;
 }
 .elementt:hover{
-        -fx-background-color: #E1D1CE;
+        -fx-background-color: #6D6D6D;
 
 }
 .elementtdarker:hover{

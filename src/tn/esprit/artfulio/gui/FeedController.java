@@ -1,5 +1,6 @@
 package tn.esprit.artfulio.gui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -11,10 +12,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import tn.esprit.artfulio.entites.User;
@@ -39,6 +44,8 @@ public class FeedController implements Initializable {
     private Button chnagemode;
     @FXML
     private VBox usercontainer;
+    @FXML
+    private ImageView darkorlight;
 
     /**
      * Initializes the controller class.
@@ -62,8 +69,13 @@ public class FeedController implements Initializable {
     }
 
     public void setlightmode() {
-        parent.getStylesheets().remove("file:feeddark.css");
-        parent.getStylesheets().add("feed.css");
+         
+        parent.getStylesheets().remove("tn/esprit/artfulio/gui/feeddark.css");
+        parent.getStylesheets().add("tn/esprit/artfulio/gui/feed.css");
+//             File imageFile = new File("tn/esprit/artfulio/img/mode.png");
+//    Image image = new Image(imageFile.toURI().toString());
+//    
+//        darkorlight.setImage(image);
         /*Image img = new Image("url");
     imgmode.setImage(img);*/
 
@@ -106,9 +118,12 @@ public class FeedController implements Initializable {
                 FXMLLoader loaderu = new FXMLLoader();
                 loaderu.setLocation(getClass().getResource("useritem.fxml"));
                 HBox vboxu = loaderu.load();
+                 vboxu.setAlignment(Pos.TOP_LEFT);
+ vboxu.setPadding(new Insets(10));
                UseritemController artcont = loaderu.getController();
                 artcont.setpdp(list.get(j));
                 usercontainer.getChildren().add(vboxu);
+                
         }} catch (IOException ex) {
                Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -116,8 +131,19 @@ public class FeedController implements Initializable {
     
 
     public void setdarkmode() {
-        parent.getStylesheets().remove("feed.css");
-        parent.getStylesheets().add("feeddark.css");
+        
+        parent.getStylesheets().remove("tn/esprit/artfulio/gui/feed.css");
+        parent.getStylesheets().add("tn/esprit/artfulio/gui/feeddark.css");
+//          File imageFile = new File("tn/esprit/artfulio/img/dark-mode.png");
+//    Image image = new Image(imageFile.toURI().toString());
+//    
+//        darkorlight.setImage(image);
     }
 
+
+
+
+
 }
+
+

@@ -14,6 +14,7 @@ import java.util.Objects;
 public class User {
 
     private int id_user;
+    private int is_pro;
     private String username;
     private String cin_user;
     private String adresse_user;
@@ -46,6 +47,38 @@ public class User {
         this.img_user = img_user;
         this.type_role = type_role;
     }
+
+    public User(int is_pro, String username, String cin_user, String adresse_user, String password_user, String email_user, String img_user, String type_role) {
+        this.is_pro = is_pro;
+        this.username = username;
+        this.cin_user = cin_user;
+        this.adresse_user = adresse_user;
+        this.password_user = password_user;
+        this.email_user = email_user;
+        this.img_user = img_user;
+        this.type_role = type_role;
+    }
+
+    public User(int id_user, int is_pro, String username, String cin_user, String adresse_user, String password_user, String email_user, String img_user, String type_role) {
+        this.id_user = id_user;
+        this.is_pro = is_pro;
+        this.username = username;
+        this.cin_user = cin_user;
+        this.adresse_user = adresse_user;
+        this.password_user = password_user;
+        this.email_user = email_user;
+        this.img_user = img_user;
+        this.type_role = type_role;
+    }
+
+    public int getIs_pro() {
+        return is_pro;
+    }
+
+    public void setIs_pro(int is_pro) {
+        this.is_pro = is_pro;
+    }
+    
 
     public String getImg_user() {
         return img_user;
@@ -117,9 +150,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id_user=" + id_user + ", username=" + username + ", cin_user=" + cin_user + ", adresse_user=" + adresse_user + ", password_user=" + password_user + ", email_user=" + email_user + ", img_user=" + img_user + ", type_role=" + type_role + '}';
+        return "User{" + "id_user=" + id_user + ", is_pro=" + is_pro + ", username=" + username + ", cin_user=" + cin_user + ", adresse_user=" + adresse_user + ", password_user=" + password_user + ", email_user=" + email_user + ", img_user=" + img_user + ", type_role=" + type_role + '}';
     }
 
+    
   
 
     @Override
