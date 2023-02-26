@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package tn.esprit.arfulio.utils;
 
 import java.sql.*;
 /**
@@ -14,9 +14,9 @@ public class DBConnexion {
     
    private static DBConnexion instance = null;
    private Connection connexion = null;
-   private String url = "jdbc:mysql://localhost:3306/clubesprit";
-   private String utilisateur = "michel";
-   private String motDePasse = "michel";
+   private String url = "jdbc:mysql://localhost:3306/work";
+   private String utilisateur = "root";
+   private String motDePasse = "";
 
    private DBConnexion() {
       try {

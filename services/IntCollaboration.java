@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package tn.esprit.arfulio.services;
 
-import entities.Collaboration;
+import tn.esprit.arfulio.entites.Collaboration;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,6 +19,6 @@ public interface IntCollaboration {
     boolean supprimerCollaboration(Collaboration c);
     boolean modifierCollaboration(Collaboration c);
     List<Collaboration> afficherCollaboration();
-    int[] convertChaineEntier(String chaine);
+    List<Collaboration> afficherCollaborationsUnArtiste(int idArtiste);
     boolean comapareDate(LocalDate date1, LocalDate date2);
 }

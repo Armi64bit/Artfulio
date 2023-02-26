@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package tn.esprit.arfulio.services;
 
-import entities.Collaboration;
+import tn.esprit.arfulio.entites.Collaboration;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ArrayList;
 import java.util.List;
-import utils.DBConnexion;
+import tn.esprit.arfulio.utils.DBConnexion;
 import java.util.*;
 
 /**
@@ -32,21 +33,16 @@ public class ServCollaboration implements IntCollaboration {
     public int ajouterCollaboration(Collaboration c) {
         int etat = -1;
         try {
-            //   String req = "INSERT INTO `collaboration` (`id`, `user1`, `user2`, `dateDebut`, `dateFin`, `status`) VALUES (NULL, ++, 'moussa', '2023-02-01', '2023-02-02', '1')";
-            String req = "insert into collaboration(id, user1,user2,dateDebut,dateFin,status) values (?,?,?,?,?,?)";
+            String req = "insert into collaboration(id_collaboration,type_collaboration, titre, description, date_sortie,status) values (?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, null);
-            preparedStatement.setString(2, c.getUser1());
-            preparedStatement.setString(3, c.getUser2());
-
-            //------------- verification -----------------
-            String date1 = c.getDate_debut().toString();
-            String date2 = c.getDate_fin().toString();
-            //-----------------------------------------------
-            preparedStatement.setString(4, date1);
-            preparedStatement.setString(5, date2);
-            preparedStatement.setInt(6, 1);
-
+             preparedStatement.setString(2, c.getType_collaboration());
+            preparedStatement.setString(3, c.getTitre());
+            preparedStatement.setString(4, c.getDescription());
+            java.sql.Date sqlDate = java.sql.Date.valueOf(c.getDate_sortie());
+            preparedStatement.setDate(5, sqlDate);
+           // preparedStatement.setBoolean(5, c.isStatus());
+           preparedStatement.setBoolean(6, true);
             etat = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,9 +55,9 @@ public class ServCollaboration implements IntCollaboration {
 
         boolean status = false;
         try {
-            String req = "delete from collaboration where id=?";
+            String req = "delete from collaboration where id_collaboration=?";
             PreparedStatement preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setInt(1, c.getId());
+            preparedStatement.setInt(1, c.getId_collaboration());
 
             status = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -74,13 +70,13 @@ public class ServCollaboration implements IntCollaboration {
     public boolean modifierCollaboration(Collaboration c) {
         boolean status = false;
         try {
-            String req = "update collaboration set user1=?, user2=?, dateDebut=?,dateFin=? where id=?";
+            String req = "update collaboration set titre=?, description=?, date_sortie=?, status=? where id_collaboration=?";
             PreparedStatement preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setString(1, c.getUser1());
-            preparedStatement.setString(2, c.getUser2());
-            preparedStatement.setString(3, c.getDate_debut().toString());
-            preparedStatement.setString(4, c.getDate_fin().toString());
-            preparedStatement.setInt(5, c.getId());
+            preparedStatement.setString(1, c.getTitre());
+            preparedStatement.setString(2, c.getDescription());
+            java.sql.Date sqlDate = java.sql.Date.valueOf(c.getDate_sortie());
+            preparedStatement.setDate(3, sqlDate);
+            preparedStatement.setBoolean(4, c.isStatus());
 
             status = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -99,18 +95,13 @@ public class ServCollaboration implements IntCollaboration {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Collaboration c = new Collaboration();
-                c.setId(rs.getInt("id"));
-                c.setUser1(rs.getString("user1"));
-                c.setUser2(rs.getString("user2"));
-
-                int[] tabDate = this.convertChaineEntier(rs.getString("dateDebut"));
-                LocalDate date1 = LocalDate.of(tabDate[0], tabDate[1], tabDate[2]);
-                c.setDate_debut(date1);
-
-                int[] tabDate2 = this.convertChaineEntier(rs.getString("dateFin"));
-                LocalDate date2 = LocalDate.of(tabDate2[0], tabDate2[1], tabDate2[2]);
-                c.setDate_fin(date2);
-
+                c.setId_collaboration(rs.getInt("id_collaboration"));
+                c.setTitre(rs.getString("titre"));
+                c.setDescription(rs.getString("description"));
+                java.sql.Date sqlDate = rs.getDate("date_sortie");
+                LocalDate dateSortie = sqlDate.toLocalDate();
+                c.setDate_sortie(dateSortie);
+                c.setStatus(rs.getBoolean("status"));
                 list.add(c);
             }
         } catch (SQLException e) {
@@ -119,17 +110,6 @@ public class ServCollaboration implements IntCollaboration {
         return list;
     }
 
-    @Override
-    public int[] convertChaineEntier(String chaine) {
-
-        String[] strArr = chaine.split("-"); // ou "," si séparés par une virgule
-        int[] intArr = new int[strArr.length];
-
-        for (int i = 0; i < strArr.length; i++) {
-            intArr[i] = Integer.parseInt(strArr[i]);
-        }
-        return intArr;
-    }
 
     @Override
     public boolean comapareDate(LocalDate date1, LocalDate date2) {
@@ -138,5 +118,33 @@ public class ServCollaboration implements IntCollaboration {
         }
         return false;
     }
+
+    @Override
+    public List<Collaboration> afficherCollaborationsUnArtiste(int idArtiste) {
+
+        List<Collaboration> list = new ArrayList<Collaboration>();
+        try {
+             String req = "SELECT * FROM collaboration INNER JOIN artiste_collaboration "
+                     + "ON collaboration.id_collaboration = artiste_collaboration.id_collaboration_fk"
+                     + "WHERE id_artiste_fk=?";
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement(req);
+            preparedStatement.setInt(1, idArtiste);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                Collaboration c = new Collaboration();
+                c.setId_collaboration(rs.getInt("id_collaboration"));
+                c.setTitre(rs.getString("titre"));
+                c.setDescription(rs.getString("description"));
+                java.sql.Date sqlDate = rs.getDate("date_sortie");
+                LocalDate dateSortie = sqlDate.toLocalDate();
+                c.setDate_sortie(dateSortie);
+                c.setStatus(rs.getBoolean("status"));
+                list.add(c);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;    }
 
 }
