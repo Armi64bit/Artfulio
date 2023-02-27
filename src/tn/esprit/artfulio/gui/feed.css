@@ -14,7 +14,7 @@
 .navbar{
     
     -fx-border-color:#FFF;
-   -fx-background : grey;
+   -fx-background : #E1D1CE;
     -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),5.0,0.0,0.0,5);
 
 }

@@ -80,6 +80,15 @@ public class FeedController implements Initializable {
     imgmode.setImage(img);*/
 
     }
+    public void setdarkmode() {
+        
+        parent.getStylesheets().remove("tn/esprit/artfulio/gui/feed.css");
+        parent.getStylesheets().add("tn/esprit/artfulio/gui/feeddark.css");
+//          File imageFile = new File("tn/esprit/artfulio/img/dark-mode.png");
+//    Image image = new Image(imageFile.toURI().toString());
+//    
+//        darkorlight.setImage(image);
+    }
     
     public void feed (){
     
@@ -113,7 +122,7 @@ public class FeedController implements Initializable {
         
             System.out.println(list.size());
         for (int j = 0; j < list.size(); j++) {
-
+           if(list.get(j).getIs_pro()==1) {
            
                 FXMLLoader loaderu = new FXMLLoader();
                 loaderu.setLocation(getClass().getResource("useritem.fxml"));
@@ -123,22 +132,14 @@ public class FeedController implements Initializable {
                UseritemController artcont = loaderu.getController();
                 artcont.setpdp(list.get(j));
                 usercontainer.getChildren().add(vboxu);
-                
+            }
         }} catch (IOException ex) {
                Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     
 
-    public void setdarkmode() {
-        
-        parent.getStylesheets().remove("tn/esprit/artfulio/gui/feed.css");
-        parent.getStylesheets().add("tn/esprit/artfulio/gui/feeddark.css");
-//          File imageFile = new File("tn/esprit/artfulio/img/dark-mode.png");
-//    Image image = new Image(imageFile.toURI().toString());
-//    
-//        darkorlight.setImage(image);
-    }
+    
 
 
 

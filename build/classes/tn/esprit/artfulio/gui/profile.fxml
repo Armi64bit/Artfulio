@@ -4,16 +4,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.FeedController">
+<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1155.0" styleClass="background" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.ProfileController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="200.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
          <children>
@@ -130,7 +132,7 @@
       </HBox>
    </top>
    <left>
-      <ScrollPane prefHeight="825.0" prefWidth="291.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="654.0" prefWidth="227.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
          <content>
             <VBox prefHeight="463.0" prefWidth="324.0" spacing="12.0" stylesheets="@feed.css">
                <children>
@@ -213,133 +215,145 @@
       </ScrollPane>
    </left>
    <center>
-      <HBox prefHeight="664.0" prefWidth="528.0" styleClass="background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
+      <HBox maxWidth="1.7976931348623157E308" prefHeight="664.0" prefWidth="528.0" styleClass="background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="734.0" prefWidth="0.0" styleClass="post-background" HBox.hgrow="ALWAYS" />
-            <ScrollPane maxHeight="1.7976931348623157E308" prefHeight="654.0" prefWidth="656.0" styleClass="post-background" stylesheets="@feed.css">
+            <ScrollPane fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="644.0" prefWidth="983.0" styleClass="post-background" stylesheets="@feed.css" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
                <content>
-                  <VBox fx:id="postscontainer" alignment="TOP_CENTER" prefHeight="241.0" prefWidth="656.0" spacing="9.0" styleClass="background">
+                  <VBox maxWidth="1.7976931348623157E308">
                      <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="172.0" prefWidth="635.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css">
+                        <HBox prefHeight="251.0" prefWidth="862.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="84.0" prefWidth="626.0" spacing="10.0">
+                              <Circle fill="DODGERBLUE" radius="94.0" stroke="BLACK" strokeType="INSIDE">
+                                 <HBox.margin>
+                                    <Insets left="29.0" top="25.0" />
+                                 </HBox.margin>
+                              </Circle>
+                              <Pane prefHeight="251.0" prefWidth="52.0" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@logo.png" />
-                                       </image>
-                                    </ImageView>
-                                    <TextField prefHeight="63.0" prefWidth="491.0" styleClass="texfield" stylesheets="@feed.css" />
+                                    <HBox prefHeight="100.0" prefWidth="200.0" />
+                                    <Label text="Label">
+                                       <font>
+                                          <Font name="System Bold" size="56.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Label">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="dzalkdjlazkdjlkazjdlkazjdlkjlazdjajdlkajldkzajad " VBox.vgrow="ALWAYS">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="456.0" spacing="51.0">
+                                       <children>
+                                          <ImageView fitHeight="69.0" fitWidth="79.0" onMouseClicked="#ig" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/ig.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="imgfb" fitHeight="70.0" fitWidth="76.0" onMouseClicked="#fb" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/fb.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="imgtwtr" fitHeight="80.0" fitWidth="76.0" onMouseClicked="#twitter" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/twitter.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="imgytb" fitHeight="87.0" fitWidth="77.0" onMouseClicked="#youtube" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/ytb.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <ImageView fx:id="imgytb1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/crayon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Editer profile">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <TabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="135.0" prefWidth="699.0" styleClass="navbar" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Untitled Tab 1">
+                                 <content>
+                                    <Label text="dzalkdjlazkdjlkazjdlkazjdlkjlazdjajdlkajldkzajad ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </content>
+                            </Tab>
+                            <Tab text="Untitled Tab 2" />
+                          </tabs>
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="70.0" right="70.0" top="10.0" />
+                           </VBox.margin>
+                        </TabPane>
+                        <VBox>
+                           <children>
+                              <Label text="Images">
+                                 <font>
+                                    <Font name="System Bold" size="56.0" />
+                                 </font>
+                              </Label>
+                              <HBox maxWidth="1000.0" VBox.vgrow="NEVER">
+                                 <children>
+                                    <Pane prefHeight="200.0" prefWidth="83.0" />
+                                    <HBox fx:id="portfoliocontainer" prefHeight="200.0" prefWidth="596.0" />
+                                    <Pane prefHeight="200.0" prefWidth="83.0" />
                                  </children>
                               </HBox>
-                              <Pane maxHeight="-Infinity" prefHeight="1.0" prefWidth="500.0" style="-fx-background-color: F0F2F5;" />
-                              <HBox prefHeight="52.0" prefWidth="498.0">
+                              <Label text="musique">
+                                 <font>
+                                    <Font name="System Bold" size="56.0" />
+                                 </font>
+                              </Label>
+                              <HBox fx:id="musiccontainer">
                                  <children>
-                                    <HBox alignment="CENTER" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/ajouter.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label prefHeight="27.0" text="Image">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/ajouter.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label prefHeight="27.0" text="Video">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/ajouter.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label prefHeight="27.0" text="Musique">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
+                                    <Pane prefHeight="200.0" prefWidth="83.0" />
+                                    <HBox fx:id="portfoliocontainer1" prefHeight="200.0" prefWidth="596.0" />
+                                    <Pane prefHeight="200.0" prefWidth="83.0" />
+                                 </children>
+                              </HBox>
+                              <Label text="video">
+                                 <font>
+                                    <Font name="System Bold" size="56.0" />
+                                 </font>
+                              </Label>
+                              <HBox fx:id="videocontainer">
+                                 <children>
+                                    <Pane prefHeight="200.0" prefWidth="83.0" />
+                                    <HBox fx:id="portfoliocontainer11" prefHeight="200.0" prefWidth="596.0" />
+                                    <Pane prefHeight="200.0" prefWidth="83.0" />
                                  </children>
                               </HBox>
                            </children>
-                           <VBox.margin>
-                              <Insets top="13.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
                         </VBox>
-                        <Pane prefHeight="4.0" prefWidth="602.0" styleClass="background" />
                      </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets left="10.0" right="10.0" top="20.0" />
-                     </padding>
                   </VBox>
                </content>
             </ScrollPane>
-            <Pane prefHeight="985.0" prefWidth="5.0" styleClass="post-background" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </center>
-   <right>
-      <VBox prefHeight="200.0" prefWidth="335.0" stylesheets="@feed.css" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="335.0" spacing="10.0" styleClass="post-background">
-               <children>
-                  <Label prefHeight="30.0" prefWidth="172.0" text="Utilisateurs Pro ">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Pane prefHeight="50.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/pngwing.com%20(1).png" />
-                     </image>
-                  </ImageView>
-                  <Pane prefHeight="50.0" prefWidth="95.0" />
-               </children>
-               <VBox.margin>
-                  <Insets right="3.0" />
-               </VBox.margin>
-            </HBox>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="background" stylesheets="@feed.css" VBox.vgrow="ALWAYS">
-               <content>
-                  <VBox fx:id="usercontainer" prefHeight="493.0" prefWidth="329.0" spacing="6.0" styleClass="background" stylesheets="@feed.css">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </VBox>
-               </content>
-            </ScrollPane>
-         </children>
-      </VBox>
-   </right>
 </BorderPane>

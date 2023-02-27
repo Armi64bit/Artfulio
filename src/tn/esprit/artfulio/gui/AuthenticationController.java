@@ -145,17 +145,7 @@ static Connection myconnex
     
         
     
-    @FXML
-    public void ig()
-    {   try {
-    Desktop.getDesktop().browse(new URL("https://www.instagram.com").toURI());
-} catch (IOException e) {
-    e.printStackTrace();
-} catch (URISyntaxException e) {
-    e.printStackTrace();
-}
-    
-    }
+   
     public void displayprofile(ActionEvent event){
         ProfileService ps=new ProfileService();
         String fb=listprofilebox.getValue();
@@ -167,7 +157,17 @@ static Connection myconnex
             
             
     }
-
+ @FXML
+    public void ig()
+    {   try {
+    Desktop.getDesktop().browse(new URL("https://www.instagram.com").toURI());
+} catch (IOException e) {
+    e.printStackTrace();
+} catch (URISyntaxException e) {
+    e.printStackTrace();
+}
+    
+    }
 @FXML
     public void fb()
     {   try {
