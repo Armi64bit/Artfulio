@@ -77,9 +77,9 @@ public class ProfileController implements Initializable {
             for (int i = 0; i < listart.size(); i++) {
 
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("artworkpost.fxml"));
+                loader.setLocation(getClass().getResource("portfolioitem.fxml"));
                 VBox vbox = loader.load();
-                ArtworkpostController artcont = loader.getController();
+                PortfolioitemController artcont = loader.getController();
                 artcont.setdata(listart.get(i));
                 portfoliocontainer.getChildren().add(vbox);
 
