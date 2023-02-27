@@ -42,7 +42,7 @@
                             </image>
                         </ImageView>
                   <ButtonBar layoutX="271.0" layoutY="291.0" />
-                  <Hyperlink fx:id="link" layoutX="173.0" layoutY="280.0" prefHeight="23.0" prefWidth="112.0" text="Mot de passe oublié?">
+                  <Hyperlink fx:id="link" layoutX="173.0" layoutY="280.0" prefHeight="23.0" prefWidth="112.0" style="-fx-background-color: none;" text="Mot de passe oublié?" textFill="#e4c133">
                      <font>
                         <Font size="11.0" />
                      </font>

@@ -19,23 +19,26 @@ public class User {
     private String adresse_user;
     private String password_user;
     private String email_user;
-
     private String type_role;
+    private boolean is_pro;
+    private String img_user;
 
     public User() {
     }
 
-    public User(int id_user, String username, String cin_user, String adresse_user, String password_user, String email_user, String type_role) {
-        this.id_user = id_user;
+    public User(String username, String cin_user, String adresse_user, String password_user, String email_user, String type_role, boolean is_pro, String img_user) {
         this.username = username;
         this.cin_user = cin_user;
         this.adresse_user = adresse_user;
         this.password_user = password_user;
         this.email_user = email_user;
         this.type_role = type_role;
+        this.is_pro = is_pro;
+        this.img_user = img_user;
     }
 
-  
+   
+
 
     public int getId_user() {
         return id_user;
@@ -95,9 +98,28 @@ public class User {
         this.type_role = role;
     }
 
+    public boolean isIs_pro() {
+        return is_pro;
+    }
+
+    public void setIs_pro(boolean is_pro) {
+        this.is_pro = is_pro;
+    }
+
+    public String getImg_user() {
+        return img_user;
+    }
+
+    public void setImg_user(String img_user) {
+        this.img_user = img_user;
+    }
+
     @Override
-    public String toString() {
-        return "User{" + "id_user=" + id_user + ", username=" + username + ", cin_user=" + cin_user + ", adresse_user=" + adresse_user + ", password_user=" + password_user + ", email_user=" + email_user + ", role=" + type_role + '}';
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.username);
+        hash = 67 * hash + Objects.hashCode(this.cin_user);
+        return hash;
     }
 
     @Override
@@ -112,14 +134,22 @@ public class User {
             return false;
         }
         final User other = (User) obj;
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
         return Objects.equals(this.cin_user, other.cin_user);
     }
+    
 
+   
     @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.cin_user);
-        return hash;
+    public String toString() {
+        return "User{" + "id_user=" + id_user + ", username=" + username + ", cin_user=" + cin_user + ", adresse_user=" + adresse_user + ", password_user=" + password_user + ", email_user=" + email_user + ", type_role=" + type_role + ", is_pro=" + is_pro + ", img_user=" + img_user + '}';
     }
+
+    
+    
+
+  
 
 }

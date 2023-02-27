@@ -5,27 +5,24 @@
  */
 package services;
 
+import entities.Role;
 import java.sql.SQLException;
 import java.util.List;
 
 /**
  *
  * @author WINDOWS 10
- * @param <T>
  */
-public interface IService<T> {
-
-   
-   public void ajouter(T t) ;
-    public void modifier(T t) throws SQLException;
-    public void supprimer(T r) throws SQLException;
+public interface IRoleService {
 
     /**
      *
-     * @param t
+     * @param r
      * @return
      * @throws SQLException
      */
-    public List<T> recuperer( )throws SQLException;
-    
+    public void ajouterRole(Role r) throws SQLException ;
+    public void modifierRole(Role r) throws SQLException;
+    public void supprimerRole(Role r) throws SQLException;
+    public List<Role> afficherRole( )throws SQLException;
 }

@@ -19,19 +19,19 @@ import java.util.List;
  *
  * @author WINDOWS 10
  */
-public class RoleService implements IService<Role> {
+public class RoleService implements IRoleService {
 
     Connection myconnex
             = MyConnection.getInstance().getConnection();
+    public void ajouterRole(Role r) {
 
-    @Override
-    public void ajouter(Role r) {
         try {
-            String res = "INSERT INTO role (id_role,type_role) VALUES (?, ?)";
+
+            String res = "INSERT INTO role (type_role) VALUES (?)";
 
             PreparedStatement ps = myconnex.prepareStatement(res);
-            ps.setInt(1, r.getId_role());
-            ps.setString(2, r.getType_role());
+
+            ps.setString(1, r.getType_role());
 
             ps.executeUpdate();
             System.out.println("Role Ajouté");
@@ -42,12 +42,12 @@ public class RoleService implements IService<Role> {
     }
 
     @Override
-    public void modifier(Role r) throws SQLException {
+    public void modifierRole(Role r) throws SQLException {
 
-        String req = "UPDATE role SET id_role=?, type_role=? WHERE id_role=?";
+        String req = "UPDATE role SET type_role=? WHERE type_role=?";
         PreparedStatement ps = myconnex.prepareStatement(req);
-        ps.setInt(1, r.getId_role());
-        ps.setString(2, r.getType_role());
+
+        ps.setString(1, r.getType_role());
 
         ps.executeUpdate();
         System.out.println("Role Modifié");
@@ -60,12 +60,12 @@ public class RoleService implements IService<Role> {
      * @throws SQLException
      */
     @Override
-    public void supprimer(Role r) throws SQLException {
-        String req = "DELETE FROM role WHERE id_role=?";
+    public void supprimerRole(Role r) throws SQLException {
+        String req = "DELETE FROM role WHERE type_role=?";
         PreparedStatement ps = myconnex.prepareStatement(req);
-        ps.setInt(1, r.getId_role());
+        ps.setString(1, r.getType_role());
         ps.executeUpdate();
-        System.out.println("Reservation Supprimé");
+        System.out.println("Role Supprimé");
     }
 
     /**
@@ -74,7 +74,7 @@ public class RoleService implements IService<Role> {
      * @return
      * @throws java.sql.SQLException
      */
-    public List<Role> recuperer() throws SQLException {
+    public List<Role> afficherRole() throws SQLException {
 
         List<Role> list = new ArrayList<>();
 
@@ -83,9 +83,9 @@ public class RoleService implements IService<Role> {
         ResultSet rs = st.executeQuery(s);
         while (rs.next()) {
             Role r = new Role();
-            r.setId_role(rs.getInt("id_role"));
+
             r.setType_role(rs.getString("type_role"));
-                System.out.println(r);
+            System.out.println(r);
 
             list.add(r);
 

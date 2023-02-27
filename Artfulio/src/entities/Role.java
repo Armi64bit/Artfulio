@@ -5,6 +5,8 @@
  */
 package entities;
 
+import java.util.Objects;
+
 /**
  *
  * @author WINDOWS 10
@@ -17,8 +19,7 @@ public class Role {
     public Role() {
     }
 
-    public Role(int id_role, String type_role) {
-        this.id_role = id_role;
+    public Role( String type_role) {
         this.type_role = type_role;
     }
 
@@ -41,6 +42,30 @@ public class Role {
     @Override
     public String toString() {
         return "Role{" + "id_role=" + id_role + ", type_role=" + type_role + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Role other = (Role) obj;
+        if (!Objects.equals(this.type_role, other.type_role)) {
+            return false;
+        }
+        return true;
     }
 
 }

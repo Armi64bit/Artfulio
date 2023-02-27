@@ -1,0 +1,13 @@
+.bodybg{
+    -fx_background_image:url("C:\Users\WINDOWS 10\Documents\GitHub\Artfulio\Artfulio\src\img\background.jpg");
+}
+.xxx{
+  -fx-background-color: lightgrey;
+  -fx-font-color: green;
+    
+}
+#link{
+   -fx-background-color: white;
+  -fx-font-color: red; 
+    
+}
