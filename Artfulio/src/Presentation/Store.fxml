@@ -1,93 +1,219 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
-<?import java.net.URL?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="services.StoreController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7fbff" height="175.0" layoutX="419.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="150.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7fbff" height="175.0" layoutX="29.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="150.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7fbff" height="175.0" layoutX="225.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="150.0" />
-      <ImageView fitHeight="93.0" fitWidth="119.0" layoutX="72.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Downloads/Watercolor%20Decorative%20Notes%20A4%20Document.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="119.0" layoutX="241.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Downloads/digital-art-metaverse-painting-nft-augmented-reality.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="119.0" layoutX="435.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Downloads/100-100-image_2023-01-28_140913904-hadbomb_com.jpg" />
-         </image>
-      </ImageView>
-      <Avatar layoutX="36.0" layoutY="142.0">
-         <image>
-            <Image url="@../../../../../../Downloads/269685212_3060751380839777_2317685994731860454_n.jpg" />
-         </image>
-      </Avatar>
-      <Avatar layoutX="232.0" layoutY="142.0">
-         <image>
-            <Image url="@../../../../../../Downloads/269685212_3060751380839777_2317685994731860454_n.jpg" />
-         </image>
-      </Avatar>
-      <Avatar layoutX="427.0" layoutY="142.0">
-         <image>
-            <Image url="@../../../../../../Downloads/269685212_3060751380839777_2317685994731860454_n.jpg" />
-         </image>
-      </Avatar>
-      <Button layoutX="486.0" layoutY="151.0" mnemonicParsing="false" text="Purchase" />
-      <Button layoutX="290.0" layoutY="151.0" mnemonicParsing="false" text="Purchase" />
-      <Button layoutX="93.0" layoutY="151.0" mnemonicParsing="false" text="Purchase" />
-      <ScrollBar layoutX="578.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="17.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7fbff" height="175.0" layoutX="421.0" layoutY="211.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="150.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7fbff" height="175.0" layoutX="31.0" layoutY="211.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="150.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7fbff" height="175.0" layoutX="227.0" layoutY="211.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="150.0" />
-      <ImageView fitHeight="93.0" fitWidth="119.0" layoutX="74.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Downloads/Watercolor%20Decorative%20Notes%20A4%20Document.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="119.0" layoutX="243.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Downloads/digital-art-metaverse-painting-nft-augmented-reality.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="119.0" layoutX="437.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Downloads/100-100-image_2023-01-28_140913904-hadbomb_com.jpg" />
-         </image>
-      </ImageView>
-      <Avatar layoutX="38.0" layoutY="339.0">
-         <image>
-            <Image url="@../../../../../../Downloads/269685212_3060751380839777_2317685994731860454_n.jpg" />
-         </image>
-      </Avatar>
-      <Avatar layoutX="234.0" layoutY="339.0">
-         <image>
-            <Image url="@../../../../../../Downloads/269685212_3060751380839777_2317685994731860454_n.jpg" />
-         </image>
-      </Avatar>
-      <Avatar layoutX="429.0" layoutY="339.0">
-         <image>
-            <Image url="@../../../../../../Downloads/269685212_3060751380839777_2317685994731860454_n.jpg" />
-         </image>
-      </Avatar>
-      <Button layoutX="486.0" layoutY="348.0" mnemonicParsing="false" text="Purchase" />
-      <Button layoutX="290.0" layoutY="348.0" mnemonicParsing="false" text="Purchase" />
-      <Button layoutX="93.0" layoutY="348.0" mnemonicParsing="false" text="Purchase" />
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" stylesheets="@../Style/Style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="157.0" text="Artistic" textFill="#878787">
+                           <font>
+                              <Font name="Cambria Bold" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Store" textFill="#878787">
+                           <font>
+                              <Font name="Cambria" size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../Style/Style.css">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextField prefHeight="40.0" prefWidth="228.0" promptText="Type here to search" styleClass="transparent" stylesheets="@../Style/Style.css">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../Style/Style.css" text="Search " textFill="WHITE" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="search-box" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </HBox>
+                  <Pane prefHeight="43.0" prefWidth="435.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Pane>
+                  <VBox alignment="TOP_CENTER" prefHeight="535.0" prefWidth="335.0" styleClass="chosen-artcard" stylesheets="@../Style/Style.css">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox prefHeight="94.0" prefWidth="335.0">
+                           <children>
+                              <Label fx:id="artNamelabe" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="242.0" text="Art" textFill="WHITE">
+                                 <font>
+                                    <Font name="Cambria" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="artPricelabel" prefHeight="58.0" prefWidth="162.0" text="\$2.99" textFill="WHITE">
+                                 <font>
+                                    <Font name="Cambria" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <ImageView fx:id="artImg" fitHeight="217.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/rufus-du-sol-bloom-album-cover.jpg" />
+                           </image>
+                        </ImageView>
+                        <VBox fx:id="chosenArtcard" prefHeight="69.0" prefWidth="335.0" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@../Style/Style.css" text="ADD TO CART">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" top="30.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="106.0" text="Language :" textFill="#515050">
+                           <font>
+                              <Font name="Cambria Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="62.0" text="English" textFill="#515050" underline="true">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="65.0" prefWidth="494.0" HBox.hgrow="ALWAYS" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="116.0" text="My Account" textFill="#515050">
+                           <font>
+                              <Font name="Cambria Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="43.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/basket-cart-icon-27.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="105.0" prefWidth="370.0" styleClass="deleviry-card" stylesheets="@../Style/Style.css">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="232.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="85.0" text="Delivery:" textFill="#515050">
+                                       <font>
+                                          <Font name="Cambria Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="154.0" text="On physical products" textFill="#515050">
+                                       <font>
+                                          <Font name="Cambria" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="80.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/delivery-vector-graphics-courier-computer-icons-mail-png-favpng-JvAaUvBcLzYcVxrRH8gV8Wi3Y.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="100.0" prefWidth="91.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="105.0" prefWidth="370.0" styleClass="deleviry-card" stylesheets="@../Style/Style.css">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="232.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="77.0" text="Security:" textFill="#515050">
+                                       <font>
+                                          <Font name="Cambria Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="154.0" text="We assure your safety" textFill="#515050">
+                                       <font>
+                                          <Font name="Cambria" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="69.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/secure-icon-png-1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fx:id="scroll" prefHeight="570.0" prefWidth="785.0" styleClass="transparent" stylesheets="@../Style/Style.css">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
    </children>
-   <stylesheets>
-      <URL value="@../../../../../Downloads/application.css" />
-      <URL value="@../../../../../Downloads/application.css" />
-   </stylesheets>
 </AnchorPane>
