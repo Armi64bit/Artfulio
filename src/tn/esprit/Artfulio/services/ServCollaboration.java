@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tn.esprit.Artfulio.entites.Collaboration;
-import tn.esprit.Artfulio.entites.utils.DBConnexion;
+import tn.esprit.Artfulio.utils.DBConnexion;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -98,14 +98,15 @@ public class ServCollaboration implements IntCollaboration {
     @Override
     public List<Collaboration> afficherCollaboration() {
 
+ 
         List<Collaboration> list = new ArrayList<Collaboration>();
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("select * from collaboration");
             ResultSet rs = preparedStatement.executeQuery();
-            Collaboration c = new Collaboration();
+            
             while (rs.next()) {
-                
+                Collaboration c = new Collaboration();
                 c.setId_collaboration(rs.getInt("id_collaboration"));
                 c.setTitre(rs.getString("titre"));
                 c.setType_collaboration(rs.getString("type_collaboration"));
@@ -113,12 +114,15 @@ public class ServCollaboration implements IntCollaboration {
                 java.sql.Date sqlDate = rs.getDate("date_sortie");
                 LocalDate dateSortie = sqlDate.toLocalDate();
                 c.setDate_sortie(dateSortie);
-                c.setStatus(rs.getInt("status"));
+                c.setStatus(rs.getString("status"));
                 list.add(c);
+         //       System.out.println("service collaboration");
+         //       System.out.println(c);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("\n\n la liste qui est renvoyer\n "+list.toString()+"\n\n\n");
         return list;
     }
 
@@ -142,7 +146,7 @@ public class ServCollaboration implements IntCollaboration {
                 java.sql.Date sqlDate = rs.getDate("date_sortie");
                 LocalDate dateSortie = sqlDate.toLocalDate();
                 c.setDate_sortie(dateSortie);
-                c.setStatus(rs.getInt("status"));
+                c.setStatus(rs.getString("status"));
                 list.add(c);
             }
         } catch (SQLException e) {
@@ -178,7 +182,7 @@ public class ServCollaboration implements IntCollaboration {
                 java.sql.Date sqlDate = rs.getDate("date_sortie");
                 LocalDate dateSortie = sqlDate.toLocalDate();
                 c.setDate_sortie(dateSortie);
-                c.setStatus(rs.getInt("status"));
+                c.setStatus(rs.getString("status"));
                 listcol.add(c);
                 // Traitement des données récupérées
                 // ...

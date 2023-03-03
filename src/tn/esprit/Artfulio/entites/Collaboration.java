@@ -18,7 +18,7 @@ public class Collaboration {
     private LocalDate date_sortie;
     private String titre;
     private String description;
-    private int status;
+    private String status;
      private String nom_user;
     private String email_user;
     
@@ -32,7 +32,7 @@ public class Collaboration {
         this.date_sortie = date_sortie;
         this.titre = titre;
         this.description = description;
-        this.status = 0;
+        this.status = "en attente";
         this.nom_user = nom_user;
         this.email_user = email_user;
     }
@@ -62,7 +62,7 @@ public class Collaboration {
         return description;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
@@ -94,7 +94,7 @@ public class Collaboration {
         this.description = description;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

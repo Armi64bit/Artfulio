@@ -21,11 +21,11 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         
         System.out.println("chemin");
-     /*   System.out.println(getClass().getResource("DemandeCollaboration.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("DemandeCollaboration.fxml")); */
+        System.out.println(getClass().getResource("DemandeCollaboration.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("DemandeCollaboration.fxml")); 
         
-          System.out.println(getClass().getResource("menuCollaboration.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("menuCollaboration.fxml")); 
+    //      System.out.println(getClass().getResource("menuCollaboration.fxml"));
+    //    Parent root = FXMLLoader.load(getClass().getResource("menuCollaboration.fxml")); 
      /* System.out.println(getClass().getResource("modifierCollaboration.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("modifierCollaboration.fxml")); */
                 

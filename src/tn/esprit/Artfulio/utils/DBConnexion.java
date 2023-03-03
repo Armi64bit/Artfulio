@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.esprit.arfulio.utils;
+package tn.esprit.Artfulio.utils;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author lelou
  */
 public class DBConnexion {
-    
-   private static DBConnexion instance = null;
+    private static DBConnexion instance = null;
    private Connection connexion = null;
    private String url = "jdbc:mysql://localhost:3306/work";
    private String utilisateur = "root";

@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import tn.esprit.Artfulio.entites.Artiste_Collaboration;
-import tn.esprit.Artfulio.entites.utils.DBConnexion;
+import tn.esprit.Artfulio.utils.DBConnexion;
 
 /**
  *

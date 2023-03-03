@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/gui/Main.java</file>
-            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/entites/Collaboration.java</file>
-            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/gui/DemandeCollaboration.fxml</file>
-            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/gui/menuCollaboration.fxml</file>
-            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/gui/DemandeCollaborationController.java</file>
-            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/services/ServArtiste_collaboration.java</file>
             <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/gui/MenuCollaborationController.java</file>
-            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/services/ServCollaboration.java</file>
-            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/gui/Data.java</file>
+            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/gui/Main.java</file>
+            <file>file:/C:/Users/lelou/Documents/NetBeansProjects/artfulio/src/tn/esprit/Artfulio/gui/menuCollaboration.fxml</file>
         </group>
     </open-files>
 </project-private>
