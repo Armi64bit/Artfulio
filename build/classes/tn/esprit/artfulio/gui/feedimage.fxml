@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.FeedController">
+<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.FeedimageController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="200.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+            <Button mnemonicParsing="false" onAction="#GoTofeed" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#GoTofeed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@logo.png" />
                      </image>
@@ -66,7 +66,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#musicfeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#imagefeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -237,52 +237,11 @@
                                  </children>
                               </HBox>
                               <Pane maxHeight="-Infinity" prefHeight="1.0" prefWidth="500.0" style="-fx-background-color: F0F2F5;" />
-                              <HBox prefHeight="52.0" prefWidth="498.0">
-                                 <children>
-                                    <HBox alignment="CENTER" onMouseClicked="#addartimg" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/ajouter.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label prefHeight="27.0" text="Image">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" onMouseClicked="#addartimg" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/ajouter.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label prefHeight="27.0" text="Video">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" onMouseClicked="#addartimg" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/ajouter.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label prefHeight="27.0" text="Musique">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </HBox>
+                              <Label text="Images">
+                                 <font>
+                                    <Font size="37.0" />
+                                 </font>
+                              </Label>
                            </children>
                            <VBox.margin>
                               <Insets top="13.0" />

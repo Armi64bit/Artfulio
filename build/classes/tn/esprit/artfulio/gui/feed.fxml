@@ -38,7 +38,7 @@
             <Pane prefHeight="66.0" prefWidth="362.0" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" spacing="50.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#imagefeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -52,7 +52,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#videofeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +66,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#musicfeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -233,7 +233,7 @@
                                           <Image url="@logo.png" />
                                        </image>
                                     </ImageView>
-                                    <TextField prefHeight="63.0" prefWidth="491.0" styleClass="texfield" stylesheets="@feed.css" />
+                                    <TextField prefHeight="63.0" prefWidth="76.0" styleClass="texfield" stylesheets="@feed.css" visible="false" />
                                  </children>
                               </HBox>
                               <Pane maxHeight="-Infinity" prefHeight="1.0" prefWidth="500.0" style="-fx-background-color: F0F2F5;" />
@@ -253,7 +253,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
+                                    <HBox alignment="CENTER" onMouseClicked="#addartimg" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
                                        <children>
                                           <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -267,7 +267,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
+                                    <HBox alignment="CENTER" onMouseClicked="#addartimg" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
                                        <children>
                                           <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>

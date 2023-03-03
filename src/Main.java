@@ -41,12 +41,14 @@ public class Main {
 
 
 
-        ArtworkService as =new ArtworkService();
-        artwork a=new artwork();
-        Date d=new Date(2);
-        a = new artwork ("", "", 0, 4, d, 10, "", 0, "aa");
-               as.ajouterartwork(a);
-// UserService us = new UserService();
+      //  ArtworkService as =new ArtworkService();
+        //artwork a=new artwork();
+        //Date d=new Date(2);
+        //a = new artwork ("", "", 0, 4, d, 10, "", 0, "aa");
+          //     as.ajouterartwork(a);
+ UserService us = new UserService();
+ User u = new User(9,"bahaa", "");
+        us.update(u);
 //       User list = new User();
 //       list=us.afficherProfilefb(10);
 //           System.out.println(list.toString());

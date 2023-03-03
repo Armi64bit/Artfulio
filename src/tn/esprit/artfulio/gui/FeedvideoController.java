@@ -41,7 +41,7 @@ import tn.esprit.artfulio.services.ProfileService;
  *
  * @author msi
  */
-public class FeedController implements Initializable {
+public class FeedvideoController implements Initializable {
 
     @FXML
     private BorderPane parent;
@@ -187,34 +187,6 @@ public class FeedController implements Initializable {
         
     
     }
-    
-
-    @FXML
-    private void videofeed(MouseEvent event) {
-        
-        
-        
-        try {
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            
-           // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
-            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("feedvideo.fxml"));
-            Parent root = loaderp.load();
-           
-           // FeedimageController fic =loaderp.getController();
-            //fic.feed();
-            //fic.users();
-             Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    
-    }
-    
     @FXML
     private void musicfeed(MouseEvent event) {
         
@@ -240,6 +212,20 @@ public class FeedController implements Initializable {
         
     
     }
+      @FXML
+    private void GoTofeed(ActionEvent event) throws IOException {
+
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("feed.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    
+
     
    
 }

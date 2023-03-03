@@ -57,15 +57,15 @@ public class UserService implements IServiceuser {
     @Override
     public boolean modifieruser(User u) {
   try {
-        String req = "UPDATE user SET id_user =?,username = ?,cin_user = ?,adresse_user = ?,password_user = ?,email_user = ?,type_role = ?";
+        String req = "UPDATE user SET username = ?,cin_user = ?,adresse_user = ?,password_user = ?,email_user = ?,type_role = ? where id_user='"+u.getId_user()+"'";
         PreparedStatement ps = myconnex.prepareStatement(req);
-        ps.setInt(1, u.getId_user());
-        ps.setString(2, u.getUsername());
-        ps.setString(3, u.getCin_user());
-        ps.setString(4, u.getAdresse_user());
-        ps.setString(5, u.getPassword_user());
-        ps.setString(6, u.getEmail_user());
-        ps.setString(7, u.getRole());
+       
+        ps.setString(1, u.getUsername());
+        ps.setString(2, u.getCin_user());
+        ps.setString(3, u.getAdresse_user());
+        ps.setString(4, u.getPassword_user());
+        ps.setString(5, u.getEmail_user());
+        ps.setString(6, u.getRole());
         
 
         ps.executeUpdate();
@@ -75,7 +75,20 @@ public class UserService implements IServiceuser {
         }
 return true;
     }
-
+public boolean update(User u) {
+  try {
+        String req = "UPDATE `user` SET `username` = ?, `img_user` = ? WHERE `user`.`id_user` = ?;";
+        PreparedStatement ps = myconnex.prepareStatement(req);
+         ps.setString(1, u.getUsername());
+          ps.setString(2, u.getImg_user());
+           ps.setInt(3, u.getId_user());
+        ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+return true;
+    }
     @Override
     public boolean supprimeruser(User u) {
  String req = "DELETE FROM user WHERE id_user=?";

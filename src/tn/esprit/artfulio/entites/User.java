@@ -71,6 +71,18 @@ public class User {
         this.type_role = type_role;
     }
 
+    public User(int id_user, String username, String img_user) {
+        this.id_user = id_user;
+        this.username = username;
+        this.img_user = img_user;
+    }
+
+    public User(String username, String img_user) {
+        this.username = username;
+        this.img_user = img_user;
+    }
+    
+
     public int getIs_pro() {
         return is_pro;
     }

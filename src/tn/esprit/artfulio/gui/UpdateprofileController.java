@@ -27,6 +27,8 @@ import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import tn.esprit.artfulio.entites.Profile;
 import tn.esprit.artfulio.services.ProfileService;
+import tn.esprit.artfulio.entites.User;
+import tn.esprit.artfulio.services.UserService;
 import tn.esprit.artfulio.gui.ProfileController;
 
 /**
@@ -62,8 +64,13 @@ public class UpdateprofileController implements Initializable {
     private Label id_user;
     @FXML
     private ImageView newpdp;
-    @FXML
     private TextField imageField;
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField path;
+    @FXML
+    private Button imp;
 
     /**
      * Initializes the controller class.
@@ -74,13 +81,16 @@ public class UpdateprofileController implements Initializable {
     }
 
 
-    public void updatepreloadtxt(String bio, String ig, String fb, String twitter, String ytb,int id) {
+    public void updatepreloadtxt(String bio, String ig, String fb, String twitter, String ytb,int id,String name,String img) {
         tfbio.setText(bio);
         tfig.setText(ig);
         tffb.setText(fb);
         tftwitter.setText(twitter);
         tfytb.setText(ytb);
         id_user.setText(String.format("%d", id));
+username.setText(name);
+path.setText(img);
+setpdp(id);
 
     }
     private void taketoprofile(MouseEvent event) {
@@ -109,8 +119,15 @@ public class UpdateprofileController implements Initializable {
         String twitter = tftwitter.getText();
         String ytb = tfytb.getText();
         ProfileService ps = new ProfileService();
+        UserService us = new UserService();
+        String newusername=username.getText();
+        String newimg = path.getText();
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+         int id= Integer.parseInt(id_user.getText());
 
+        User u = new User(id,newusername, newimg);
+        us.update(u);
+        
         /*
         if (tfytb.getText().length() < 1) {
             JOptionPane.showMessageDialog(null, "champ youtube vide !!!");
@@ -135,7 +152,7 @@ public class UpdateprofileController implements Initializable {
                 JOptionPane.showMessageDialog(null, "PROFILE  updated");
             }
         }
-         int id= Integer.parseInt(id_user.getText());
+         
            
             ProfileController pc = loaderp.getController();
             pc.setdata(id);
@@ -220,6 +237,7 @@ public class UpdateprofileController implements Initializable {
         
     }
     
+    @FXML
     public void handleChooseImage(ActionEvent event) {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Choose Image File");
@@ -232,10 +250,18 @@ public class UpdateprofileController implements Initializable {
         String imagePath = selectedFile.toURI().toString();
         Image image = new Image(imagePath);
         newpdp.setImage(image);
-        imageField.setText(selectedFile.getAbsolutePath());
+        path.setText(selectedFile.getAbsolutePath());
     }
 }
-         
+    
+    public void setpdp(int id) {
+        User u = new User();
+        UserService us = new UserService();
+        u = us.afficherProfilefb(id);
+        File imageFile = new File(u.getImg_user());
+        Image image = new Image(imageFile.toURI().toString());
+        newpdp.setImage(image);
+    }
 
     
                    }

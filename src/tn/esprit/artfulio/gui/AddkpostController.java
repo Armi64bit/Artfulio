@@ -56,8 +56,7 @@ public class AddkpostController implements Initializable {
     private TextField dim;
     @FXML
     private TextField prix;
-    @FXML
-    private ChoiceBox<String> user;
+ 
     @FXML
     private TextField path;
 
@@ -66,19 +65,7 @@ public class AddkpostController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      UserService us= new UserService();
-        List <User> L =us.afficheruser();
-        
-          // Personne p = new Personne(22, "Esprit", "Ariana");
-           String[] str = new String[L.size()];
- 
-        for (int i = 0; i < L.size(); i++) {
-            str[i] = L.get(i).getUsername();
-        }
-       for (int i = 0; i < L.size(); i++) {
-      user.getItems().add(L.get(i).getUsername());
-
-          }
+      
     }
 
 

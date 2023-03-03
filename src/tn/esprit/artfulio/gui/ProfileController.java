@@ -313,10 +313,12 @@ public class ProfileController implements Initializable {
             UpdateprofileController pc = fxmlLoader.getController();
             ProfileService ps = new ProfileService();
             Profile p = new Profile();
-
+UserService us =new UserService();
+User u =new User();
+u=us.afficherProfilefb(id);
             p = ps.getprofileuser(id);
 
-            pc.updatepreloadtxt(p.getBio(), p.getIg(), p.getFb(), p.getTwitter(), p.getYtb(), id);
+            pc.updatepreloadtxt(p.getBio(), p.getIg(), p.getFb(), p.getTwitter(), p.getYtb(), id,u.getUsername(),u.getImg_user());
 
             stage.show();
         } catch (IOException ex) {

@@ -12,10 +12,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="856.0" style="-fx-background-color: EDDCD9;" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.UpdateprofileController">
    <children>
-      <VBox layoutX="73.0" layoutY="46.0" prefHeight="486.0" prefWidth="356.0">
+      <VBox layoutX="73.0" layoutY="24.0" prefHeight="508.0" prefWidth="356.0">
          <children>
+            <Label text="Username">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" prefHeight="35.0" prefWidth="356.0" />
             <Label text="Bio">
                <font>
                   <Font size="23.0" />
@@ -28,19 +35,19 @@
                </font>
             </Label>
             <TextField fx:id="tfig" prefHeight="35.0" prefWidth="356.0" />
-            <Label text="fb">
+            <Label text="Facebook">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
             <TextField fx:id="tffb" prefHeight="40.0" prefWidth="318.0" />
-            <Label text="twitter">
+            <Label text="Twitter">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
             <TextField fx:id="tftwitter" prefHeight="38.0" prefWidth="356.0" />
-            <Label text="ytb">
+            <Label text="Youtube">
                <font>
                   <Font size="23.0" />
                </font>
@@ -48,18 +55,21 @@
             <TextField fx:id="tfytb" prefHeight="40.0" prefWidth="318.0" />
             <HBox>
                <children>
-                  <Pane prefHeight="39.0" prefWidth="248.0" />
+                  <Pane prefHeight="39.0" prefWidth="248.0">
+                     <children>
+                        <Text fx:id="delprofile" fill="RED" layoutX="40.0" layoutY="24.0" onMouseClicked="#delprofile" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete profile">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
                   <Button fx:id="vld" mnemonicParsing="false" onAction="#update" prefHeight="45.0" prefWidth="102.0" text="valider" />
                </children>
                <VBox.margin>
                   <Insets top="17.0" />
                </VBox.margin>
             </HBox>
-            <Text fx:id="delprofile" fill="RED" onMouseClicked="#delprofile" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete profile">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Text>
          </children>
       </VBox>
       <Label fx:id="id_user" layoutX="40.0" layoutY="499.0" text="ytb" visible="false">
@@ -67,16 +77,15 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <VBox layoutX="493.0" layoutY="46.0">
+      <VBox layoutX="443.0" layoutY="46.0">
          <children>
             <ImageView fx:id="newpdp" fitHeight="261.0" fitWidth="338.0" pickOnBounds="true" preserveRatio="true" styleClass="navbar" />
-            <HBox>
+            <TextField fx:id="path" prefHeight="40.0" prefWidth="318.0" />
+            <HBox alignment="CENTER">
                <children>
-                  <Pane prefHeight="39.0" prefWidth="248.0" />
                   <Button fx:id="imp" mnemonicParsing="false" onAction="#handleChooseImage" prefHeight="35.0" prefWidth="106.0" text="importer photo" />
                </children>
             </HBox>
-            <TextField fx:id="imageField" prefHeight="35.0" prefWidth="356.0" />
          </children>
       </VBox>
    </children>
