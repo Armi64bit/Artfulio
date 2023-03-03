@@ -18,5 +18,5 @@ public interface IntCollaboration {
     boolean modifierCollaboration(Collaboration c);
     List<Collaboration> afficherCollaboration();
     List<Collaboration> afficherCollaborationsUnArtiste(int idArtiste); 
-    List<Collaboration> recherche(Collaboration c);
+    Collaboration recherche(String titre, String typec);
 }

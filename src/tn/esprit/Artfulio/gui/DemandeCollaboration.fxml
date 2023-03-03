@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Artfulio.gui.DemandeCollaborationController">
    <center>
@@ -25,6 +26,14 @@
             <TextArea fx:id="description" layoutX="156.0" layoutY="343.0" prefHeight="127.0" prefWidth="274.0" />
             <DatePicker fx:id="date_sortie" layoutX="150.0" layoutY="278.0" />
             <Button fx:id="buttonSendDemande" layoutX="248.0" layoutY="546.0" mnemonicParsing="false" onAction="#buttonSendDemande" prefHeight="52.0" prefWidth="135.0" text="envoyer demande" />
+            <Label fx:id="error_titre" layoutX="157.0" layoutY="220.0" textFill="#f21616">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="error_date" layoutX="150.0" layoutY="310.0" text="la date err" />
+            <Label fx:id="error_description" layoutX="150.0" layoutY="480.0" text="le erreur desc" />
+            <Label fx:id="error_type" layoutX="157.0" layoutY="160.0" text="le type err" />
          </children>
       </AnchorPane>
    </right>

@@ -5,6 +5,9 @@
  */
 package tn.esprit.Artfulio.gui;
 
+import java.time.LocalDate;
+
+
 /**
  *
  * @author lelou
@@ -12,4 +15,9 @@ package tn.esprit.Artfulio.gui;
 public class Data {
     public static String description = "";
     public static String titre = "";
+    public static LocalDate date_f;
+    public static String type = "";
+    public static int id;
+    public static String email = "";
+    public static String nom = "";
 }

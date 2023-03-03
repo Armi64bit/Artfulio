@@ -7,6 +7,7 @@ package tn.esprit.Artfulio.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -62,6 +63,9 @@ public class MenuCollaborationController implements Initializable {
     @FXML
     private TextField Recherche;
 
+    @FXML
+    private Label label_titre;
+
     Stage stage;
     Scene scene;
     Parent root;
@@ -72,7 +76,6 @@ public class MenuCollaborationController implements Initializable {
     //variable locale
     int myIndex;
     int id;
-    
 
     /**
      * Initializes the controller class.
@@ -112,47 +115,47 @@ public class MenuCollaborationController implements Initializable {
      *
      * @param event
      */
+    //*********************************************************************************************
     @FXML
-    public void getViewModifier(ActionEvent event) throws IOException {
-        System.out.println("je suis a ce niveau");
+    private void getViewModifier(ActionEvent event) {
+        try {
+            // Charger la scène2.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("modifierCollaboration.fxml"));
+            Parent root = loader.load();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("modifierCollaboration.fxml"));
-        root = loader.load();
+            // Passer les données de nom et prénom à la scène2
+            ModifierCollaborationController modifController = loader.getController();
+            Collaboration c = new Collaboration();
+            ServCollaboration sercol = new ServCollaboration();
+            c.setTitre(Data.titre);
+            c.setType_collaboration(Data.description);
+            //on recupere toute les info dune collaboration
+            System.out.println("le titre "+Data.titre);
+            System.out.println("le type "+Data.type);
+         
+            c= sercol.recherche(Data.titre,Data.type);
+            Data.id = c.getId_collaboration();
+            Data.nom=c.getNom_user();
+            Data.email=c.getEmail_user();
+            modifController.afficherModif(c);
+            System.out.println("le contenu de c michel :\n "+c);
 
-        //get controller of modiferController.fxml
-        // System.out.println(getClass().getResource("modififerCollaboration.fxml"));
-        ModifierCollaborationController modifControl = loader.getController();
-
-        //passation des donnée entre les scenes
-        modifControl.information("banane", "orange", "plantain");
-        modifControl.afficherModif("le cul", "la life");
-        //show modifcontrol in stage
-
-        stage = new Stage();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(new Scene(root));
-        stage.setScene(scene);
-        //   stage.initStyle(StageStyle.UTILITY);
-        //  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.show();
-
-        System.out.println("on a pas executer le loading");
-        //  if (Data.description.isEmpty() || Data.titre.isEmpty()) {
-        //          warning("veuillez choisir la collaboration a modifier", "erreur");
-        //  } else {
-        System.out.println(getClass().getResource("modifierCollaboration.fxml"));
-
-        // }
+            // Afficher la scène2
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) button_mofidier.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    //**********************************************************************************************
     public void affichagerTableMenu() {
         ObservableList<Collaboration> listCol = FXCollections.observableArrayList();
         ServCollaboration servcol = new ServCollaboration();
 
         for (Collaboration c : servcol.afficherCollaboration()) {
             listCol.add(c);
-            System.out.println(c);
         }
 
         tableGeneralCollab.setItems(listCol);
@@ -163,48 +166,44 @@ public class MenuCollaborationController implements Initializable {
         // col_status.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("description"));
         //    col_artiste.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("date_sortie"));
 
-        
         //****************** recherche *****************************************
-        
-        
-                FilteredList<Collaboration> filterdata = new FilteredList<Collaboration>(listCol, btn_annulerCol-> true);
-                
-                //2. set filter predicate whenever rhe filter changes.
-                Recherche.textProperty().addListener((obbervable, oldValue, newValue) ->{
-                    filterdata.setPredicate(collaboration -> {
-                        //if filter text is empty, display all collaboration
-                        if(newValue == null || newValue.isEmpty()) {
-                            return true;
-                        }                        
-                        //compare first name and last name of all
-                        String lowerCaseFilter = newValue.toLowerCase();
-                        String status = ""+collaboration.getStatus();
-                       if(collaboration.getTitre().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                           return true;  //filter match titre
-                       }
-                       if(collaboration.getType_collaboration().toLowerCase().indexOf(lowerCaseFilter) != -1){
-                            return true;  //filter match type collaboration
-                       }
-                       if(status.toLowerCase().indexOf(lowerCaseFilter) != -1){
-                            return true;  //filter match type collaboration
-                       }
-                       else{
-                           return false;
-                       }
-                    });
-                });
-                
-                //wrap the filter in sorted list
-                SortedList<Collaboration> sortedData = new SortedList<>(filterdata);
-                
-                //4 bind the sorted data with tableView
-                sortedData.comparatorProperty().bind(tableGeneralCollab.comparatorProperty());
-                
-                tableGeneralCollab.setItems(sortedData);
-        
+        FilteredList<Collaboration> filterdata = new FilteredList<Collaboration>(listCol, btn_annulerCol -> true);
+
+        //2. set filter predicate whenever rhe filter changes.
+        Recherche.textProperty().addListener((obbervable, oldValue, newValue) -> {
+            filterdata.setPredicate(collaboration -> {
+                //if filter text is empty, display all collaboration
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                //compare first name and last name of all
+                String lowerCaseFilter = newValue.toLowerCase();
+                String status = "" + collaboration.getStatus();
+                if (collaboration.getTitre().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;  //filter match titre
+                }
+                if (collaboration.getType_collaboration().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;  //filter match type collaboration
+                }
+                if (status.toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;  //filter match type collaboration
+                } else {
+                    return false;
+                }
+            });
+        });
+
+        //wrap the filter in sorted list
+        SortedList<Collaboration> sortedData = new SortedList<>(filterdata);
+
+        //4 bind the sorted data with tableView
+        sortedData.comparatorProperty().bind(tableGeneralCollab.comparatorProperty());
+
+        tableGeneralCollab.setItems(sortedData);
+
         //*********************************************************************
-        
-        
+         
+            
         //affichage dynamique
         tableGeneralCollab.setRowFactory(tabrow -> {
 
@@ -218,99 +217,20 @@ public class MenuCollaborationController implements Initializable {
 
                     Data.titre = tableGeneralCollab.getItems().get(myIndex).getTitre();
                     Data.description = tableGeneralCollab.getItems().get(myIndex).getType_collaboration();
+                    Data.type = tableGeneralCollab.getItems().get(myIndex).getType_collaboration();
+                    Collaboration cc = new Collaboration();
+                     ServCollaboration svc = new ServCollaboration();
+                    cc= svc.recherche(Data.titre,Data.type);
+                     Data.id = cc.getId_collaboration();
                     // label_periode.setText(tableGeneralCollab.getItems().get(myIndex).getDescription());
-                    label_periode.setText(tableGeneralCollab.getItems().get(myIndex).getDate_sortie().toString());
+                    label_periode.setText(cc.getDate_sortie().toString());
+                    label_descrition.setText(cc.getDescription());
+                    label_titre.setText(cc.getTitre());
                 }
             });
             return myRow;
         });
     }
-
-  /*  @FXML
-    void Recherche(ActionEvent event) {
-
-        String mot = Recherche.getText();
-        Collaboration cc = new Collaboration();
-
-        if (mot.isEmpty()) {
-            warning("veuillez saisir une valeur", "erreur");
-        } else {
-            cc.setDescription(mot);
-            cc.setTitre(mot);
-            cc.setType_collaboration(mot);
-            ServCollaboration sercol = new ServCollaboration();
-            sercol.recherche(cc);
-            if (sercol.recherche(cc) == null) {
-                System.out.println("pas delement comme ca");
-            } else {
-                ServCollaboration servcol = new ServCollaboration();
-                for (Collaboration c : servcol.afficherCollaboration()) {
-                    listCol.add(c);
-                }
-
-                tableGeneralCollab.setItems(listCol);
-                // col_artiste.setCellValueFactory(colab -> colab.getTableView().idProperty());
-                col_titre.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("titre"));
-                col_type.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("type_collaboration"));
-                col_status.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("status"));
-                
-                FilteredList<Collaboration> filterdata = new FilteredList<Collaboration>(listCol, btn_annulerCol-> true);
-                
-                //2. set filter predicate whenever rhe filter changes.
-                Recherche.textProperty().addListener((obbervable, oldValue, newValue) ->{
-                    filterdata.setPredicate(collaboration -> {
-                        //if filter text is empty, display all collaboration
-                        if(newValue == null || newValue.isEmpty()) {
-                            return true;
-                        }
-                        
-                        //compare first name and last name of all
-                        String lowerCaseFilter = newValue.toLowerCase();
-                       if(collaboration.getTitre().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                           return true;  //filter match titre
-                       }
-                       if(collaboration.getType_collaboration().toLowerCase().indexOf(lowerCaseFilter) != -1){
-                            return true;  //filter match type collaboration
-                       }
-                       else{
-                           return false;
-                       }
-                    });
-                });
-                
-                //wrap the filter in sorted list
-                SortedList<Collaboration> sortedData = new SortedList<>(filterdata);
-                
-                //4 bind the sorted data with tableView
-                sortedData.comparatorProperty().bind(tableGeneralCollab.comparatorProperty());
-                
-                tableGeneralCollab.setItems(sortedData);
-                // col_status.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("description"));
-                //    col_artiste.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("date_sortie"));
-
-                //affichage dynamique
-                /*     tableGeneralCollab.setRowFactory(tabrow -> {
-
-            TableRow<Collaboration> myRow = new TableRow<>();
-            myRow.setOnMouseClicked(event
-                    -> {
-                if (event.getClickCount() == 1 && (!myRow.isEmpty())) {
-                    myIndex = tableGeneralCollab.getSelectionModel().getSelectedIndex();
-                    id = Integer.parseInt(String.valueOf(tableGeneralCollab.getItems().get(myIndex).getId_collaboration()));
-                    label_descrition.setText(tableGeneralCollab.getItems().get(myIndex).getTitre());
-                    
-                    Data.titre = tableGeneralCollab.getItems().get(myIndex).getTitre();
-                    Data.description = tableGeneralCollab.getItems().get(myIndex).getType_collaboration();
-                   // label_periode.setText(tableGeneralCollab.getItems().get(myIndex).getDescription());
-                    label_periode.setText(tableGeneralCollab.getItems().get(myIndex).getDate_sortie().toString());
-                }
-            });
-            return myRow;
-        }); */
- //           }
-  //      }
-
- //   }
 
     public void warning(String message, String titre) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -38,7 +38,7 @@ public class ServCollaboration implements IntCollaboration {
     public int ajouterCollaboration(Collaboration c) {
         int etat = -1;
         try {
-            String req = "insert into collaboration(id_collaboration,type_collaboration, titre, description, date_sortie,status) values (?,?,?,?,?,?)";
+            String req = "insert into collaboration(id_collaboration,type_collaboration, titre, description, date_sortie,status,nom_user,email_user) values (?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, null);
             preparedStatement.setString(2, c.getType_collaboration());
@@ -47,7 +47,9 @@ public class ServCollaboration implements IntCollaboration {
             java.sql.Date sqlDate = java.sql.Date.valueOf(c.getDate_sortie());
             preparedStatement.setDate(5, sqlDate);
             // preparedStatement.setBoolean(5, c.isStatus());
-            preparedStatement.setBoolean(6, true);
+            preparedStatement.setString(6, c.getStatus());
+            preparedStatement.setString(7, c.getNom_user());
+            preparedStatement.setString(8, c.getEmail_user());
             etat = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -80,13 +82,14 @@ public class ServCollaboration implements IntCollaboration {
         boolean status = false;
         try {
             String req = "update collaboration set titre=?, description=?, date_sortie=?, status=? where id_collaboration=?";
-            // String req = "update collaboration set titre=?, description=?, date_sortie=? where titre=? and description=?";
+            //  ,nom_user?, email_user=? ";
             PreparedStatement preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, c.getTitre());
             preparedStatement.setString(2, c.getDescription());
             java.sql.Date sqlDate = java.sql.Date.valueOf(c.getDate_sortie());
             preparedStatement.setDate(3, sqlDate);
-            //    preparedStatement.setInt(4, c.getStatus());
+            preparedStatement.setString(4, c.getStatus());
+            preparedStatement.setInt(5, c.getId_collaboration());
 
             status = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -156,42 +159,40 @@ public class ServCollaboration implements IntCollaboration {
     }
 
     @Override
-    public List<Collaboration> recherche(Collaboration c) {
+    public Collaboration recherche(String titre, String typec) {
         
         List<Collaboration> listcol= new ArrayList<Collaboration>();
-        String req = "SELECT * FROM ma_table WHERE type_collaboration LIKE ? OR titre LIKE ? OR description LIKE ? ";
+        String req = "SELECT * FROM collaboration WHERE titre LIKE ? and type_collaboration LIKE ? ";
 
         Collaboration cc = new Collaboration();
         // Création d'un objet PreparedStatement
         PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement(req);
-            stmt.setString(1, "%" + c.getType_collaboration() + "%");
-            stmt.setString(2, "%" + c.getTitre() + "%");
-            stmt.setString(3, "%" + c.getDescription() + "%");
-            
+            stmt.setString(1, "%" + titre + "%");
+            stmt.setString(2, "%" + typec + "%");            
 
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
                 // Récupération des données de chaque ligne
-                c.setId_collaboration(rs.getInt("id_collaboration"));
-                c.setTitre(rs.getString("titre"));
-                c.setType_collaboration(rs.getString("type_collaboration"));
-                c.setDescription(rs.getString("description"));
+                cc.setId_collaboration(rs.getInt("id_collaboration"));
+                cc.setTitre(rs.getString("titre"));
+                cc.setType_collaboration(rs.getString("type_collaboration"));
+                cc.setDescription(rs.getString("description"));
                 java.sql.Date sqlDate = rs.getDate("date_sortie");
                 LocalDate dateSortie = sqlDate.toLocalDate();
-                c.setDate_sortie(dateSortie);
-                c.setStatus(rs.getString("status"));
-                listcol.add(c);
-                // Traitement des données récupérées
-                // ...
+                cc.setDate_sortie(dateSortie);
+                cc.setStatus(rs.getString("status"));
+                cc.setNom_user(rs.getString("nom_user"));
+                cc.setEmail_user(rs.getString("email_user"));
+
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(ServCollaboration.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return listcol;
+        return cc;
 // Fermeture de l'objet ResultSet, de l'objet PreparedStatement et de la connexion à la base de données
 // Attribution des valeurs de recherche aux paramètres de la requête préparée
     }

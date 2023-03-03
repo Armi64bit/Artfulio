@@ -6,6 +6,7 @@
 package tn.esprit.Artfulio.gui;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,6 +52,7 @@ public class ModifierCollaborationController implements Initializable {
     Collaboration collab ;
     ServCollaboration sercol;
     
+    
     /**
      * Initializes the controller class.
      */
@@ -78,11 +80,12 @@ public class ModifierCollaborationController implements Initializable {
     @FXML
     void validerModif(ActionEvent event) {
         
-        collab.setDescription(descrip_modif.getText());
+       collab.setDescription(descrip_modif.getText());
        collab.setTitre(titreModif.getText());
        collab.setType_collaboration(typeModif.getValue());
        collab.setDate_sortie(date_fin_modif.getValue());
-     //  collab.setId_collaboration(3);
+       collab.setId_collaboration(Data.id);
+       
        if(sercol.modifierCollaboration(collab)){
            information("demande de validation envoyer", "information","aka");
            //mettre le status en attente
@@ -92,8 +95,12 @@ public class ModifierCollaborationController implements Initializable {
 
     }
     
-    public void afficherModif(String titre, String description){
-        titreModif.setText("cest lui"+titre+description);
+    public void afficherModif(Collaboration c){
+        titreModif.setText(c.getTitre());
+         typeModif.setValue(c.getType_collaboration());
+      date_fin_modif.setValue(c.getDate_sortie());
+        descrip_modif.setText(c.getDescription());
+        
     }
     
      public void warning(String message, String titre) {

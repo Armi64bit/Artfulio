@@ -18,9 +18,9 @@ public class Collaboration {
     private LocalDate date_sortie;
     private String titre;
     private String description;
-    private String status;
-     private String nom_user;
-    private String email_user;
+    private String status="en attente";
+     private String nom_user="lelouche";
+    private String email_user="michelscoot@gmail.com";
     
         public Collaboration() {
             
