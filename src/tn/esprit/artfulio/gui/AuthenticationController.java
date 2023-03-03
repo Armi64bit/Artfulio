@@ -111,7 +111,7 @@ static Connection myconnex
         }
        for (int i = 0; i < L.size(); i++) {
       listprofilebox.getItems().add(L.get(i).getFb());
-    listprofilebox.setOnAction(this::displayprofile);
+    //listprofilebox.setOnAction(this::displayprofile);
           }
         skillsservice ss=new skillsservice();
         List <skills> Ls =ss.afficherskills(/*txtfb.getText()*/) ; //mocdifier ca bech tsallah fazet el skilsl tab
@@ -257,7 +257,7 @@ static Connection myconnex
 root = loader.load();
 UpdateprofileController UpdateprofileController = loader.getController();
 
-UpdateprofileController.updatepreloadtxt(bio, ig, fb, twitter, ytb);
+//UpdateprofileController.updatepreloadtxt(bio, ig, fb, twitter, ytb);
 //  root = FXMLLoader.load(getClass().getResource("updateprofile.fxml"));
   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
   

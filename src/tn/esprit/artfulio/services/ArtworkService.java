@@ -13,7 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import tn.esprit.artfulio.entites.Profile;
 import tn.esprit.artfulio.entites.artwork;
+import static tn.esprit.artfulio.services.ProfileService.myconnex;
 import tn.esprit.artfulio.utils.MyConnection;
 
 /**
@@ -25,10 +27,10 @@ static Connection myconnex
            = MyConnection.getInstance().getConnection();
     @Override
     public int ajouterartwork(artwork p) {
-              int id = -1;
+   
+        int id = -1;
         try {
-            String req1 ="INSERT INTO `artwork`( `nom_artwork`, `description_artwork`, `prix_artwork`, `id_type`, `date`, `id_artist`, `lien_artwork`, `dimension_artwork`, `img_artwork`) VALUES ( NULL ,'"+p.getNom_artwork()+"','"+p.getDescription_artwork()+"','"+p.getPrix_artwork()+"','"+p.getId_type()+"','"+p.getDate()+"','"+p.getId_artist()+"','"+p.getLien_artwork()+"','"+p.getDimension_artwork()+"','"+p.getImg_artwork()+"') ";
-       //    String req1 = " INSERT INTO  `categorie` (`id_categorie`, `type_categorie`, `nom_categorie`) VALUES (NULL, '"+p.getNom_categorie()+"', '"+p.getType_categorie()+"')";
+            String req1 = "INSERT INTO `artwork` (`id_artwork`, `nom_artwork`, `description_artwork`, `prix_artwork`, `id_type`, `date`, `id_artist`, `lien_artwork`, `dimension_artwork`, `img_artwork`) VALUES (NULL, '"+p.getNom_artwork()+"', '"+p.getDescription_artwork()+"', '"+p.getPrix_artwork()+"', '"+p.getId_type()+"', '"+p.getDate()+"', '"+p.getId_artist()+"', '"+p.getLien_artwork()+"', '"+p.getDimension_artwork()+"', '"+p.getImg_artwork()+"');";
 
             Statement ste = myconnex.createStatement();
             id = ste.executeUpdate(req1);
@@ -37,7 +39,6 @@ static Connection myconnex
         }
         return id;
     }
-
     @Override
     public boolean modifierartwork(artwork p) {
          try {

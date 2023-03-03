@@ -17,15 +17,16 @@
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="200.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </ImageView>
-            <Button fx:id="chnagemode" mnemonicParsing="false" onAction="#changemode" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="chnagemode" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                      <image>
@@ -238,7 +239,7 @@
                               <Pane maxHeight="-Infinity" prefHeight="1.0" prefWidth="500.0" style="-fx-background-color: F0F2F5;" />
                               <HBox prefHeight="52.0" prefWidth="498.0">
                                  <children>
-                                    <HBox alignment="CENTER" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
+                                    <HBox alignment="CENTER" onMouseClicked="#addartimg" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
                                        <children>
                                           <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>

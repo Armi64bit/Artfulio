@@ -1,24 +1,45 @@
 package tn.esprit.artfulio.gui;
 
 import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import tn.esprit.artfulio.entites.User;
 import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.services.ArtworkService;
+import tn.esprit.artfulio.services.ProfileService;
+import tn.esprit.artfulio.entites.Profile;
+import tn.esprit.artfulio.entites.skills;
+
+import tn.esprit.artfulio.services.UserService;
+import tn.esprit.artfulio.services.skillsservice;
 
 /**
  * FXML Controller class
@@ -27,6 +48,11 @@ import tn.esprit.artfulio.services.ArtworkService;
  */
 public class ProfileController implements Initializable {
 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    Stack<UpdateprofileController> controllers = new Stack<>();
     @FXML
     private BorderPane parent;
     @FXML
@@ -52,30 +78,67 @@ public class ProfileController implements Initializable {
     private HBox videocontainer;
     @FXML
     private HBox portfoliocontainer11;
+    @FXML
+    private ImageView imgprofile;
+    @FXML
+    private Label username;
+    @FXML
+    private Label bio;
+    @FXML
+    private ImageView ig;
+    @FXML
+    private HBox editprofile;
+    @FXML
+    private HBox skillcontainer;
+    @FXML
+    private Label id_user;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         feed(portfoliocontainer);
-         feed(musiccontainer);
-         feed(videocontainer);
-         
-    }    
+        feedimg(portfoliocontainer);
+        feedaudio(musiccontainer);
+        feedmusic(videocontainer);
 
-    
-     public void feed (HBox portfoliocontainer){
-    
+    }
+
+    public void feedaudio(HBox portfoliocontainer) {
+
         ArtworkService as = new ArtworkService();
 
         List<artwork> listart = new ArrayList<>();
-       // users();
+        // users();
         try {
 
             listart = as.afficherartwork();
             for (int i = 0; i < listart.size(); i++) {
+                if (listart.get(i).getId_type()==4) {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("portfolioitem.fxml"));
+                    VBox vbox = loader.load();
+                    PortfolioitemController artcont = loader.getController();
+                    artcont.setdata(listart.get(i));
+                    portfoliocontainer.getChildren().add(vbox);
 
+                }
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public void feedimg(HBox portfoliocontainer) {
+
+        ArtworkService as = new ArtworkService();
+
+        List<artwork> listart = new ArrayList<>();
+        // users();
+        try {
+
+            listart = as.afficherartwork();
+            for (int i = 0; i < listart.size(); i++) {
+ if (listart.get(i).getId_type()==1) {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("portfolioitem.fxml"));
                 VBox vbox = loader.load();
@@ -83,60 +146,91 @@ public class ProfileController implements Initializable {
                 artcont.setdata(listart.get(i));
                 portfoliocontainer.getChildren().add(vbox);
 
-            }
+            }}
         } catch (Exception e) {
         }
-}
-@FXML
-    public void ig()
-    {   try {
-    Desktop.getDesktop().browse(new URL("https://www.instagram.com").toURI());
-} catch (IOException e) {
-    e.printStackTrace();
-} catch (URISyntaxException e) {
-    e.printStackTrace();
-}
-    
-    }
-@FXML
-    public void fb()
-    {   try {
-    Desktop.getDesktop().browse(new URL("https://www.fb.com").toURI());
-} catch (IOException e) {
-    e.printStackTrace();
-} catch (URISyntaxException e) {
-    e.printStackTrace();
-}
-    
     }
 
-@FXML
-    public void twitter()
-    {   try {
-    Desktop.getDesktop().browse(new URL("https://www.twitter.com").toURI());
-} catch (IOException e) {
-    e.printStackTrace();
-} catch (URISyntaxException e) {
-    e.printStackTrace();
-}
-    
+    public void feedmusic(HBox portfoliocontainer) {
+
+        ArtworkService as = new ArtworkService();
+
+        List<artwork> listart = new ArrayList<>();
+        // users();
+        try {
+
+            listart = as.afficherartwork();
+            for (int i = 0; i < listart.size(); i++) {
+ if (listart.get(i).getId_type()==3) {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("portfolioitem.fxml"));
+                VBox vbox = loader.load();
+                PortfolioitemController artcont = loader.getController();
+                artcont.setdata(listart.get(i));
+                portfoliocontainer.getChildren().add(vbox);
+
+            }}
+        } catch (Exception e) {
+        }
     }
-@FXML
-    public void youtube()
-    {   try {
-    Desktop.getDesktop().browse(new URL("https://www.youtube.com").toURI());
-} catch (IOException e) {
-    e.printStackTrace();
-} catch (URISyntaxException e) {
-    e.printStackTrace();
-}
-    
+
+    ProfileService pss = new ProfileService();
+
+    @FXML
+    public void ig() {
+        try {
+            int id = Integer.parseInt(id_user.getText());
+
+            Desktop.getDesktop().browse(new URL("wwww." + pss.getprofileuser(id).getIg() + ".com").toURI());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
     }
-   
-   private boolean islightmode = true;
+
+    @FXML
+    public void fb() {
+        try {
+            Desktop.getDesktop().browse(new URL("https://www.fb.com").toURI());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    public void twitter() {
+        try {
+            Desktop.getDesktop().browse(new URL("https://www.twitter.com").toURI());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    public void youtube() {
+        try {
+            Desktop.getDesktop().browse(new URL("https://www.youtube.com").toURI());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private boolean islightmode = true;
 
     @FXML
     public void changemode(ActionEvent e) {
+
         islightmode = !islightmode;
         if (islightmode) {
             setlightmode();
@@ -146,7 +240,7 @@ public class ProfileController implements Initializable {
     }
 
     public void setlightmode() {
-         
+
         parent.getStylesheets().remove("tn/esprit/artfulio/gui/feeddark.css");
         parent.getStylesheets().add("tn/esprit/artfulio/gui/feed.css");
 //             File imageFile = new File("tn/esprit/artfulio/img/mode.png");
@@ -157,13 +251,76 @@ public class ProfileController implements Initializable {
     imgmode.setImage(img);*/
 
     }
+
     public void setdarkmode() {
-        
+
         parent.getStylesheets().remove("tn/esprit/artfulio/gui/feed.css");
         parent.getStylesheets().add("tn/esprit/artfulio/gui/feeddark.css");
 //          File imageFile = new File("tn/esprit/artfulio/img/dark-mode.png");
 //    Image image = new Image(imageFile.toURI().toString());
 //    
 //        darkorlight.setImage(image);
+    }
+
+    public void setpdp(int id) {
+        User u = new User();
+        UserService us = new UserService();
+        u = us.afficherProfilefb(id);
+        File imageFile = new File(u.getImg_user());
+        Image image = new Image(imageFile.toURI().toString());
+        imgprofile.setImage(image);
+    }
+
+    public void setdata(int id) {
+        User u = new User();
+        UserService us = new UserService();
+        u = us.afficherProfilefb(id);
+
+        setpdp(id);
+
+        username.setText(u.getUsername());
+        ProfileService ps = new ProfileService();
+        Profile p = new Profile();
+        p = ps.getprofileuser(id);
+        bio.setText(p.getBio());
+        id_user.setText("" + id + "");
+        skillsservice ss = new skillsservice();
+        List<skills> sk = new ArrayList<>();
+        sk = ss.afficherskills(id);
+
+    }
+
+    @FXML
+    private void GoToprofile(ActionEvent event) throws IOException {
+
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("feed.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    private void taketoprofile(MouseEvent event) {
+        try {
+            int id = Integer.parseInt(id_user.getText());
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("updateprofile.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            UpdateprofileController pc = fxmlLoader.getController();
+            ProfileService ps = new ProfileService();
+            Profile p = new Profile();
+
+            p = ps.getprofileuser(id);
+
+            pc.updatepreloadtxt(p.getBio(), p.getIg(), p.getFb(), p.getTwitter(), p.getYtb(), id);
+
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

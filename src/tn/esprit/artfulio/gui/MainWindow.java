@@ -29,14 +29,14 @@ import javafx.stage.Stage;
  * @author karra
  */
 public class MainWindow extends Application {
-    
+    private boolean islightmode = true; 
     @Override
     public void start(Stage primaryStage) {
         try {
 
 
             Parent root = FXMLLoader.
-                    load(getClass().getResource("profile.fxml"));
+                    load(getClass().getResource("addkpost.fxml"));
             Scene scene = new Scene(root);
            String css;
             css = this.getClass().getResource("feed.css").toExternalForm();

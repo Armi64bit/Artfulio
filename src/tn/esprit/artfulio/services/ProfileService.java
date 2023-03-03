@@ -134,6 +134,28 @@ public class ProfileService implements IProfileService {
         }
         return p;
     }
+     public Profile getprofileuser(int id) {
+         Profile p = new Profile();
+        try {
+            String req = "select * from profile where id_util='"+id+"'";
+            Statement ste = myconnex.createStatement();
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+               
+                p.setId_util(res.getInt("id_util"));
+                p.setBio(res.getString("bio"));
+                p.setIg(res.getString("ig"));
+                p.setFb(res.getString("fb"));
+                p.setTwitter(res.getString("twitter"));
+                p.setYtb(res.getString("ytb"));
+                p.setId_profil(res.getInt("id_profil"));
+
+                
+            }
+        } catch (SQLException ex) {
+        }
+        return p;
+    }
 
      public static int checkRedonnondance (String ig,String fb,String twitter,String ytb){
    // Connection Conx =  ConnectionUtil.getInstance().getConnection();

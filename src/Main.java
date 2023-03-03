@@ -17,8 +17,9 @@ public class Main {
  
   
     public static void main (String []args){
-//        Profile p = new Profile("aaa","aaa","a","aaa","aaa");
-//        ProfileService profileService = new ProfileService();
+        //Profile p = new Profile("aaa","aaa","a","aaa","aaa");
+        //ProfileService profileService = new ProfileService();
+       // profileService.ajouterProfile(p);
 //        skills s= new skills("deva","aaaaaaadaz");
 //       skillsservice skillservice= new skillsservice();
 //       
@@ -41,13 +42,15 @@ public class Main {
 
 
         ArtworkService as =new ArtworkService();
-        artwork a = new artwork();
-         //     a=  as.afficherartwork().get(0));
- UserService us = new UserService();
-       User list = new User();
-       list=us.afficherProfilefb(10);
-           System.out.println(list.toString());
-     
+        artwork a=new artwork();
+        Date d=new Date(2);
+        a = new artwork ("", "", 0, 4, d, 10, "", 0, "aa");
+               as.ajouterartwork(a);
+// UserService us = new UserService();
+//       User list = new User();
+//       list=us.afficherProfilefb(10);
+//           System.out.println(list.toString());
+//     
 }
     
 }

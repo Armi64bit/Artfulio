@@ -71,5 +71,22 @@
 
 }
 
+* {
+	-fx-primary-color: #E1D1CE;
+	-fx-secondary-color: #4B6EAF;
+	-fx-grey-color: #b9b9b9;
+    
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.text-field {
+	-fx-accent: -fx-primary-color;
+	-fx-background-color:  #E1D1CE;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-background-radius: 0;
+}
+.text-field:focused {
+	-fx-background-color: -fx-primary-color, #C7A9A3;
+}
 
 

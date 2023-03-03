@@ -39,6 +39,25 @@ public class artwork {
         this.img_artwork = img_artwork;
     }
 
+    public artwork(String nom_artwork, String description_artwork, String img_artwork) {
+        this.nom_artwork = nom_artwork;
+        this.description_artwork = description_artwork;
+        this.img_artwork = img_artwork;
+    }
+    
+
+    public artwork(String nom_artwork, String description_artwork, float prix_artwork, int id_type, Date date, int id_artist, String lien_artwork, float dimension_artwork, String img_artwork) {
+        this.nom_artwork = nom_artwork;
+        this.description_artwork = description_artwork;
+        this.prix_artwork = prix_artwork;
+        this.id_type = id_type;
+        this.date = date;
+        this.id_artist = id_artist;
+        this.lien_artwork = lien_artwork;
+        this.dimension_artwork = dimension_artwork;
+        this.img_artwork = img_artwork;
+    }
+
     public int getId_artwork() {
         return id_artwork;
     }

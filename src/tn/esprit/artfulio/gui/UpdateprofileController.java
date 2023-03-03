@@ -1,5 +1,6 @@
 package tn.esprit.artfulio.gui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,11 +14,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import tn.esprit.artfulio.entites.Profile;
 import tn.esprit.artfulio.services.ProfileService;
+import tn.esprit.artfulio.gui.ProfileController;
 
 /**
  * FXML Controller class
@@ -29,6 +39,11 @@ public class UpdateprofileController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    
+    private Stage stage2;
+    private Scene scene2;
+    private Parent root2;
+    
     @FXML
     private TextField tfbio;
     @FXML
@@ -39,6 +54,16 @@ public class UpdateprofileController implements Initializable {
     private TextField tftwitter;
     @FXML
     private TextField tfytb;
+    @FXML
+    private Button vld;
+    @FXML
+    private Text delprofile;
+    @FXML
+    private Label id_user;
+    @FXML
+    private ImageView newpdp;
+    @FXML
+    private TextField imageField;
 
     /**
      * Initializes the controller class.
@@ -48,36 +73,34 @@ public class UpdateprofileController implements Initializable {
 
     }
 
-    @FXML
-    private void edit(ActionEvent event) {
-    }
 
-    public void updatepreloadtxt(String bio, String ig, String fb, String twitter, String ytb) {
+    public void updatepreloadtxt(String bio, String ig, String fb, String twitter, String ytb,int id) {
         tfbio.setText(bio);
         tfig.setText(ig);
         tffb.setText(fb);
         tftwitter.setText(twitter);
         tfytb.setText(ytb);
+        id_user.setText(String.format("%d", id));
 
     }
-
-    @FXML
-    private void switcheditprofile(ActionEvent event) {
+    private void taketoprofile(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("Authentication.fxml"));
+            int id= Integer.parseInt(id_user.getText());
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("src/tn/esprit/artfulio/gui/profile.fxml"));
+            root = loaderp.load();
+            ProfileController pc = loaderp.getController();
+            pc.setdata(id);
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            scene=new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(UpdateprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        String css;
-            css = this.getClass().getResource("application.css").toExternalForm();
-   scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
-
     }
 
+    
+    
     @FXML
     public void update(ActionEvent event) {
         String bio = tfbio.getText();
@@ -112,6 +135,10 @@ public class UpdateprofileController implements Initializable {
                 JOptionPane.showMessageDialog(null, "PROFILE  updated");
             }
         }
+         int id= Integer.parseInt(id_user.getText());
+           
+            ProfileController pc = loaderp.getController();
+            pc.setdata(id);
         /* }*/
 
     }
@@ -124,6 +151,7 @@ public class UpdateprofileController implements Initializable {
         alert.showAndWait();
     }
       
+    @FXML
          public void delprofile(){
      String bio = tfbio.getText();
         String ig = tfig.getText();
@@ -147,7 +175,67 @@ public class UpdateprofileController implements Initializable {
         }
             
 
-}   
+}
+
+    private void taketoprofile(ActionEvent event) {
+       FXMLLoader loaderp = new FXMLLoader();
+         int id= Integer.parseInt(id_user.getText());
+         System.out.println(id);
+        try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));/* Exception */
+              ProfileController pc = loaderp.getController();
+              // pc.setdata(id);
+           //FXMLController previousController = controllers.pop();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(UpdateprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
+    }
+        FXMLLoader loaderp = new FXMLLoader();
+    private void GoTo(ActionEvent event ,String fxml) throws IOException {
+       
+          Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource(fxml));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        
+         
+    }
+    private void takebacktoprofile(ActionEvent event) throws IOException{
+  
+         int id= Integer.parseInt(id_user.getText());
+         System.out.println(id);
+        GoTo(event," profile.fxml");
+              ProfileController pc = loaderp.getController();
+             
+//  pc.setdata(id);
+        
+    }
+    
+    public void handleChooseImage(ActionEvent event) {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Choose Image File");
+    fileChooser.getExtensionFilters().addAll(
+            new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"),
+            new ExtensionFilter("All Files", ".")
+    );
+    File selectedFile = fileChooser.showOpenDialog(((Node) event.getTarget()).getScene().getWindow());
+    if (selectedFile != null) {
+        String imagePath = selectedFile.toURI().toString();
+        Image image = new Image(imagePath);
+        newpdp.setImage(image);
+        imageField.setText(selectedFile.getAbsolutePath());
+    }
+}
+         
 
     
                    }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="namesk" prefHeight="18.0" text="Skillname">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <HBox alignment="TOP_CENTER" prefHeight="54.0" spacing="4.0" styleClass="elementt">
+         <children>
+            <Label fx:id="descsk" prefHeight="18.0" text="desc">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets right="27.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

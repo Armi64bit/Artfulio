@@ -126,6 +126,33 @@ public class skillsservice implements iskillsservice {
         return list;
     }
 
+    public List<skills> afficherskills(int id) {
+        List<skills> list = new ArrayList<>();
+        ProfileService ps = new ProfileService();
+        Profile p = new Profile();
+        p=ps.getprofileuser(id);
+        
+        
+        try {
+            String req = "select * from skills where id_profile='"+p.getId_profil()+"'";
+           
+            Statement ste = myconnex.createStatement();
+            
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+                skills s = new skills();
+                s.setTitre_skill(res.getString("titre_skill"));
+                s.setDesc_skill(res.getString("desc_skill"));
+                s.setId_profil(res.getInt("id_profile"));
+
+                list.add(s);
+            }
+        } catch (SQLException ex) {
+        }
+        return list;
+    }
+
+    
     public skills findskill(String ig, String fb, String twitter, String ytb) {
         String sql = "SELECT * FROM profile WHERE ig=? and fb=? and twitter=? and ytb=? ";//zid where id_profile == w a3ml fn yjiblk id el profile
         skills s = new skills();

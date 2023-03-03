@@ -27,7 +27,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <Label fx:id="fbname" text="Username">
+                        <Label fx:id="fbname" onMouseClicked="#taketoprofile" text="Username">
                            <font>
                               <Font name="Segoe UI Black" size="14.0" />
                            </font>
@@ -40,6 +40,11 @@
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
+                        <Label fx:id="id_user" text="id_user" visible="false">
+                           <font>
+                              <Font name="Segoe UI Black" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                   <HBox>

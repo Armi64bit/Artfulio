@@ -14,13 +14,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import tn.esprit.artfulio.entites.Profile;
 
 import tn.esprit.artfulio.entites.User;
 import tn.esprit.artfulio.entites.artwork;
@@ -28,6 +33,7 @@ import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.services.UserService;
 import tn.esprit.artfulio.services.ArtworkService;
 import tn.esprit.artfulio.gui.ArtworkpostController;
+import tn.esprit.artfulio.services.ProfileService;
 
 /**
  * FXML Controller class
@@ -142,9 +148,21 @@ public class FeedController implements Initializable {
     
 
 
+@FXML
+    private void addartimg(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addkpost.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-
-
+    
+   
 }
 
 

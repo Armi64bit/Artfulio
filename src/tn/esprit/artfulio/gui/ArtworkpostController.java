@@ -1,6 +1,7 @@
 package tn.esprit.artfulio.gui;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -18,15 +19,22 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;  
 import java.util.Date;  
 import java.util.Calendar; 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.KeyEvent;
 import tn.esprit.artfulio.services.UserService;
 
 import javafx.scene.paint.*;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -34,7 +42,10 @@ import javafx.scene.layout.HBox;
  * @author msi
  */
 public class ArtworkpostController implements Initializable {
-
+    private Stage stage;
+ private Scene scene;
+ private Parent root;
+ 
     @FXML
     private ImageView imgprofile;
     @FXML
@@ -69,6 +80,8 @@ public class ArtworkpostController implements Initializable {
     private ImageView postrec;
     @FXML
     private Label reactionname;
+    @FXML
+    private Label id_user;
 
     /**
      * Initializes the controller class.
@@ -96,7 +109,7 @@ setpdp(a.getId_artist());
     txtcaption.setText(a.getDescription_artwork());
         setartistename(a.getId_artist());
    
-            
+            id_user.setText(""+a.getId_artist()+"");
        
     
 }
@@ -113,9 +126,7 @@ public void setpdp( int id) {
 u=us.afficherProfilefb(id);
     File imageFile = new File(u.getImg_user());
     Image image = new Image(imageFile.toURI().toString());
-    imgprofile.setImage(image);
-    
-      
+    imgprofile.setImage(image);   
 }
 public void setartistename(int id ){
      User u = new User();
@@ -170,7 +181,8 @@ switch (((ImageView) me.getSource()).getId())
     
     
 }}
-public void setreacttongue(MouseEvent me){
+    @FXML
+    public void setreacttongue(MouseEvent me){
 
 //if(System.currentTimeMillis()-starttime>50){
 reactionsContainer.setVisible(false);
@@ -181,7 +193,8 @@ reactionname.setTextFill(Color.web("red"));
 
 //}
 }
-public void setreactatomic(MouseEvent me){
+    @FXML
+    public void setreactatomic(MouseEvent me){
 
 //if(System.currentTimeMillis()-starttime>50){
 reactionsContainer.setVisible(false);
@@ -192,7 +205,8 @@ reactionname.setTextFill(Color.web("purple"));
 
 //}
 }
-public void setreact(MouseEvent me){
+    @FXML
+    public void setreact(MouseEvent me){
 
 //if(System.currentTimeMillis()-starttime>50){
 reactionsContainer.setVisible(false);
@@ -203,7 +217,8 @@ reactionname.setText("Like");
 reactionname.setTextFill(Color.web("blue"));
 //}
 }
-public void setreactlove(MouseEvent me){
+    @FXML
+    public void setreactlove(MouseEvent me){
 
 //if(System.currentTimeMillis()-starttime>50){
 reactionsContainer.setVisible(false);
@@ -223,5 +238,23 @@ reactionsContainer.setVisible(true);
 //}
 }
 
- 
+   
+
+    @FXML
+    private void taketoprofile(MouseEvent event) {
+        try {
+            int id= Integer.parseInt(id_user.getText());
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("profile.fxml"));
+            root = loaderp.load();
+            ProfileController pc = loaderp.getController();
+            pc.setdata(id);
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            scene=new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ArtworkpostController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
