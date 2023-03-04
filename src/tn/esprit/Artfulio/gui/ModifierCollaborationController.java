@@ -5,18 +5,27 @@
  */
 package tn.esprit.Artfulio.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import tn.esprit.Artfulio.entites.Collaboration;
 import tn.esprit.Artfulio.gui.Data;
 import tn.esprit.Artfulio.services.ServCollaboration;
@@ -62,6 +71,9 @@ public class ModifierCollaborationController implements Initializable {
         // TODO
          collab = new Collaboration();
         sercol = new ServCollaboration();
+        
+         ObservableList<String> listType = FXCollections.observableArrayList("Financiere", "artistique","production","égérie","formation");
+        typeModif.getItems().addAll(listType);
                
         if(Data.titre.isEmpty()){
             titreModif.setText("ce n'est pas arrivé ");
@@ -69,12 +81,25 @@ public class ModifierCollaborationController implements Initializable {
         else{
             titreModif.setText(Data.titre);
             descrip_modif.setText(Data.description);
-        }
+        } 
     }    
     
     @FXML
     void annulerModification(ActionEvent event) {
-        button_valider_modif.setText("hahahahah");
+        
+        Data.information( "notification", "aucune modification éffectué");
+           try {
+            // Charger la scène2.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menuCollaboration.fxml"));
+            Parent root = loader.load();
+
+            // Afficher la scène2
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) button_annuler_modif.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -87,10 +112,23 @@ public class ModifierCollaborationController implements Initializable {
        collab.setId_collaboration(Data.id);
        
        if(sercol.modifierCollaboration(collab)){
-           information("demande de validation envoyer", "information","aka");
+           System.out.println("l'id modification est: "+Data.id);
+           Data.information( "information","demande de validation envoyer");
+           try {
+            // Charger la scène2.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menuCollaboration.fxml"));
+            Parent root = loader.load();
+
+            // Afficher la scène2
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) button_valider_modif.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
            //mettre le status en attente
        }else{
-           warning("erreur modification", "erreur");
+           Data.warning("erreur modification", "erreur");
        }
 
     }
@@ -103,19 +141,5 @@ public class ModifierCollaborationController implements Initializable {
         
     }
     
-     public void warning(String message, String titre) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(titre);
-        alert.setContentText(message);
-        // alert.setHeaderText("le dessous");
-        alert.showAndWait();
-    }
-      
-        public void information(String message,String titre, String autre){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(titre);
-        alert.setContentText(message);
-        alert.setHeaderText(autre);
-        alert.showAndWait(); 
-    }
+
 }

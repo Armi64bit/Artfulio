@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,6 +29,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import sun.reflect.Reflection;
 import tn.esprit.Artfulio.entites.Collaboration;
@@ -65,6 +67,18 @@ public class MenuCollaborationController implements Initializable {
 
     @FXML
     private Label label_titre;
+    
+ //   @FXML
+ //   private PieChart chartType;
+    
+    @FXML
+    private AnchorPane anchorPieChart = new AnchorPane();
+    
+       @FXML
+    private AnchorPane anctype  = new AnchorPane();;
+
+    @FXML
+    private PieChart pieType = new PieChart();
 
     Stage stage;
     Scene scene;
@@ -76,6 +90,7 @@ public class MenuCollaborationController implements Initializable {
     //variable locale
     int myIndex;
     int id;
+    ServCollaboration svc;
 
     /**
      * Initializes the controller class.
@@ -83,6 +98,9 @@ public class MenuCollaborationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        svc = new ServCollaboration();
+        afficherGraphique();
+       // anchorPieChart.getChildren().add(chartType);
         affichagerTableMenu();
     }
 
@@ -238,6 +256,10 @@ public class MenuCollaborationController implements Initializable {
         alert.setContentText(message);
         // alert.setHeaderText("le dessous");
         alert.showAndWait();
+    }
+    //-------------- piChart
+      public void afficherGraphique() {
+        svc.createChart(anchorPieChart);
     }
 
 }

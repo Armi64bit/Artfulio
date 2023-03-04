@@ -6,6 +6,7 @@
 package tn.esprit.Artfulio.gui;
 
 import java.time.LocalDate;
+import javafx.scene.control.Alert;
 
 
 /**
@@ -20,4 +21,20 @@ public class Data {
     public static int id;
     public static String email = "";
     public static String nom = "";
+    
+         public static void warning(String message, String titre) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(titre);
+        //alert.setContentText(message);
+        alert.setHeaderText(message);
+        alert.showAndWait();
+    }
+      
+        public static void information(String message,String titre){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titre);
+     //   alert.setContentText(message);
+        alert.setHeaderText(message);
+        alert.showAndWait(); 
+    }
 }

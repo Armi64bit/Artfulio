@@ -66,7 +66,7 @@ public class DemandeCollaborationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ObservableList<String> listType = FXCollections.observableArrayList("Financiere", "Musicale", "duo");
+        ObservableList<String> listType = FXCollections.observableArrayList("Financiere", "artistique","production","égérie","formation");
         type.getItems().addAll(listType);
 
     }
