@@ -124,6 +124,7 @@ static Connection myconnex
             ResultSet res = ste.executeQuery(req);
             while (res.next()) {
                 artwork s = new artwork();
+                s.setId_artwork(res.getInt("id_artwork"));
                 s.setNom_artwork(res.getString("nom_artwork"));
                 s.setDescription_artwork(res.getString("description_artwork"));
                 s.setLien_artwork(res.getString("lien_artwork"));

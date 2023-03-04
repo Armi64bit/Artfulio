@@ -17,8 +17,10 @@ import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.services.ArtworkService;
 import java.text.DateFormat; 
 import java.text.SimpleDateFormat;  
+import java.util.ArrayList;
 import java.util.Date;  
 import java.util.Calendar; 
+import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -34,7 +36,10 @@ import javafx.scene.paint.*;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import tn.esprit.artfulio.entites.commentaire;
+import tn.esprit.artfulio.services.commentaireservice;
 
 /**
  * FXML Controller class
@@ -82,17 +87,19 @@ public class ArtworkpostController implements Initializable {
     private Label reactionname;
     @FXML
     private Label id_user;
+    @FXML
+    private VBox commentcontainer;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+    coms ();   
     }    
     
 public void setdata(artwork a) {
- 
+ commentaireservice cs=new commentaireservice();
  
 //Image img= new Image(getClass().getResourceAsStream(a.getImg_artwork()));
 //Image pdp= new Image(getClass().getResourceAsStream("logo.png"));
@@ -110,6 +117,9 @@ setpdp(a.getId_artist());
         setartistename(a.getId_artist());
    
             id_user.setText(""+a.getId_artist()+"");
+            int numcom=cs.numcom(a.getId_artwork());
+            nbcomments.setText(numcom+"  commentaire(s)");
+            System.out.println(numcom);
        
     
 }
@@ -256,5 +266,30 @@ reactionsContainer.setVisible(true);
             Logger.getLogger(ArtworkpostController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void coms (){
+    
+        commentaireservice as = new commentaireservice();
+
+        List<commentaire> listcom = new ArrayList<>();
+       // users();
+        try {
+
+            listcom = as.affichercommentaire();
+            for (int i = 0; i < listcom.size(); i++) {
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("comment.fxml"));
+                HBox vbox = loader.load();
+                CommentController artcont = loader.getController();
+                artcont.loadcom(listcom.get(i));
+                commentcontainer.getChildren().add(vbox);
+
+            }
+        } catch (Exception e) {
+        }
+}
+
+  
 
 }

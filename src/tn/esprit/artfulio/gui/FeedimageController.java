@@ -38,6 +38,7 @@ import tn.esprit.artfulio.services.ProfileService;
 import tn.esprit.artfulio.utils.SessionManager;
 
 
+
 /**
  * FXML Controller class
  *
@@ -62,7 +63,7 @@ public class FeedimageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        System.out.println(User.getCurrent_User().getUsername());
         feed();
       users();
     }
