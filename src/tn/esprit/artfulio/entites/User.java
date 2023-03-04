@@ -21,10 +21,8 @@ public class User {
     private String password_user;
     private String email_user;
     private String img_user;
-    
-
     private String type_role;
-
+public static User Current_User;
     public User() {
     }
 
@@ -80,6 +78,22 @@ public class User {
     public User(String username, String img_user) {
         this.username = username;
         this.img_user = img_user;
+    }
+
+    public String getType_role() {
+        return type_role;
+    }
+
+    public void setType_role(String type_role) {
+        this.type_role = type_role;
+    }
+
+    public static User getCurrent_User() {
+        return Current_User;
+    }
+
+    public static void setCurrent_User(User Current_User) {
+        User.Current_User = Current_User;
     }
     
 

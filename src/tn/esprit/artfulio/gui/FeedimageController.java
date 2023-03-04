@@ -35,6 +35,8 @@ import tn.esprit.artfulio.services.UserService;
 import tn.esprit.artfulio.services.ArtworkService;
 import tn.esprit.artfulio.gui.ArtworkpostController;
 import tn.esprit.artfulio.services.ProfileService;
+import tn.esprit.artfulio.utils.SessionManager;
+
 
 /**
  * FXML Controller class
@@ -53,13 +55,15 @@ public class FeedimageController implements Initializable {
     private VBox usercontainer;
     @FXML
     private ImageView darkorlight;
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      feed();
+        
+        feed();
       users();
     }
 
