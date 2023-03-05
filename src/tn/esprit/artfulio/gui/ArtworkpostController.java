@@ -369,10 +369,6 @@ reactionsContainer.setVisible(true);
      
     }
 
-    @FXML
-    private void de(ActionEvent event) {
-     
-    }
 
     @FXML
     private void onlikecontainermousereleased(KeyEvent event) {
@@ -386,10 +382,10 @@ reactionsContainer.setVisible(true);
     @FXML
     private void de(MouseEvent event) {
         int idart= Integer.parseInt(id_art.getText());
-      ArtworkService as=new ArtworkService();
-      artwork a=as.afficherartwork1(idart);
-      as.supprimerartwork(a);
-        System.out.println("post supp");
+        ArtworkService as=new ArtworkService();
+        artwork a=new artwork(idart);
+       
+        System.out.println(        as.supprimerartwork(a));
     }
 
     @FXML

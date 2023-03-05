@@ -63,15 +63,11 @@
                </children>
             </VBox>
             <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="dellpost" mnemonicParsing="false" onAction="#de">
-               <graphic>
-                  <ImageView fitHeight="76.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/supprimer-le-fichier.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            <ImageView fitHeight="76.0" fitWidth="40.0" onMouseClicked="#de" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/supprimer-le-fichier.png" />
+               </image>
+            </ImageView>
          </children>
          <VBox.margin>
             <Insets left="20.0" right="20.0" />
