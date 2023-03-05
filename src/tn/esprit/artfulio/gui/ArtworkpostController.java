@@ -104,9 +104,13 @@ public class ArtworkpostController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     coms ();   
+    
+    
+          //   System.out.println("id art = ");
     postcom.setOnAction(new EventHandler() {
 
         @Override
@@ -118,6 +122,7 @@ public class ArtworkpostController implements Initializable {
         cs.ajoutercommentaire(c);        }
             });
    // pdpcurrent();
+    
     }    
     
 public void setdata(artwork a) {
@@ -299,7 +304,8 @@ reactionsContainer.setVisible(true);
             Logger.getLogger(ArtworkpostController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    //int idd=iscomment();
+   
     public void coms (){
     
         commentaireservice as = new commentaireservice();
@@ -309,23 +315,34 @@ reactionsContainer.setVisible(true);
         try {
 
             listcom = as.affichercommentaire();
-            for (int i = 0; i < listcom.size(); i++) {
-
+         //   int parNum = Integer.valueOf(id_art.getText());
+            for (int k = 0; k < listcom.size(); k++) {
+                
+if(33==listcom.get(k).getId_artwork()) {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("comment.fxml"));
                 HBox vbox = loader.load();
+         
                 CommentController artcont = loader.getController();
-                artcont.loadcom(listcom.get(i));
+                artcont.loadcom(listcom.get(k));
                 commentcontainer.getChildren().add(vbox);
+}
 
             }
+            
         } catch (Exception e) {
         }
 }
 
    
 
+  public boolean iscomment(int idca){
+  int idart= Integer.parseInt(id_art.getText());
   
+      System.out.println("nop");
+  if(idart==idca){
+      System.out.println("kifkif");
+  return true;}return  false;}
   
 
     

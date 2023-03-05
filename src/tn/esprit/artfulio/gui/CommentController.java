@@ -35,18 +35,22 @@ public class CommentController implements Initializable {
     private Label txtcom;
     @FXML
     private Label datepost;
+    @FXML
+    private ImageView delete;
+    @FXML
+    private Label id_com;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       commentaire c=new commentaire();
-       commentaireservice cs = new  commentaireservice();
-       c=cs.affichercom(46);
-       
-        loadcom(c);
-    }    
+//       commentaire c=new commentaire();
+//       commentaireservice cs = new  commentaireservice();
+//       c=cs.affichercom(54);
+//       
+//        loadcom(c);
+   }    
 
     
     public void loadcom(commentaire c){
@@ -60,6 +64,7 @@ public class CommentController implements Initializable {
         setpdp(c.getId_util());
        txtcom.setText(c.getTexte());
        datepost.setText(c.getDate_post());
+       id_com.setText(""+c.getId_com());
        }
     public void setpdp( int id) {
      User u = new User();
@@ -70,7 +75,15 @@ u=us.afficherProfilefb(id);
     imgprofile.setImage(image);   
 }
     @FXML
-    private void taketoprofile(MouseEvent event) {
-    }
+   public void delcom(){
+       int id= Integer.parseInt(id_com.getText());
+       commentaire c = new commentaire(id);
+       commentaireservice cs=new commentaireservice();
+       cs.supprimercommentaire(c);
+       
+   }
+
+   
+   
     
 }

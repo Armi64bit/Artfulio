@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -104,9 +105,9 @@ public class AddkpostController implements Initializable {
          
         ArtworkService as = new ArtworkService();
          
-        java.sql.Date d=new java.sql.Date(2);java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             
-        artwork a= new artwork(n, des, p, 4, d, User.Current_User.getId_user(), li, di, i);
+        artwork a= new artwork(n, des, p, 4, date, User.Current_User.getId_user(), li, di, i);
         as.ajouterartwork2(a);
 
      

@@ -32,7 +32,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT">
                            <children>
-                              <Label fx:id="usernamecom" onMouseClicked="#taketoprofile" text="Username">
+                              <Label fx:id="usernamecom" text="Username">
                                  <font>
                                     <Font name="Segoe UI Black" size="14.0" />
                                  </font>
@@ -46,6 +46,11 @@
                                  </HBox.margin>
                               </ImageView>
                               <Label fx:id="id_user" text="id_user" visible="false">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="id_com" text="id_com" visible="false">
                                  <font>
                                     <Font name="Segoe UI Black" size="14.0" />
                                  </font>
@@ -69,13 +74,18 @@
                   <Insets left="11.0" />
                </VBox.margin>
             </HBox>
-            <Pane styleClass="round-button" stylesheets="@feed.css" VBox.vgrow="ALWAYS">
+            <Pane prefHeight="46.0" prefWidth="289.0" styleClass="round-button" stylesheets="@feed.css" VBox.vgrow="ALWAYS">
                <children>
                   <Label fx:id="txtcom" layoutX="14.0" layoutY="13.0" text="nice owrk buddy">
                      <padding>
                         <Insets bottom="15.0" />
                      </padding>
                   </Label>
+                  <ImageView fx:id="delete" fitHeight="68.0" fitWidth="32.0" layoutX="251.0" layoutY="7.0" onMouseClicked="#delcom" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/supprimer.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>

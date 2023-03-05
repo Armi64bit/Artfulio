@@ -24,6 +24,10 @@ public class commentaire {
         this.id_util = id_util;
     }
 
+    public commentaire(int Id_com) {
+        this.Id_com = Id_com;
+    }
+
     public commentaire(int Id_com, String Texte, int id_artwork, int id_util) {
         this.Id_com = Id_com;
         this.Texte = Texte;
