@@ -7,18 +7,52 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Artfulio.gui.ModifierCollaborationController">
+
+<VBox style="-fx-background-color: #f2ebe9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Artfulio.gui.ModifierCollaborationController">
    <children>
-      <Label layoutX="70.0" layoutY="42.0" text="Type" />
-      <Label layoutX="71.0" layoutY="104.0" text="Titre" />
-      <Label layoutX="68.0" layoutY="163.0" text="Description" />
-      <Label layoutX="68.0" layoutY="295.0" text="date sortie" />
-      <ChoiceBox fx:id="typeModif" layoutX="168.0" layoutY="38.0" prefWidth="150.0" />
-      <TextField fx:id="titreModif" layoutX="168.0" layoutY="100.0" />
-      <TextArea fx:id="descrip_modif" layoutX="161.0" layoutY="151.0" prefHeight="98.0" prefWidth="339.0" />
-      <DatePicker fx:id="date_fin_modif" layoutX="154.0" layoutY="291.0" />
-      <Button fx:id="button_valider_modif" layoutX="438.0" layoutY="358.0" mnemonicParsing="false" onAction="#validerModif" prefHeight="44.0" prefWidth="90.0" text="Envoyer Modif" />
-      <Button fx:id="button_annuler_modif" layoutX="279.0" layoutY="358.0" mnemonicParsing="false" onAction="#annulerModification" prefHeight="44.0" prefWidth="99.0" text="Annuler" />
+      <Pane prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: #eddcd9;">
+         <children>
+            <Text fill="#2c2b2b" layoutX="226.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier" wrappingWidth="106.888671875">
+               <font>
+                  <Font name="Impact" size="29.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="600.0" styleClass="anchor-demande-left" stylesheets="@../img/styleDemande.css">
+         <children>
+            <Label layoutX="52.0" layoutY="39.0" text="Type">
+               <font>
+                  <Font name="Franklin Gothic Book" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="49.0" layoutY="100.0" text="Titre">
+               <font>
+                  <Font name="Franklin Gothic Book" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="49.0" layoutY="163.0" text="Description">
+               <font>
+                  <Font name="Franklin Gothic Book" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="292.0" text="date sortie">
+               <font>
+                  <Font name="Franklin Gothic Book" size="20.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="typeModif" layoutX="168.0" layoutY="38.0" prefHeight="35.0" prefWidth="156.0" />
+            <TextField fx:id="titreModif" layoutX="168.0" layoutY="90.0" prefHeight="35.0" prefWidth="200.0" />
+            <TextArea fx:id="descrip_modif" layoutX="161.0" layoutY="151.0" prefHeight="98.0" prefWidth="339.0" />
+            <DatePicker fx:id="date_fin_modif" layoutX="154.0" layoutY="291.0" prefHeight="35.0" prefWidth="200.0" />
+            <Button fx:id="button_valider_modif" layoutX="438.0" layoutY="358.0" mnemonicParsing="false" onAction="#validerModif" prefHeight="44.0" prefWidth="124.0" text="Valider" />
+            <Button fx:id="button_annuler_modif" layoutX="254.0" layoutY="358.0" mnemonicParsing="false" onAction="#annulerModification" prefHeight="44.0" prefWidth="124.0" text="Annuler" />
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</VBox>

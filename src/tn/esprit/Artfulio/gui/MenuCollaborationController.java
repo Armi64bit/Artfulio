@@ -71,9 +71,9 @@ public class MenuCollaborationController implements Initializable {
     @FXML
     private Label label_email;
     
- //   @FXML
- //   private PieChart chartType;
-    
+    @FXML
+    private Button btn_imprimer;
+        
     @FXML
     private AnchorPane anchorPieChart = new AnchorPane();
     
@@ -101,6 +101,7 @@ public class MenuCollaborationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        tableGeneralCollab.setFixedCellSize(50);
         svc = new ServCollaboration();
         afficherGraphique();
        // anchorPieChart.getChildren().add(chartType);
@@ -262,4 +263,36 @@ public class MenuCollaborationController implements Initializable {
         svc.createChart(anchorPieChart);
     }
 
+          @FXML
+    void btn_imp(ActionEvent event) {
+
+           try {
+            // Charger la scène2.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("imprimerCollaborationn.fxml"));
+            Parent root = loader.load();
+
+            // Passer les données de nom et prénom à la scène2
+            ImprimerCollaborationnController modifController = loader.getController();
+            Collaboration c = new Collaboration();
+            ServCollaboration sercol = new ServCollaboration();
+            c.setTitre(Data.titre);
+            c.setType_collaboration(Data.description);
+            //on recupere toute les info dune collaboration
+            System.out.println("le titre "+Data.titre);
+            System.out.println("le type "+Data.type);
+         
+            c= sercol.recherche(Data.titre,Data.type);
+            Data.id = c.getId_collaboration();
+            Data.nom=c.getNom_user();
+            Data.email=c.getEmail_user();
+            modifController.afficherModif(c);
+
+            // Afficher la scène2
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) button_mofidier.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -14,13 +14,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.mail.MessagingException;
 import tn.esprit.Artfulio.entites.Collaboration;
 import tn.esprit.Artfulio.services.Email;
@@ -59,6 +63,9 @@ public class DemandeCollaborationController implements Initializable {
 
     @FXML
     private Label error_type;
+    
+    @FXML
+    private Button buttonAnnulerDemande;
 
     /**
      * Initializes the controller class.
@@ -94,25 +101,22 @@ public class DemandeCollaborationController implements Initializable {
 
         // Valide le champ type
         String verif_type = type.getValue();
-        System.out.println("valeur de type"+verif_type);
         if (verif_type == null) {
             System.out.println("je suis dans l'erreur");
             error_type.setText("veuillez selectionner une valeur");
             valide = false;
         }
 
-// Valide la date de sortie
+            // Valide la date de sortie
         if (!ValidationChamps.validerDate(date_sortie, error_date)) {
             valide = false;
         }
 
         if (valide) {
             // Traiter le formulaire (par exemple, enregistrer les données)
-            System.out.println(c);
-
             ServCollaboration servcollab = new ServCollaboration();
             if ((servcollab.ajouterCollaboration(c) != -1)) {
-                System.out.println("ajout reussi");
+                Data.information("Votre demande de collaboration a été envoyé avec success", "Reussi");
                 // information("votre demande a bien été envoye", "etat envoie", "bonne journée");
                 Email e = new Email();
                 try {
@@ -121,12 +125,28 @@ public class DemandeCollaborationController implements Initializable {
                     Logger.getLogger(ServCollaboration.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
-                System.out.println("ajout echec ajout");
-                // warning();
+                Data.warning("Probleme lors de l'ajout dans la base de donnée", "echec ajout");
             }
         }
 
         //******************************************************
+    }
+    
+    @FXML
+    void AnnulerDemande(ActionEvent event) {
+          Data.information( "notification", "demande annulé");
+           try {
+            // Charger la scène2.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menuCollaboration.fxml"));
+            Parent root = loader.load();
+
+            // Afficher la scène2
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) buttonAnnulerDemande.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

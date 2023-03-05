@@ -22,7 +22,7 @@ public class Main extends Application {
         
         System.out.println("chemin");
     //    System.out.println(getClass().getResource("DemandeCollaboration.fxml"));
-    //   Parent root = FXMLLoader.load(getClass().getResource("DemandeCollaboration.fxml")); 
+     //  Parent root = FXMLLoader.load(getClass().getResource("DemandeCollaboration.fxml")); 
         
          System.out.println(getClass().getResource("menuCollaboration.fxml"));
        Parent root = FXMLLoader.load(getClass().getResource("menuCollaboration.fxml")); 
