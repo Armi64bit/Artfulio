@@ -10,12 +10,15 @@ import tn.esprit.artfulio.entites.User;
 import tn.esprit.artfulio.services.ProfileService;
 import tn.esprit.artfulio.services.skillsservice;
 import tn.esprit.artfulio.entites.skills;
+import tn.esprit.artfulio.entites.sous_categorie;
+
 
 import tn.esprit.artfulio.entites.commentaire;
 import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.services.ArtworkService;
 import tn.esprit.artfulio.services.UserService;
 import tn.esprit.artfulio.services.commentaireservice;
+import tn.esprit.artfulio.services.SouscategorieService;
 import tn.esprit.artfulio.api.QR;
 
 
@@ -24,8 +27,11 @@ public class Main {
  
   
     public static void main (String []args){
-        QR qr= new QR();
-        qr.Create_QR("path", "2");
+        
+        SouscategorieService scs=new SouscategorieService();
+        System.out.print(scs.affichersouscategorie());
+//        QR qr= new QR();
+//        qr.Create_QR("path", "2");
         //        commentaire c= new commentaire( "nice", 5, 9);
 //        commentaireservice cs= new commentaireservice();
 //      //  txtcommentpost.getText(),id, User.Current_User.getId_user()

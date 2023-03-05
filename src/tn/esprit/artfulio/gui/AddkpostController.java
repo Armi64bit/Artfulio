@@ -27,7 +27,11 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import tn.esprit.artfulio.api.QR;
 import tn.esprit.artfulio.entites.User;
 import tn.esprit.artfulio.entites.artwork;
+import tn.esprit.artfulio.entites.sous_categorie;
+
 import tn.esprit.artfulio.services.ArtworkService;
+import tn.esprit.artfulio.services.SouscategorieService;
+
 import tn.esprit.artfulio.services.UserService;
 
 
@@ -43,15 +47,13 @@ public class AddkpostController implements Initializable {
     @FXML
     private Button imp;
     @FXML
-    private DatePicker dateart;
-    @FXML
     private Button vld;
     @FXML
     private TextField nom;
     @FXML
     private TextField desc;
     @FXML
-    private ChoiceBox<?> type;
+    private ChoiceBox<String> type;
     @FXML
     private TextField lien;
     @FXML
@@ -61,13 +63,32 @@ public class AddkpostController implements Initializable {
  
     @FXML
     private TextField path;
+    @FXML
+    private Label id_type;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
+        SouscategorieService scs=new SouscategorieService();
+      List <sous_categorie> L =scs.affichersouscategorie();
+        for (int i = 0; i < L.size(); i++) {
+      type.getItems().add(L.get(i).getNom_sous_categorie());
+   type.setOnAction(this::settype);
+          }
+//         
+    }
+    public void settype(ActionEvent event){
+        if (type.getValue().equals("image"))
+        {
+        id_type.setText("2");}
+         if (type.getValue().equals("audio"))
+        {
+        id_type.setText("4");}
+        if (type.getValue().equals("video"))
+        {
+        id_type.setText("3");}
     }
 
 
@@ -102,13 +123,15 @@ public class AddkpostController implements Initializable {
         String  li=lien.getText();
          float  di=Float.valueOf(dim.getText());
         int id= Integer.parseInt( prix.getText());
+        int type= Integer.parseInt( id_type.getText());
+          
         float p=(float)id;
          
         ArtworkService as = new ArtworkService();
          
 java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             
-        artwork a= new artwork(n, des, p, 4, date, User.Current_User.getId_user(), li, di, i);
+        artwork a= new artwork(n, des, p, type, date, User.Current_User.getId_user(), li, di, i);
         as.ajouterartwork2(a);
 
       QR qr=new QR();

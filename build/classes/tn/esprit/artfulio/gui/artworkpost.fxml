@@ -120,7 +120,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="id_art" onMouseClicked="#de" text="nb share">
+                  <Label fx:id="id_art" onMouseClicked="#de" text="nb share" visible="false">
                      <font>
                         <Font size="18.0" />
                      </font>

@@ -384,8 +384,10 @@ reactionsContainer.setVisible(true);
         int idart= Integer.parseInt(id_art.getText());
         ArtworkService as=new ArtworkService();
         artwork a=new artwork(idart);
+        commentaireservice cs=new commentaireservice();
+        cs.supprimercommentaire(idart);
        
-        System.out.println(        as.supprimerartwork(a));
+        System.out.println(as.supprimerartwork(a));
     }
 
     @FXML

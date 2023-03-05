@@ -64,6 +64,20 @@ try {
             return false;
         }    }
 
+    public boolean supprimercommentaire( int id) {
+try {
+            String req = "delete from commentaire where id_artwork= ? ";
+            PreparedStatement ps = myconnex
+                    .prepareStatement(req);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            return true;
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false;
+        }
+    }
     @Override
     public boolean supprimercommentaire(commentaire p) {
 try {
