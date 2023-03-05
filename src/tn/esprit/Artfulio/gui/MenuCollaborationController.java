@@ -68,6 +68,9 @@ public class MenuCollaborationController implements Initializable {
     @FXML
     private Label label_titre;
     
+    @FXML
+    private Label label_email;
+    
  //   @FXML
  //   private PieChart chartType;
     
@@ -119,12 +122,11 @@ public class MenuCollaborationController implements Initializable {
         System.out.println("l'id est: " + c.getId_collaboration());
         System.out.println("le tla description : " + c.getDescription());
         c.setId_collaboration(6);
-        System.out.println("l'id est: " + c.getId_collaboration());
 
         if (serv.supprimerCollaboration(c)) {
-            System.out.println("la suppression c'est bien passe");
+            Data.information("la suppression réussit", "fini");
         } else {
-            System.out.println("la suppression c'est mal passe");
+            Data.warning(" échec de la suppression", "Erreur");
         }
         affichagerTableMenu();
     }
@@ -156,7 +158,6 @@ public class MenuCollaborationController implements Initializable {
             Data.nom=c.getNom_user();
             Data.email=c.getEmail_user();
             modifController.afficherModif(c);
-            System.out.println("le contenu de c michel :\n "+c);
 
             // Afficher la scène2
             Scene scene = new Scene(root);
@@ -177,12 +178,10 @@ public class MenuCollaborationController implements Initializable {
         }
 
         tableGeneralCollab.setItems(listCol);
-        // col_artiste.setCellValueFactory(colab -> colab.getTableView().idProperty());
+        col_artiste.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("nom_user"));
         col_titre.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("titre"));
         col_type.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("type_collaboration"));
         col_status.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("status"));
-        // col_status.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("description"));
-        //    col_artiste.setCellValueFactory(new PropertyValueFactory<Collaboration, String>("date_sortie"));
 
         //****************** recherche *****************************************
         FilteredList<Collaboration> filterdata = new FilteredList<Collaboration>(listCol, btn_annulerCol -> true);
@@ -244,6 +243,7 @@ public class MenuCollaborationController implements Initializable {
                     label_periode.setText(cc.getDate_sortie().toString());
                     label_descrition.setText(cc.getDescription());
                     label_titre.setText(cc.getTitre());
+                    label_email.setText(cc.getEmail_user());
                 }
             });
             return myRow;

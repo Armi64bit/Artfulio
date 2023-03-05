@@ -131,7 +131,6 @@ public class ServCollaboration implements IntCollaboration {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("\n\n la liste qui est renvoyer\n " + list.toString() + "\n\n\n");
         return list;
     }
 
@@ -199,16 +198,14 @@ public class ServCollaboration implements IntCollaboration {
             Logger.getLogger(ServCollaboration.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cc;
-// Fermeture de l'objet ResultSet, de l'objet PreparedStatement et de la connexion à la base de données
-// Attribution des valeurs de recherche aux paramètres de la requête préparée
     }
 
     //----------------- statistique ----------------------
     public void createChart(AnchorPane anchorPane) {
-                // Créer le graphique de type camembert
+        // Créer le graphique de type camembert
         PieChart chart = new PieChart();
         anchorPane.getChildren().add(chart);
-        
+
         // Créer une tâche pour récupérer les données en arrière-plan
         Task<List<PieChart.Data>> task = new Task<List<PieChart.Data>>() {
             @Override
@@ -226,12 +223,11 @@ public class ServCollaboration implements IntCollaboration {
                         int count = rs.getInt(2);
                         dataList.add(new PieChart.Data(type, count));
                     }
-                    
-                    
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                
+
                 return dataList;
             }
         };
