@@ -16,6 +16,7 @@ import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.services.ArtworkService;
 import tn.esprit.artfulio.services.UserService;
 import tn.esprit.artfulio.services.commentaireservice;
+import tn.esprit.artfulio.api.QR;
 
 
 
@@ -23,12 +24,14 @@ public class Main {
  
   
     public static void main (String []args){
-        commentaire c= new commentaire( "nice", 5, 9);
-        commentaireservice cs= new commentaireservice();
-      //  txtcommentpost.getText(),id, User.Current_User.getId_user()
-       // cs.modifiercommentaire(c);
-        System.out.println(cs.numcom(5));
-        //Profile p = new Profile("aaa","aaa","a","aaa","aaa");
+        QR qr= new QR();
+        qr.Create_QR("path", "2");
+        //        commentaire c= new commentaire( "nice", 5, 9);
+//        commentaireservice cs= new commentaireservice();
+//      //  txtcommentpost.getText(),id, User.Current_User.getId_user()
+//       // cs.modifiercommentaire(c);
+//        System.out.println(cs.numcom(5));
+//        //Profile p = new Profile("aaa","aaa","a","aaa","aaa");
         //ProfileService profileService = new ProfileService();
        // profileService.ajouterProfile(p);
 //        skills s= new skills("deva","aaaaaaadaz");
@@ -52,18 +55,20 @@ public class Main {
 
 
 
-      //  ArtworkService as =new ArtworkService();
-        //artwork a=new artwork();
-        //Date d=new Date(2);
-        //a = new artwork ("", "", 0, 4, d, 10, "", 0, "aa");
-          //     as.ajouterartwork(a);
- //UserService us = new UserService();
- //User u = new User(9,"bahaa", "");
-   //     us.update(u);
-//       User list = new User();
-//       list=us.afficherProfilefb(10);
-       System.out.println("a");
-//     
+//       ArtworkService as =new ArtworkService();
+//        artwork a=new artwork(35);
+//        
+//as.supprimerartwork(a);
+////Date d=new Date(2);
+//        //a = new artwork ("", "", 0, 4, d, 10, "", 0, "aa");
+//          //     as.ajouterartwork(a);
+// //UserService us = new UserService();
+// //User u = new User(9,"bahaa", "");
+//   //     us.update(u);
+////       User list = new User();
+////       list=us.afficherProfilefb(10);
+//       System.out.println("a");
+////     
 }
     
 }

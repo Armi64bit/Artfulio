@@ -43,8 +43,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import tn.esprit.artfulio.entites.commentaire;
+import tn.esprit.artfulio.entites.artwork;
+
 import tn.esprit.artfulio.services.commentaireservice;
 import tn.esprit.artfulio.utils.SessionManager;
+import tn.esprit.artfulio.api.QR;
 
 /**
  * FXML Controller class
@@ -92,7 +95,6 @@ public class ArtworkpostController implements Initializable {
     private Label id_user;
     @FXML
     private VBox commentcontainer;
-    @FXML
     private ImageView currentuserimg;
     @FXML
     private TextField txtcommentpost;
@@ -100,6 +102,10 @@ public class ArtworkpostController implements Initializable {
     private Label id_art;
     @FXML
     private Button postcom;
+    @FXML
+    private Button dellpost;
+    @FXML
+    private HBox share;
 
     /**
      * Initializes the controller class.
@@ -107,7 +113,7 @@ public class ArtworkpostController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    coms ();   
+    //coms ();   
     
     
           //   System.out.println("id art = ");
@@ -121,6 +127,20 @@ public class ArtworkpostController implements Initializable {
         commentaireservice cs= new commentaireservice();
         cs.ajoutercommentaire(c);        }
             });
+    
+//   dellpost.setOnAction(new EventHandler(){
+//        @Override
+//        public void handle(Event event) {
+//int idart= Integer.parseInt(id_art.getText());
+//      ArtworkService as=new ArtworkService();
+//      artwork a=as.afficherartwork1(idart);
+//      as.supprimerartwork(a);
+//        System.out.println("post supp");
+//            }
+//   
+//   
+//   
+//   });
    // pdpcurrent();
     
     }    
@@ -296,6 +316,9 @@ reactionsContainer.setVisible(true);
             root = loaderp.load();
             ProfileController pc = loaderp.getController();
             pc.setdata(id);
+            pc.feedaudio(id);
+            pc.feedimg(id);
+            pc.feedmusic(id);
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             scene=new Scene(root);
             stage.setScene(scene);
@@ -306,19 +329,18 @@ reactionsContainer.setVisible(true);
     }
     //int idd=iscomment();
    
-    public void coms (){
+    public void coms (int idart){
     
         commentaireservice as = new commentaireservice();
 
         List<commentaire> listcom = new ArrayList<>();
        // users();
         try {
-
-            listcom = as.affichercommentaire();
+            listcom = as.affichercommentaire(idart);
          //   int parNum = Integer.valueOf(id_art.getText());
             for (int k = 0; k < listcom.size(); k++) {
                 
-if(33==listcom.get(k).getId_artwork()) {
+
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("comment.fxml"));
                 HBox vbox = loader.load();
@@ -326,7 +348,7 @@ if(33==listcom.get(k).getId_artwork()) {
                 CommentController artcont = loader.getController();
                 artcont.loadcom(listcom.get(k));
                 commentcontainer.getChildren().add(vbox);
-}
+
 
             }
             
@@ -343,8 +365,54 @@ if(33==listcom.get(k).getId_artwork()) {
   if(idart==idca){
       System.out.println("kifkif");
   return true;}return  false;}
-  
+    public void dell(){
+     
+    }
 
+    @FXML
+    private void de(ActionEvent event) {
+     
+    }
+
+    @FXML
+    private void onlikecontainermousereleased(KeyEvent event) {
+    }
+
+//    @FXML
+//    private void qr() {
+//    
+//    }
+
+    @FXML
+    private void de(MouseEvent event) {
+        int idart= Integer.parseInt(id_art.getText());
+      ArtworkService as=new ArtworkService();
+      artwork a=as.afficherartwork1(idart);
+      as.supprimerartwork(a);
+        System.out.println("post supp");
+    }
+
+    @FXML
+    private void qr(MouseEvent event) {
+    
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("qr.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            QrController q=fxmlLoader.getController();
+            ArtworkService as= new ArtworkService();
+            int idart= Integer.parseInt(id_art.getText());
+         artwork a=as.afficherartwork1(idart);
+            q.qrwindow(a);
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+
+  
     
 
 }

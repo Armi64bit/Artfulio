@@ -98,13 +98,13 @@ public class ProfileController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        feedimg(portfoliocontainer);
-        feedaudio(musiccontainer);
-        feedmusic(videocontainer);
+        //feedimg();
+      //  feedaudio();
+    //    feedmusic();
 
     }
 
-    public void feedaudio(HBox portfoliocontainer) {
+    public void feedaudio(int id) {
 
         ArtworkService as = new ArtworkService();
 
@@ -112,7 +112,7 @@ public class ProfileController implements Initializable {
         // users();
         try {
 
-            listart = as.afficherartwork();
+            listart = as.afficherartwork(4,id);
             for (int i = 0; i < listart.size(); i++) {
                 if (listart.get(i).getId_type()==4) {
                     FXMLLoader loader = new FXMLLoader();
@@ -120,7 +120,7 @@ public class ProfileController implements Initializable {
                     VBox vbox = loader.load();
                     PortfolioitemController artcont = loader.getController();
                     artcont.setdata(listart.get(i));
-                    portfoliocontainer.getChildren().add(vbox);
+                    musiccontainer.getChildren().add(vbox);
 
                 }
             }
@@ -128,7 +128,7 @@ public class ProfileController implements Initializable {
         }
     }
 
-    public void feedimg(HBox portfoliocontainer) {
+    public void feedimg(int id) {
 
         ArtworkService as = new ArtworkService();
 
@@ -136,9 +136,9 @@ public class ProfileController implements Initializable {
         // users();
         try {
 
-            listart = as.afficherartwork();
+            listart = as.afficherartwork(2,id);
             for (int i = 0; i < listart.size(); i++) {
- if (listart.get(i).getId_type()==1) {
+
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("portfolioitem.fxml"));
                 VBox vbox = loader.load();
@@ -146,30 +146,30 @@ public class ProfileController implements Initializable {
                 artcont.setdata(listart.get(i));
                 portfoliocontainer.getChildren().add(vbox);
 
-            }}
+            }
         } catch (Exception e) {
         }
     }
 
-    public void feedmusic(HBox portfoliocontainer) {
+    public void feedmusic(int id) {//feedvideo
 
         ArtworkService as = new ArtworkService();
-
+ 
         List<artwork> listart = new ArrayList<>();
         // users();
         try {
 
-            listart = as.afficherartwork();
+            listart = as.afficherartwork(3,id);
             for (int i = 0; i < listart.size(); i++) {
- if (listart.get(i).getId_type()==3) {
+
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("portfolioitem.fxml"));
                 VBox vbox = loader.load();
                 PortfolioitemController artcont = loader.getController();
                 artcont.setdata(listart.get(i));
-                portfoliocontainer.getChildren().add(vbox);
+                videocontainer.getChildren().add(vbox);
 
-            }}
+            }
         } catch (Exception e) {
         }
     }

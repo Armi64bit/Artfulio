@@ -24,6 +24,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import tn.esprit.artfulio.api.QR;
 import tn.esprit.artfulio.entites.User;
 import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.services.ArtworkService;
@@ -110,9 +111,13 @@ java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime(
         artwork a= new artwork(n, des, p, 4, date, User.Current_User.getId_user(), li, di, i);
         as.ajouterartwork2(a);
 
+      QR qr=new QR();
+      String path=a.getLien_artwork();
      
+      qr.Create_QR(path,a.getNom_artwork());
 
 
     }
+    
 
 }

@@ -119,6 +119,7 @@ public class FeedController implements Initializable {
                 VBox vbox = loader.load();
                 ArtworkpostController artcont = loader.getController();
                 artcont.setdata(listart.get(i));
+                artcont.coms(listart.get(i).getId_artwork());
                 postscontainer.getChildren().add(vbox);
 
             }
@@ -144,6 +145,7 @@ public class FeedController implements Initializable {
  vboxu.setPadding(new Insets(10));
                UseritemController artcont = loaderu.getController();
                 artcont.setpdp(list.get(j));
+                
                 usercontainer.getChildren().add(vboxu);
             }
         }} catch (IOException ex) {

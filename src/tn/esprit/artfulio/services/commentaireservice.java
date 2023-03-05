@@ -102,6 +102,27 @@ try {
         }
         return list;    }
     
+    public List<commentaire> affichercommentaire(int id) {
+   List<commentaire> list = new ArrayList<>();
+        try {
+            String req = "select * from commentaire where id_artwork='"+id+"'";
+            Statement ste = myconnex.createStatement();
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+                commentaire p = new commentaire();
+                p.setId_util(res.getInt("id_util"));
+                p.setTexte(res.getString("Texte"));
+                p.setId_artwork(res.getInt("id_artwork"));
+                p.setDate_post(res.getString("Date_post"));
+                p.setId_com(res.getInt("Id_com"));
+              
+
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+        }
+        return list;    }
+    
  public commentaire affichercom(int id) {
          commentaire p = new commentaire();
         try {

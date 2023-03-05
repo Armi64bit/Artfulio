@@ -105,7 +105,7 @@ public class FeedvideoController implements Initializable {
        // users();
         try {
 
-            listart = as.afficherartwork();
+            listart = as.afficherartwork(3);
             for (int i = 0; i < listart.size(); i++) {
 
                 FXMLLoader loader = new FXMLLoader();
@@ -113,6 +113,7 @@ public class FeedvideoController implements Initializable {
                 VBox vbox = loader.load();
                 ArtworkpostController artcont = loader.getController();
                 artcont.setdata(listart.get(i));
+                artcont.coms(listart.get(i).getId_artwork());
                 postscontainer.getChildren().add(vbox);
 
             }

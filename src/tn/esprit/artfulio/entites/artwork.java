@@ -44,6 +44,10 @@ public class artwork {
         this.description_artwork = description_artwork;
         this.img_artwork = img_artwork;
     }
+
+    public artwork(String nom_artwork) {
+        this.nom_artwork = nom_artwork;
+    }
     
 
     public artwork(String nom_artwork, String description_artwork, float prix_artwork, int id_type, Date date, int id_artist, String lien_artwork, float dimension_artwork, String img_artwork) {
@@ -56,6 +60,10 @@ public class artwork {
         this.lien_artwork = lien_artwork;
         this.dimension_artwork = dimension_artwork;
         this.img_artwork = img_artwork;
+    }
+
+    public artwork(int id_artwork) {
+        this.id_artwork = id_artwork;
     }
 
     public int getId_artwork() {
