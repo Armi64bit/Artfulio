@@ -197,10 +197,13 @@
             <Insets bottom="10.0" top="10.0" />
          </padding>
       </HBox>
-      <VBox fx:id="commentcontainer" alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <VBox fx:id="commentcontainer" alignment="CENTER_LEFT" spacing="20.0" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></VBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField fx:id="txtcommentpost" prefHeight="86.0" prefWidth="433.0">
+            <TextField fx:id="txtcommentpost" prefHeight="86.0" prefWidth="346.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="14.0" right="14.0" />
                </HBox.margin></TextField>

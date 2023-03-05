@@ -145,7 +145,7 @@ static Connection myconnex
     public List<artwork> afficherartwork() {
           List<artwork> list = new ArrayList<>();
     try {
-            String req = "SELECT * FROM `artwork`";
+            String req = "SELECT * FROM `artwork`ORDER BY `artwork`.`date` DESC";
             Statement ste = myconnex.createStatement();
             ResultSet res = ste.executeQuery(req);
             while (res.next()) {
@@ -173,7 +173,7 @@ static Connection myconnex
     public List<artwork> afficherartwork(int id) {
           List<artwork> list = new ArrayList<>();
     try {
-            String req = "SELECT * FROM `artwork` where id_type='"+id+"'";
+            String req = "SELECT * FROM `artwork` where id_type='"+id+"'ORDER BY `artwork`.`date` DESC";
             Statement ste = myconnex.createStatement();
             ResultSet res = ste.executeQuery(req);
             while (res.next()) {
@@ -231,7 +231,7 @@ static Connection myconnex
     public List<artwork> afficherartwork(int id,int idu) {
           List<artwork> list = new ArrayList<>();
     try {
-            String req = "SELECT * FROM `artwork` where id_type='"+id+"'AND `id_artist`='"+idu+"'";
+            String req = "SELECT * FROM `artwork` where id_type='"+id+"'AND `id_artist`='"+idu+"'ORDER BY `artwork`.`date` DESC";
             Statement ste = myconnex.createStatement();
             ResultSet res = ste.executeQuery(req);
             while (res.next()) {
