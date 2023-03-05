@@ -66,7 +66,7 @@ public class FeedController implements Initializable {
       User u=us.afficherProfilefb(9);
        User.setCurrent_User(u);
        SessionManager.getInstace(u.getId_user(),u.getCin_user(),u.getUsername(),u.getImg_user(),u.getEmail_user(),u.getAdresse_user(),u.getType_role(),u.getIs_pro());
-                     System.out.println(User.Current_User.getUsername());
+                 //    System.out.println(User.Current_User.getUsername());
     }
 
     private boolean islightmode = true;

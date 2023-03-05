@@ -23,8 +23,9 @@ public class Main {
  
   
     public static void main (String []args){
-        commentaire c= new commentaire( 4,"tzzzzzzxt", 5, 9);
+        commentaire c= new commentaire( "nice", 5, 9);
         commentaireservice cs= new commentaireservice();
+      //  txtcommentpost.getText(),id, User.Current_User.getId_user()
        // cs.modifiercommentaire(c);
         System.out.println(cs.numcom(5));
         //Profile p = new Profile("aaa","aaa","a","aaa","aaa");

@@ -25,12 +25,38 @@ import tn.esprit.artfulio.utils.MyConnection;
 public class ArtworkService implements IArtworkService {
 static Connection myconnex
            = MyConnection.getInstance().getConnection();
+
+
+
+    public int ajouterartwork2(artwork p) {
+   
+        int id = -1;
+        try {
+  String sql = "INSERT INTO artwork (nom_artwork, description_artwork,prix_artwork,id_type,date,id_artist,lien_artwork,dimension_artwork,img_artwork) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = myconnex.prepareStatement(sql);
+            statement.setString(1, p.getNom_artwork());
+            statement.setString(2, p.getDescription_artwork());   
+            statement.setFloat(3, p.getPrix_artwork());   
+            statement.setInt(4, p.getId_type());   
+            statement.setDate(5,(java.sql.Date)  p.getDate());   
+            statement.setInt(6, p.getId_artist());   
+            statement.setString(7, p.getLien_artwork());   
+            statement.setFloat(8, p.getDimension_artwork());   
+            statement.setString(9, p.getImg_artwork());   
+         
+            id = statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return id;
+    }
+          
     @Override
     public int ajouterartwork(artwork p) {
    
         int id = -1;
         try {
-            String req1 = "INSERT INTO `artwork` (`id_artwork`, `nom_artwork`, `description_artwork`, `prix_artwork`, `id_type`, `date`, `id_artist`, `lien_artwork`, `dimension_artwork`, `img_artwork`) VALUES (NULL, '"+p.getNom_artwork()+"', '"+p.getDescription_artwork()+"', '"+p.getPrix_artwork()+"', '"+p.getId_type()+"', '"+p.getDate()+"', '"+p.getId_artist()+"', '"+p.getLien_artwork()+"', '"+p.getDimension_artwork()+"', '"+p.getImg_artwork()+"');";
+            String req1 = "INSERT INTO `artwork` (`id_artwork`, `nom_artwork`, `nom_artwork`, `prix_artwork`, `id_type`, `date`, `id_artist`, `lien_artwork`, `dimension_artwork`, `img_artwork`) VALUES (NULL, '"+p.getNom_artwork()+"', '"+p.getDescription_artwork()+"', '"+p.getPrix_artwork()+"', '"+p.getId_type()+"', '"+p.getDate()+"', '"+p.getId_artist()+"', '"+p.getLien_artwork()+"', '"+p.getDimension_artwork()+"', '"+p.getImg_artwork()+"');";
 
             Statement ste = myconnex.createStatement();
             id = ste.executeUpdate(req1);

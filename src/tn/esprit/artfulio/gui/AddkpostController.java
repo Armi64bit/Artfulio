@@ -92,18 +92,22 @@ public class AddkpostController implements Initializable {
         String n = nom.getText();
         String des=desc.getText();
         String i=path.getText();
+        System.out.println(i);
         //String sDate1=dateart.getValue().toString();
         //Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(sDate1);
         //Date da=date1;
         // int  typ=type.getValue().toString();
         String  li=lien.getText();
-        // String  di=dim.getText();
-        // float p=(float)prix.getText();
+         float  di=Float.valueOf(dim.getText());
+        int id= Integer.parseInt( prix.getText());
+        float p=(float)id;
+         
         ArtworkService as = new ArtworkService();
          
-        java.sql.Date d=new java.sql.Date(2);
-        artwork a= new artwork(n, des, 0, 4, d, 9, li, 0, i);
-        as.ajouterartwork(a);
+        java.sql.Date d=new java.sql.Date(2);java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+            
+        artwork a= new artwork(n, des, p, 4, d, User.Current_User.getId_user(), li, di, i);
+        as.ajouterartwork2(a);
 
      
 

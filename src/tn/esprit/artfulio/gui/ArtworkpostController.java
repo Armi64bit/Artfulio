@@ -22,10 +22,14 @@ import java.util.Date;
 import java.util.Calendar; 
 import java.util.List;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
@@ -40,6 +44,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import tn.esprit.artfulio.entites.commentaire;
 import tn.esprit.artfulio.services.commentaireservice;
+import tn.esprit.artfulio.utils.SessionManager;
 
 /**
  * FXML Controller class
@@ -68,8 +73,6 @@ public class ArtworkpostController implements Initializable {
     @FXML
     private Label nbcomments;
     @FXML
-    private Label nbshare;
-    @FXML
     private HBox reactionsContainer;
     @FXML
     private ImageView like;
@@ -89,6 +92,14 @@ public class ArtworkpostController implements Initializable {
     private Label id_user;
     @FXML
     private VBox commentcontainer;
+    @FXML
+    private ImageView currentuserimg;
+    @FXML
+    private TextField txtcommentpost;
+    @FXML
+    private Label id_art;
+    @FXML
+    private Button postcom;
 
     /**
      * Initializes the controller class.
@@ -96,6 +107,17 @@ public class ArtworkpostController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     coms ();   
+    postcom.setOnAction(new EventHandler() {
+
+        @Override
+        public void handle(Event event) {
+ int id= Integer.parseInt( id_art.getText());
+ String txt =txtcommentpost.getText();
+        commentaire c = new commentaire(txt,id, User.Current_User.getId_user());
+        commentaireservice cs= new commentaireservice();
+        cs.ajoutercommentaire(c);        }
+            });
+   // pdpcurrent();
     }    
     
 public void setdata(artwork a) {
@@ -105,6 +127,7 @@ public void setdata(artwork a) {
 //Image pdp= new Image(getClass().getResourceAsStream("logo.png"));
 setImage(a.getImg_artwork());
 setpdp(a.getId_artist());
+
    // Imgpost.setImage(img);
   //imgprofile.setImage(pdp);
    Date currentDate = a.getDate();
@@ -119,8 +142,9 @@ setpdp(a.getId_artist());
             id_user.setText(""+a.getId_artist()+"");
             int numcom=cs.numcom(a.getId_artwork());
             nbcomments.setText(numcom+"  commentaire(s)");
-            System.out.println(numcom);
-       
+            id_art.setText(""+a.getId_artwork()+"");
+           // System.out.println(numcom);
+   
     
 }
 
@@ -129,6 +153,13 @@ public void setImage(String imagePath) {
     Image image = new Image(imageFile.toURI().toString());
     Imgpost.setImage(image);
       
+}
+public void pdpcurrent(){
+    // User.Current_User.getUsername();
+    File imageFile = new File(User.Current_User.getImg_user());
+    Image image = new Image(imageFile.toURI().toString());
+   
+currentuserimg.setImage(image);
 }
 public void setpdp( int id) {
      User u = new User();
@@ -146,6 +177,8 @@ u=us.afficherProfilefb(id);
    if(u.getIs_pro()==0)
     {
    imgbadge.setVisible(false);}
+   
+   // System.out.println(    User.getCurrent_User().getUsername());
 }
 
 private Image getRoundImage(Image image, int radius) {
@@ -290,6 +323,11 @@ reactionsContainer.setVisible(true);
         }
 }
 
+   
+
   
+  
+
+    
 
 }

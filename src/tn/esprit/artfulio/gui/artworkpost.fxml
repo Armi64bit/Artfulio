@@ -120,7 +120,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="nbshare" text="nb share">
+                  <Label fx:id="id_art" text="nb share">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -214,8 +214,8 @@
       <VBox fx:id="commentcontainer" alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField prefHeight="43.0" prefWidth="444.0" />
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="114.0" text="comment" />
+            <TextField fx:id="txtcommentpost" prefHeight="43.0" prefWidth="444.0" />
+            <Button fx:id="postcom" mnemonicParsing="false" prefHeight="45.0" prefWidth="114.0" text="comment" />
          </children>
       </HBox>
    </children>

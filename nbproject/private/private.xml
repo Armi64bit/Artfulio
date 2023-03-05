@@ -6,14 +6,17 @@
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/gui/CommentController.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/services/Icommentaireservice.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/gui/FeedController.java</file>
+            <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/services/ProfileService.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/entites/User.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/gui/FeedimageController.java</file>
-            <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/entites/commentaire.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/gui/FeedmusiqueController.java</file>
+            <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/gui/ArtworkpostController.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/gui/comment.fxml</file>
+            <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/gui/MainWindow.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/entites/skills.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/services/commentaireservice.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/services/IProfileService.java</file>
+            <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/services/ArtworkService.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/tn/esprit/artfulio/utils/SessionManager.java</file>
             <file>file:/C:/Users/msi/Documents/GitHub/Artfulio/src/Main.java</file>
         </group>
