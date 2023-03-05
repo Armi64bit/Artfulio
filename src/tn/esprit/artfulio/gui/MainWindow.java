@@ -37,6 +37,7 @@ public class MainWindow extends Application {
 
             Parent root = FXMLLoader.
                     load(getClass().getResource("feed.fxml"));
+            
             Scene scene = new Scene(root);
            String css;
             css = this.getClass().getResource("feed.css").toExternalForm();

@@ -67,6 +67,7 @@ public class FeedController implements Initializable {
        User.setCurrent_User(u);
        SessionManager.getInstace(u.getId_user(),u.getCin_user(),u.getUsername(),u.getImg_user(),u.getEmail_user(),u.getAdresse_user(),u.getType_role(),u.getIs_pro());
                  //    System.out.println(User.Current_User.getUsername());
+    
     }
 
     private boolean islightmode = true;
@@ -122,7 +123,9 @@ public class FeedController implements Initializable {
                 artcont.coms(listart.get(i).getId_artwork());
  
                 postscontainer.getChildren().add(vbox);
-              
+                 if(listart.get(i).getId_artist()!=User.getCurrent_User().getId_user()){artcont.setdelvis();
+}
+            
             }
             
         } catch (Exception e) {
