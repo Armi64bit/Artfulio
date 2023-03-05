@@ -39,6 +39,8 @@ public class CommentController implements Initializable {
     private ImageView delete;
     @FXML
     private Label id_com;
+    @FXML
+    private ImageView edit;
 
     /**
      * Initializes the controller class.
@@ -81,6 +83,10 @@ u=us.afficherProfilefb(id);
        commentaireservice cs=new commentaireservice();
        cs.supprimercommentaire(c);
        
+   }
+   public void setinvis(){
+       delete.setVisible(false);
+               edit.setVisible(false);
    }
 
    

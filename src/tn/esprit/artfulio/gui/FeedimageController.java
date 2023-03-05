@@ -120,7 +120,8 @@ public class FeedimageController implements Initializable {
                 artcont.setdata(listart.get(i));
                 artcont.coms(listart.get(i).getId_artwork());
                 postscontainer.getChildren().add(vbox);
-
+               if(listart.get(i).getId_artist()!=User.getCurrent_User().getId_user()){artcont.setdelvis();
+}
             }
         } catch (Exception e) {
         }

@@ -63,7 +63,7 @@ public class FeedController implements Initializable {
       feed();
       users();
       UserService us= new UserService();
-      User u=us.afficherProfilefb(9);
+      User u=us.afficherProfilefb(10);
        User.setCurrent_User(u);
        SessionManager.getInstace(u.getId_user(),u.getCin_user(),u.getUsername(),u.getImg_user(),u.getEmail_user(),u.getAdresse_user(),u.getType_role(),u.getIs_pro());
                  //    System.out.println(User.Current_User.getUsername());
@@ -120,9 +120,11 @@ public class FeedController implements Initializable {
                 ArtworkpostController artcont = loader.getController();
                 artcont.setdata(listart.get(i));
                 artcont.coms(listart.get(i).getId_artwork());
+ 
                 postscontainer.getChildren().add(vbox);
-
+              
             }
+            
         } catch (Exception e) {
         }
 }
