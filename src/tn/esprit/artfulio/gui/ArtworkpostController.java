@@ -404,6 +404,7 @@ reactionsContainer.setVisible(true);
             int idart= Integer.parseInt(id_art.getText());
          artwork a=as.afficherartwork1(idart);
             q.qrwindow(a);
+            stage.setTitle(a.getNom_artwork());
             stage.setScene(new Scene(root1));
             stage.show();
         } catch (IOException ex) {
