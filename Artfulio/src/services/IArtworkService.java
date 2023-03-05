@@ -5,16 +5,16 @@
  */
 package services;
 import java.util.List;
-import tn.esprit.artfulio.entites.artwork;
+import entities.Artwork;
 
 /**
  *
  * @author CALLO
  */
 public interface IArtworkService {
-     public int ajouterartwork(artwork p);
-    public boolean modifierartwork(artwork p);
-    public boolean supprimerartwork(artwork p);
-    public List<artwork> afficherartwork();
+     public int ajouterartwork(Artwork p);
+    public boolean modifierartwork(Artwork p);
+    public boolean supprimerartwork(Artwork p);
+    public List<Artwork> afficherartwork();
     
 }

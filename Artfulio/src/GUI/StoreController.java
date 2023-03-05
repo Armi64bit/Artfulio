@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package GUI;
 
+import Utils.MyConnection;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -22,9 +23,16 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import static services.ArtworkService.myconnex;
-import tn.esprit.artfulio.entites.artwork;
+
+
+import entities.Artwork;
+import java.sql.Connection;
+import javafx.scene.image.Image;
+
+import services.MyListener;
+
 
 /**
  *
@@ -50,17 +58,25 @@ public class StoreController implements Initializable{
     @FXML
     private ScrollPane scroll;
     
-    private List<artwork> list = new ArrayList<>();
-    public List<artwork> afficherartwork() {
+    private MyListener MyListener;
+    public static Connection myconnex
+           = MyConnection.getInstance().getConnection();
+    
+    
+    
+    private List<Artwork> list = new ArrayList<>();
+    public List<Artwork> afficherartwork() {
+        
           
     try {
+        
             String req = "SELECT * FROM `artwork`";
             
             Statement ste = myconnex.createStatement();
             ResultSet res = ste.executeQuery(req);
            
             while (res.next()) {
-                artwork s = new artwork();
+                Artwork s = new Artwork();
                 s.setNom_artwork(res.getString("nom_artwork"));
                 s.setDescription_artwork(res.getString("description_artwork"));
                 s.setLien_artwork(res.getString("lien_artwork"));
@@ -80,15 +96,34 @@ public class StoreController implements Initializable{
         }
         return list;
     }
+    private void setChosenArt(Artwork artwork){
+    artNamelabe.setText(artwork.getNom_artwork());
+    artPricelabel.setText(String.valueOf(artwork.getPrix_artwork()));
+   // image = new Image(getClass().getResourceAsStream(artwork.getImg_artwork()));
+   //fruitImg.setImage(image);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        
         list= afficherartwork();
-        System.out.println(list);
+        if (list.size() > 0) {
+            setChosenArt(list.get(0));
+            MyListener = new MyListener() {
+                @Override
+                public void onClickListener(Artwork artwork) {
+                    setChosenArt(artwork);
+                }
+            
+          
+
+                };
+                    }
+            
+        
       
         int column = 0;
-        int row = 0;
+        int row = 1;
         try {
             System.out.println(  list.size());
          
@@ -97,15 +132,22 @@ public class StoreController implements Initializable{
             fxmlloader.setLocation(getClass().getResource("../Presentation/Art_FXML.fxml"));
             System.out.println(fxmlloader.getLocation());
             AnchorPane anchorPane = fxmlloader.load();
-            System.out.println(list);
-            System.out.println(anchorPane);
+           
             ArtController artController = fxmlloader.getController();
-            artController.setData(list.get(i));
+            artController.setData(list.get(i),MyListener);
             if(column == 3){
                 column =0;
                 row++;
             }
             grid.add(anchorPane, column++, row);
+            grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+            grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+            grid.setMaxWidth(Region.USE_PREF_SIZE);
+            grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+            grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+            grid.setMaxHeight(Region.USE_PREF_SIZE);
+            
+            
             GridPane.setMargin(anchorPane, new Insets(10));
         }}
         catch (IOException e) {

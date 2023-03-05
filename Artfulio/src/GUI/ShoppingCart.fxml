@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller=""
+      prefWidth="400"
+      prefHeight="400">
+
+    <Label text="Shopping Cart"/>
+
+    <TableView fx:id="cartTable" prefWidth="400">
+        <columns>
+            <TableColumn text="Product Name" prefWidth="200" />
+            <TableColumn text="Price" prefWidth="100" />
+            
+        </columns>
+    </TableView>
+
+    <HBox>
+        <Label text="Total:"/>
+        <Label fx:id="totalLabel"/>
+    </HBox>
+
+    <Button text="Checkout" onAction="#checkout"/>
+
+</VBox>

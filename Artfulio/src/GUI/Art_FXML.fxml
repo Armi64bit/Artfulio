@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="215.0" prefWidth="225.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="services.ArtController">
+<AnchorPane id="AnchorPane" onMousePressed="#Click" prefHeight="215.0" prefWidth="225.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="services.ArtController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../Style/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" onMousePressed="#Click" prefHeight="200.0" prefWidth="100.0" stylesheets="@../Style/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="53.0" prefWidth="185.0">
                <children>
-                  <Label fx:id="nameLabel" prefHeight="46.0" prefWidth="121.0" text="Peach">
+                  <Label fx:id="nameLabel" prefHeight="46.0" prefWidth="137.0" text="Peach">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
@@ -24,7 +24,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="priceLabel" prefHeight="46.0" prefWidth="91.0" text="\$ 0.99">
+                  <Label fx:id="priceLabel" prefHeight="46.0" prefWidth="54.0" text="\$ 0.99">
                      <font>
                         <Font name="Cambria Bold" size="18.0" />
                      </font>

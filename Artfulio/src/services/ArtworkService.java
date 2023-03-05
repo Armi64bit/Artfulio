@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import tn.esprit.artfulio.entites.artwork;
+import entities.Artwork;
 import Utils.MyConnection;
 
 /**
@@ -20,10 +20,10 @@ import Utils.MyConnection;
  * @author CALLO
  */
 public class ArtworkService implements IArtworkService {
-static Connection myconnex
+public static Connection myconnex
            = MyConnection.getInstance().getConnection();
     @Override
-    public int ajouterartwork(artwork p) {
+    public int ajouterartwork(Artwork p) {
               int id = -1;
         try {
             String req1 ="INSERT INTO `artwork`( `nom_artwork`, `description_artwork`, `prix_artwork`, `id_type`, `date`, `id_artist`, `lien_artwork`, `dimension_artwork`, `img_artwork`) VALUES ( NULL ,'"+p.getNom_artwork()+"','"+p.getDescription_artwork()+"','"+p.getPrix_artwork()+"','"+p.getId_type()+"','"+p.getDate()+"','"+p.getId_artist()+"','"+p.getLien_artwork()+"','"+p.getDimension_artwork()+"','"+p.getImg_artwork()+"') ";
@@ -38,7 +38,7 @@ static Connection myconnex
     }
 
     @Override
-    public boolean modifierartwork(artwork p) {
+    public boolean modifierartwork(Artwork p) {
          try {
            int id_artwork = 7;
            String nom = p.getNom_artwork();
@@ -98,7 +98,7 @@ static Connection myconnex
     }
 
     @Override
-    public boolean supprimerartwork(artwork p) {
+    public boolean supprimerartwork(Artwork p) {
         try {
           String req = "DELETE FROM `artwork` WHERE id_artwork= ? ";
           PreparedStatement ps = myconnex
@@ -114,14 +114,14 @@ static Connection myconnex
     }
 
     @Override
-    public List<artwork> afficherartwork() {
-          List<artwork> list = new ArrayList<>();
+    public List<Artwork> afficherartwork() {
+          List<Artwork> list = new ArrayList<>();
     try {
             String req = "SELECT * FROM `artwork`";
             Statement ste = myconnex.createStatement();
             ResultSet res = ste.executeQuery(req);
             while (res.next()) {
-                artwork s = new artwork();
+                Artwork s = new Artwork();
                 s.setNom_artwork(res.getString("type_categorie"));
                 s.setDescription_artwork(res.getString("nom_categorie"));
                 s.setLien_artwork(res.getString("nom_categorie"));
