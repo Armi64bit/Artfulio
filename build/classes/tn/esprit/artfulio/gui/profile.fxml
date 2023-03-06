@@ -289,6 +289,20 @@
                                           </Label>
                                        </children>
                                     </HBox>
+                                    <HBox fx:id="collabwitth" alignment="CENTER" onMouseClicked="#takedomcollab" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
+                                       <children>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/collaboration.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label prefHeight="18.0" prefWidth="220.0" text="Collaboration">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                            </children>

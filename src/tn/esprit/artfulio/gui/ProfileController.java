@@ -92,6 +92,10 @@ public class ProfileController implements Initializable {
     private HBox skillcontainer;
     @FXML
     private Label id_user;
+    @FXML
+    private Button chnagemode1;
+    @FXML
+    private HBox collabwitth;
 
     /**
      * Initializes the controller class.
@@ -325,4 +329,28 @@ u=us.afficherProfilefb(id);
             Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void GoToprofile(MouseEvent event) {
+    }
+
+    @FXML
+    private void takedomcollab(MouseEvent event) {
+        
+         try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DemandeCollaboration.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+             DemandeCollaborationController q=fxmlLoader.getController();
+             int id = Integer.parseInt(id_user.getText());
+             q.setid_artiste(id);
+// ArtworkService as= new ArtworkService();
+            stage.setTitle("collab");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

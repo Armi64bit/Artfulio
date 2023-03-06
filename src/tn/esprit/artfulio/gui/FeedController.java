@@ -54,6 +54,8 @@ public class FeedController implements Initializable {
     private VBox usercontainer;
     @FXML
     private ImageView darkorlight;
+    @FXML
+    private HBox taketocollabbtn;
 
     /**
      * Initializes the controller class.
@@ -252,6 +254,23 @@ public class FeedController implements Initializable {
         }
         
     
+    }
+
+    @FXML
+    private void taketocollab(MouseEvent event) {
+        
+         try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuCollaboration.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            //QrController q=fxmlLoader.getController();
+           // ArtworkService as= new ArtworkService();
+            stage.setTitle("collab");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
    
