@@ -74,7 +74,9 @@ public class CommentController implements Initializable {
 u=us.afficherProfilefb(id);
     File imageFile = new File(u.getImg_user());
     Image image = new Image(imageFile.toURI().toString());
-    imgprofile.setImage(image);   
+    imgprofile.setImage(image); 
+    if(u.getIs_pro()==0){
+    imgbadge.setVisible(false);}
 }
     @FXML
    public void delcom(){

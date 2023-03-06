@@ -48,6 +48,18 @@
             <Insets left="20.0" right="20.0" />
          </VBox.margin>
       </HBox>
+      <HBox fx:id="nom_sous_cat" VBox.vgrow="ALWAYS">
+         <children>
+            <Label fx:id="noms" text="Label">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets left="40.0" />
+         </VBox.margin>
+      </HBox>
       <ImageView fx:id="Imgpost" fitHeight="535.0" fitWidth="535.0" onMouseClicked="#preview" pickOnBounds="true" preserveRatio="true">
          <cursor>
             <Cursor fx:constant="HAND" />

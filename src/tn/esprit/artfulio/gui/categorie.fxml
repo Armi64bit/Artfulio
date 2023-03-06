@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1155.0" styleClass="background" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.ProfileController">
+<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="957.0" prefWidth="1155.0" styleClass="background" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.CategorieController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="200.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
          <children>
@@ -268,115 +268,11 @@
                <content>
                   <VBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308">
                      <children>
-                        <HBox prefHeight="251.0" prefWidth="862.0">
-                           <children>
-                              <ImageView fx:id="imgprofile" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../../../artworkimg/400x400cc.jpg" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="20.0" top="20.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Pane prefHeight="251.0" prefWidth="52.0" />
-                              <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" />
-                                    <Label fx:id="username" text="username">
-                                       <font>
-                                          <Font name="System Bold" size="56.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="bio" text="dzalkdjlazkdjlkazjdlkazjdlkjlazdjajdlkajldkzajad " VBox.vgrow="ALWAYS">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="456.0" spacing="51.0">
-                                       <children>
-                                          <ImageView fx:id="ig" fitHeight="69.0" fitWidth="79.0" onMouseClicked="#ig" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/ig.png" />
-                                             </image>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </ImageView>
-                                          <ImageView fx:id="imgfb" fitHeight="70.0" fitWidth="76.0" onMouseClicked="#fb" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/fb.png" />
-                                             </image>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </ImageView>
-                                          <ImageView fx:id="imgtwtr" fitHeight="80.0" fitWidth="76.0" onMouseClicked="#twitter" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/twitter.png" />
-                                             </image>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </ImageView>
-                                          <ImageView fx:id="imgytb" fitHeight="87.0" fitWidth="77.0" onMouseClicked="#youtube" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/ytb.png" />
-                                             </image>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </ImageView>
-                                          <Label fx:id="id_user" text="id_user" visible="false">
-                                             <font>
-                                                <Font name="System Bold" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox fx:id="editprofile" alignment="CENTER_LEFT" onMouseClicked="#GoToprofile">
-                                       <children>
-                                          <ImageView fx:id="imgytb1" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#taketoprofile" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/crayon.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label onMouseClicked="#taketoprofile" text="Editer profile">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </HBox>
-                                    <HBox fx:id="collabwitth" alignment="CENTER" onMouseClicked="#takedomcollab" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
-                                       <children>
-                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/collaboration.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label prefHeight="18.0" prefWidth="220.0" text="Collaboration">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
                         <HBox>
                            <VBox.margin>
                               <Insets bottom="30.0" left="70.0" right="70.0" top="10.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox fx:id="skillcontainer" onMouseClicked="#taketoprofile" prefHeight="100.0" prefWidth="200.0" />
                         <VBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
                            <children>
                               <Label text="Images">
@@ -404,9 +300,14 @@
                                     <Font name="System Bold" size="56.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="nom_sous_cat" text="nom_sous_cat_vid">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Label>
                               <HBox fx:id="videocontainer" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
                                  <children>
-                                    <HBox fx:id="portfoliocontainer11" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="596.0" />
+                                    <HBox fx:id="sousvid" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="596.0" />
                                  </children>
                               </HBox>
                            </children>

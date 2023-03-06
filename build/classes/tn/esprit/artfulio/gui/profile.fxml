@@ -17,9 +17,9 @@
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="200.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="chnagemode" mnemonicParsing="false" onAction="#GoToprofile" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+            <Button fx:id="chnagemode" mnemonicParsing="false" onAction="#GoTofeed" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#GoToprofile" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="home" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#GoToprofile" opacity="0.9" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@logo.png" />
                      </image>
@@ -28,6 +28,9 @@
                      </cursor>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="chnagemode1" mnemonicParsing="false" onAction="#changemode" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>

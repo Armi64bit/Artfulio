@@ -96,6 +96,8 @@ public class ProfileController implements Initializable {
     private Button chnagemode1;
     @FXML
     private HBox collabwitth;
+    @FXML
+    private ImageView home;
 
     /**
      * Initializes the controller class.
@@ -294,7 +296,6 @@ public class ProfileController implements Initializable {
 
     }
 
-    @FXML
     private void GoToprofile(ActionEvent event) throws IOException {
 
         Node node = (Node) event.getSource();
@@ -330,8 +331,16 @@ u=us.afficherProfilefb(id);
         }
     }
 
-    @FXML
-    private void GoToprofile(MouseEvent event) {
+     @FXML
+    private void GoTofeed(ActionEvent event) throws IOException {
+
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("feed.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @FXML
@@ -352,5 +361,7 @@ u=us.afficherProfilefb(id);
             Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+   
     
 }

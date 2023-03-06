@@ -17,9 +17,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import tn.esprit.artfulio.entites.artwork;
+import tn.esprit.artfulio.entites.sous_categorie;
 import tn.esprit.artfulio.services.ArtworkService;
+import tn.esprit.artfulio.services.SouscategorieService;
 
 /**
  * FXML Controller class
@@ -34,6 +37,10 @@ public class PortfolioitemController implements Initializable {
     private ImageView Imgpost;
     @FXML
     private Label id_art;
+    @FXML
+    private HBox nom_sous_cat;
+    @FXML
+    private Label noms;
 
     /**
      * Initializes the controller class.
@@ -60,8 +67,16 @@ setImage(a.getImg_artwork());
     datepost.setText(dateString);
     //txtcaption.setText(a.getDescription_artwork());
       //  setartistename(a.getId_artist());
-   
-            
+       SouscategorieService sc=new SouscategorieService();
+        sous_categorie liss =new sous_categorie();
+
+  sous_categorie liss2 =new sous_categorie();
+  
+  
+  
+       liss= sc.affichersouscategorienom(a.getId_type());
+           liss2= sc.affichersouscategorienom(sc.affichersouscategorienom(liss.getNom_sous_categorie()).getNom_sous_categorie());
+              noms.setText("@"+liss2.getType_sous_categorie());      
        id_art.setText(""+a.getId_artwork());
     
 }

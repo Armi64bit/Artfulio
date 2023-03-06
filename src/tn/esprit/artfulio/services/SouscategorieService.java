@@ -112,4 +112,61 @@ static Connection myconnex
         return list;
     }
 
+    public List<sous_categorie> affichersouscategorie(String cat) {
+      
+    List<sous_categorie> list = new ArrayList<>();
+        try {
+            String req = "select * from sous_cat where nom_sous_cat='"+cat+"' ";
+            Statement ste = myconnex.createStatement();
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+                sous_categorie s = new sous_categorie();
+                s.setType_sous_categorie(res.getString("type_sous_cat"));
+                s.setNom_sous_categorie(res.getString("nom_sous_cat"));
+
+                list.add(s);
+            }
+        } catch (SQLException ex) {
+        }
+        return list;
+    }
+    
+    public sous_categorie affichersouscategorienom(int id) {
+      
+    sous_categorie s = new sous_categorie();
+        try {
+            String req = "select * from sous_cat where id_sous_cat='"+id+"' ";
+            Statement ste = myconnex.createStatement();
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+                
+                s.setType_sous_categorie(res.getString("type_sous_cat"));
+                s.setNom_sous_categorie(res.getString("nom_sous_cat"));
+
+                
+            }
+        } catch (SQLException ex) {
+        }
+        return s;
+    }
+    
+    
+    public sous_categorie affichersouscategorienom(String id) {
+      
+    sous_categorie s = new sous_categorie();
+        try {
+            String req = "select * from sous_cat where nom_sous_cat='"+id+"' ";
+            Statement ste = myconnex.createStatement();
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+                
+                s.setType_sous_categorie(res.getString("type_sous_cat"));
+                s.setNom_sous_categorie(res.getString("nom_sous_cat"));
+
+                
+            }
+        } catch (SQLException ex) {
+        }
+        return s;
+    }
     }

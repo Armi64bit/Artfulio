@@ -19,6 +19,7 @@ import tn.esprit.artfulio.services.ArtworkService;
 import tn.esprit.artfulio.services.UserService;
 import tn.esprit.artfulio.services.commentaireservice;
 import tn.esprit.artfulio.services.SouscategorieService;
+
 import tn.esprit.artfulio.api.QR;
 
 
@@ -29,7 +30,13 @@ public class Main {
     public static void main (String []args){
         
         SouscategorieService scs=new SouscategorieService();
-        System.out.print(scs.affichersouscategorie());
+       // System.out.print(scs.affichersouscategorie("image"));
+        SouscategorieService sc=new SouscategorieService();
+        sous_categorie liss =new sous_categorie();
+
+  sous_categorie liss2 =new sous_categorie();
+       liss= sc.affichersouscategorienom(3);
+         System.out.print(scs.affichersouscategorie(sc.affichersouscategorienom(liss.getNom_sous_categorie()).getNom_sous_categorie()));
 //        QR qr= new QR();
 //        qr.Create_QR("path", "2");
         //        commentaire c= new commentaire( "nice", 5, 9);
