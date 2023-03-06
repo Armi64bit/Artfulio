@@ -263,7 +263,7 @@
                   <Insets top="10.0" />
                </HBox.margin>
                <content>
-                  <VBox maxWidth="1.7976931348623157E308">
+                  <VBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308">
                      <children>
                         <HBox prefHeight="251.0" prefWidth="862.0">
                            <children>
@@ -374,18 +374,16 @@
                            </VBox.margin>
                         </HBox>
                         <HBox fx:id="skillcontainer" onMouseClicked="#taketoprofile" prefHeight="100.0" prefWidth="200.0" />
-                        <VBox>
+                        <VBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
                            <children>
                               <Label text="Images">
                                  <font>
                                     <Font name="System Bold" size="56.0" />
                                  </font>
                               </Label>
-                              <HBox maxWidth="1000.0" VBox.vgrow="NEVER">
+                              <HBox alignment="CENTER_LEFT" maxWidth="1000.0" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="NEVER">
                                  <children>
-                                    <Pane prefHeight="200.0" prefWidth="83.0" />
-                                    <HBox fx:id="portfoliocontainer" prefHeight="200.0" prefWidth="596.0" />
-                                    <Pane prefHeight="200.0" prefWidth="83.0" />
+                                    <HBox fx:id="portfoliocontainer" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="596.0" />
                                  </children>
                               </HBox>
                               <Label text="musique">
@@ -393,11 +391,9 @@
                                     <Font name="System Bold" size="56.0" />
                                  </font>
                               </Label>
-                              <HBox fx:id="musiccontainer">
+                              <HBox fx:id="musiccontainer" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
                                  <children>
-                                    <Pane prefHeight="200.0" prefWidth="83.0" />
-                                    <HBox fx:id="portfoliocontainer1" prefHeight="200.0" prefWidth="596.0" />
-                                    <Pane prefHeight="200.0" prefWidth="83.0" />
+                                    <HBox fx:id="portfoliocontainer1" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="596.0" />
                                  </children>
                               </HBox>
                               <Label text="video">
@@ -405,11 +401,9 @@
                                     <Font name="System Bold" size="56.0" />
                                  </font>
                               </Label>
-                              <HBox fx:id="videocontainer">
+                              <HBox fx:id="videocontainer" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
                                  <children>
-                                    <Pane prefHeight="200.0" prefWidth="83.0" />
-                                    <HBox fx:id="portfoliocontainer11" prefHeight="200.0" prefWidth="596.0" />
-                                    <Pane prefHeight="200.0" prefWidth="83.0" />
+                                    <HBox fx:id="portfoliocontainer11" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="596.0" />
                                  </children>
                               </HBox>
                            </children>
