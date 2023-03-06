@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.esprit.Artfulio.gui;
+package tn.esprit.artfulio.gui;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,9 +28,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.mail.MessagingException;
-import tn.esprit.Artfulio.entites.Collaboration;
-import tn.esprit.Artfulio.services.Email;
-import tn.esprit.Artfulio.services.ServCollaboration;
+import tn.esprit.artfulio.entites.Artiste_Collaboration;
+import tn.esprit.artfulio.entites.Collaboration;
+import tn.esprit.artfulio.services.Email;
+import tn.esprit.artfulio.services.ServArtiste_collaboration;
+import tn.esprit.artfulio.services.ServCollaboration;
+
 
 /**
  * FXML Controller class
@@ -86,7 +91,12 @@ public class DemandeCollaborationController implements Initializable {
         c.setDate_sortie(date_sortie.getValue());
         c.setType_collaboration(type.getValue());
         c.setDescription(description.getText());
-
+        //############## ajouter le nom et lemail du profil ############################
+     //   c.setNom_user(Data.nom);
+     //   c.setEmail_user(Data.email);
+        
+        //###########################################################################
+        
         boolean valide = true;
 
         //controle saisie**********************************************
@@ -102,7 +112,6 @@ public class DemandeCollaborationController implements Initializable {
         // Valide le champ type
         String verif_type = type.getValue();
         if (verif_type == null) {
-            System.out.println("je suis dans l'erreur");
             error_type.setText("veuillez selectionner une valeur");
             valide = false;
         }
@@ -116,14 +125,34 @@ public class DemandeCollaborationController implements Initializable {
             // Traiter le formulaire (par exemple, enregistrer les données)
             ServCollaboration servcollab = new ServCollaboration();
             if ((servcollab.ajouterCollaboration(c) != -1)) {
-                Data.information("Votre demande de collaboration a été envoyé avec success", "Reussi");
-                // information("votre demande a bien été envoye", "etat envoie", "bonne journée");
+                Data.information("Votre demande de collaboration est en cours d'envoie veuillez patienter!", "Reussi");
+                
+                //##################################################################
+               List<Collaboration> listCol = servcollab.afficherCollaboration();
+               int id_col = listCol.get(listCol.size() - 1).getId_collaboration();
+                Artiste_Collaboration artCol = new Artiste_Collaboration();
+             //   artCol.setId_artiste(Data.id_profil);
+             artCol.setId_artiste(5);
+                artCol.setId_collaboration(id_col);
+                
+                ServArtiste_collaboration svArtCol = new ServArtiste_collaboration();
+                if(svArtCol.ajouterArtister_Collaboration(artCol) != -1){
+                    System.out.println("artist - col add with success");  
+                }else{
+                    System.out.println("mata lors de l'ajout");
+                }
+                //##################################################################
                 Email e = new Email();
                 try {
+                   // e.envoyer(c.getEmail_user(), LocalDate.now().toString(), c.getNom_user());
                     e.envoyer("michelscoot@gmail.com", LocalDate.now().toString(), "le nom de l'artiste");
                 } catch (MessagingException ex) {
                     Logger.getLogger(ServCollaboration.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
+                // changement de scene
+                
+                switchScene("menuCollaboration.fxml", buttonSendDemande);
             } else {
                 Data.warning("Probleme lors de l'ajout dans la base de donnée", "echec ajout");
             }
@@ -134,7 +163,7 @@ public class DemandeCollaborationController implements Initializable {
     
     @FXML
     void AnnulerDemande(ActionEvent event) {
-          Data.information( "notification", "demande annulé");
+          Data.information( "demande annulé", "notification");
            try {
             // Charger la scène2.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menuCollaboration.fxml"));
@@ -143,6 +172,21 @@ public class DemandeCollaborationController implements Initializable {
             // Afficher la scène2
             Scene scene = new Scene(root);
             Stage stage = (Stage) buttonAnnulerDemande.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    void switchScene(String nomScene, Button but){
+         try {
+            // Charger la scène2.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(nomScene));
+            Parent root = loader.load();
+
+            // Afficher la scène2
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) but.getScene().getWindow();
             stage.setScene(scene);
         } catch (Exception e) {
             e.printStackTrace();

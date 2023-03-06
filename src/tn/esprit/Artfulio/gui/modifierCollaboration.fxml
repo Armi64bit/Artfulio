@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<VBox style="-fx-background-color: #f2ebe9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Artfulio.gui.ModifierCollaborationController">
+<VBox style="-fx-background-color: #f2ebe9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.ModifierCollaborationController">
    <children>
       <Pane prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: #eddcd9;">
          <children>

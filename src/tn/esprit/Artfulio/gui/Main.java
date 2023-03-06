@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.esprit.Artfulio.gui;
+package tn.esprit.artfulio.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,11 +21,11 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         
         System.out.println("chemin");
-    //    System.out.println(getClass().getResource("DemandeCollaboration.fxml"));
-     //  Parent root = FXMLLoader.load(getClass().getResource("DemandeCollaboration.fxml")); 
+        System.out.println(getClass().getResource("DemandeCollaboration.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("DemandeCollaboration.fxml")); 
         
-         System.out.println(getClass().getResource("menuCollaboration.fxml"));
-       Parent root = FXMLLoader.load(getClass().getResource("menuCollaboration.fxml")); 
+    //     System.out.println(getClass().getResource("menuCollaboration.fxml"));
+    //   Parent root = FXMLLoader.load(getClass().getResource("menuCollaboration.fxml")); 
      /* System.out.println(getClass().getResource("modifierCollaboration.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("modifierCollaboration.fxml")); */
                 

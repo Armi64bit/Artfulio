@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -13,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<VBox style="-fx-background-color: #f2ebe9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Artfulio.gui.ModifierCollaborationController">
+<VBox style="-fx-background-color: #f2ebe9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.ModifierCollaborationController">
    <children>
       <Pane prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: #eddcd9;">
          <children>
@@ -22,6 +24,11 @@
                   <Font name="Impact" size="29.0" />
                </font>
             </Text>
+            <ImageView fitHeight="55.0" fitWidth="74.0" layoutX="512.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/simpleogo.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="600.0" styleClass="anchor-demande-left" stylesheets="@../img/styleDemande.css">

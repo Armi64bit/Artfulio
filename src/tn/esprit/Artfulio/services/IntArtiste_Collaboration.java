@@ -6,7 +6,7 @@
 package tn.esprit.artfulio.services;
 
 import java.util.List;
-import tn.esprit.Artfulio.entites.Artiste_Collaboration;
+import tn.esprit.artfulio.entites.Artiste_Collaboration;
 
 /**
  *
@@ -14,7 +14,7 @@ import tn.esprit.Artfulio.entites.Artiste_Collaboration;
  */
 public interface IntArtiste_Collaboration {
       
-    int ajouterArtister_Collaboration(int idArtiste, int idCollaboration);
+    int ajouterArtister_Collaboration(Artiste_Collaboration art_col);
     boolean deleteArtisteFromCollaboration(int idArtiste, int idCollaboration);
      List<Artiste_Collaboration> afficherCollaborationsUnArtiste(int idArtiste);
 }

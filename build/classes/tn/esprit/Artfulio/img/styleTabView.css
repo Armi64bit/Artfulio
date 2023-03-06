@@ -35,7 +35,12 @@
 	-fx-font-weight: bold; 
 	-fx-alignment: center;
         -fx-font-family: "Cambria";
+        -fx-font-size: 16px;
        
+}
+
+.item{
+   -fx-font-size: 14px; 
 }
 
 /* This is just magic */

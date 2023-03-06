@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Artfulio.gui.MenuCollaborationController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.MenuCollaborationController">
    <center>
       <TabPane prefHeight="655.0" prefWidth="619.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -105,7 +105,7 @@
                                                       <Image url="@../img/simpleogo.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Button alignment="TOP_RIGHT" mnemonicParsing="false" prefHeight="50.0" prefWidth="67.0" text="Retour">
+                                                <Button id="retour" fx:id="btn_retour" alignment="CENTER" mnemonicParsing="false" onAction="#button_retour" prefHeight="50.0" prefWidth="67.0" style="-fx-background-radius: 30; -fx-background-color: #40A497;" text="Retour" textFill="WHITE">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>

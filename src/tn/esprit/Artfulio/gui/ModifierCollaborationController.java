@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.esprit.Artfulio.gui;
+package tn.esprit.artfulio.gui;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,9 +26,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import tn.esprit.Artfulio.entites.Collaboration;
-import tn.esprit.Artfulio.gui.Data;
-import tn.esprit.Artfulio.services.ServCollaboration;
+import tn.esprit.artfulio.entites.Collaboration;
+import tn.esprit.artfulio.gui.Data;
+import tn.esprit.artfulio.services.ServCollaboration;
 
 /**
  * FXML Controller class
@@ -87,7 +87,7 @@ public class ModifierCollaborationController implements Initializable {
     @FXML
     void annulerModification(ActionEvent event) {
         
-        Data.information( "notification", "aucune modification éffectué");
+        Data.information( "aucune modification éffectué", "notification");
            try {
             // Charger la scène2.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menuCollaboration.fxml"));
@@ -112,8 +112,7 @@ public class ModifierCollaborationController implements Initializable {
        collab.setId_collaboration(Data.id);
        
        if(sercol.modifierCollaboration(collab)){
-           System.out.println("l'id modification est: "+Data.id);
-           Data.information( "information","demande de validation envoyer");
+           Data.information( "demande de validation envoyer","information");
            try {
             // Charger la scène2.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menuCollaboration.fxml"));

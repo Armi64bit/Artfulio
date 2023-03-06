@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.esprit.Artfulio.gui;
+package tn.esprit.artfulio.gui;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,10 +32,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import sun.reflect.Reflection;
-import tn.esprit.Artfulio.entites.Collaboration;
-import tn.esprit.Artfulio.gui.Data;
-import tn.esprit.Artfulio.gui.ModifierCollaborationController;
-import tn.esprit.Artfulio.services.ServCollaboration;
+import tn.esprit.artfulio.entites.Collaboration;
+import tn.esprit.artfulio.gui.Data;
+import tn.esprit.artfulio.gui.ModifierCollaborationController;
+import tn.esprit.artfulio.services.ServCollaboration;
 
 /**
  * FXML Controller class
@@ -82,6 +82,9 @@ public class MenuCollaborationController implements Initializable {
 
     @FXML
     private PieChart pieType = new PieChart();
+    
+    @FXML
+    private Button btn_retour;
 
     Stage stage;
     Scene scene;
@@ -129,6 +132,7 @@ public class MenuCollaborationController implements Initializable {
         } else {
             Data.warning(" échec de la suppression", "Erreur");
         }
+        afficherGraphique();
         affichagerTableMenu();
     }
 
@@ -290,6 +294,27 @@ public class MenuCollaborationController implements Initializable {
             // Afficher la scène2
             Scene scene = new Scene(root);
             Stage stage = (Stage) button_mofidier.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+   @FXML
+    void button_retour(ActionEvent event) {
+    
+     //   switchScene(btn_retour,"profile.fxml");
+    }
+    
+     void switchScene(String nomScene, Button but){
+         try {
+            // Charger la scène2.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(nomScene));
+            Parent root = loader.load();
+
+            // Afficher la scène2
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) but.getScene().getWindow();
             stage.setScene(scene);
         } catch (Exception e) {
             e.printStackTrace();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.esprit.Artfulio.services;
+package tn.esprit.artfulio.services;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import tn.esprit.Artfulio.entites.Collaboration;
-import tn.esprit.Artfulio.utils.DBConnexion;
+import tn.esprit.artfulio.entites.Collaboration;
+import tn.esprit.artfulio.utils.DBConnexion;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -12,8 +12,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import tn.esprit.Artfulio.entites.Artiste_Collaboration;
-import tn.esprit.Artfulio.utils.DBConnexion;
+import tn.esprit.artfulio.entites.Artiste_Collaboration;
+import tn.esprit.artfulio.utils.DBConnexion;
 
 /**
  *
@@ -28,14 +28,14 @@ public class ServArtiste_collaboration implements IntArtiste_Collaboration{
     }
 
     @Override
-    public int ajouterArtister_Collaboration(int idArtiste, int idCollaboration) {
+    public int ajouterArtister_Collaboration(Artiste_Collaboration art_col) {
  int etat = -1;
         try {
             String req = "insert into Artiste_Collaboration(id_artiste_fk,id_collaboration_fk,date_entree) values (?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(req);
-            preparedStatement.setInt(1, idArtiste);
-            preparedStatement.setInt(2, idCollaboration);
-            java.sql.Date sqlDate = java.sql.Date.valueOf(LocalDate.now());
+            preparedStatement.setInt(1, art_col.getId_artiste());
+            preparedStatement.setInt(2, art_col.getId_collaboration());
+            java.sql.Date sqlDate = java.sql.Date.valueOf(art_col.getDate_entree());
             preparedStatement.setDate(3, sqlDate);
             etat = preparedStatement.executeUpdate();
         } catch (SQLException e) {

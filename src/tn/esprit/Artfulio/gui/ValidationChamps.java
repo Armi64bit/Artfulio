@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.esprit.Artfulio.gui;
+package tn.esprit.artfulio.gui;
 
 import java.time.LocalDate;
 import java.util.regex.Matcher;
@@ -29,13 +29,6 @@ public class ValidationChamps {
             return false;
         }
 
-        // Vérifie si le champ contient des caractères spéciaux
-        Pattern pattern = Pattern.compile("[^a-zA-Z0-9 ]");
-        Matcher matcher = pattern.matcher(champ);
-        if (matcher.find()) {
-            return false;
-        }
-
         return true;
     }
 
@@ -57,7 +50,7 @@ public class ValidationChamps {
             champErreur.setText("");
             return true;
         } else {
-            champErreur.setText("ce champ ne doit pas etre vide ou contenir des caracteres spéciaux.");
+            champErreur.setText("ce champ ne doit pas etre vide");
             return false;
         }
     }

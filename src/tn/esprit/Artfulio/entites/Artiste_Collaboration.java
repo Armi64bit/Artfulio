@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.esprit.Artfulio.entites;
+package tn.esprit.artfulio.entites;
 
 import java.time.LocalDate;
 
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class Artiste_Collaboration {
     private int id_artiste ;
     private int id_collaboration ;
-    private LocalDate date_entree ;
+    private LocalDate date_entree = LocalDate.now();
     
      public Artiste_Collaboration() {
     }
