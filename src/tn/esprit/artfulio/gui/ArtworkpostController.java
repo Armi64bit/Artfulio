@@ -413,6 +413,26 @@ reactionsContainer.setVisible(true);
             Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void preview(MouseEvent event) {
+         try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("preview.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            PreviewController q=fxmlLoader.getController();
+            ArtworkService as= new ArtworkService();
+            int idart= Integer.parseInt(id_art.getText());
+         artwork a=as.afficherartwork1(idart);
+            q.qrwindow(a);
+            stage.setTitle(a.getNom_artwork());
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
 
   

@@ -28,8 +28,8 @@ public class Email {
     
       public static void envoyer(String destinataire, String date,String name) throws MessagingException {
             
-            String username = "michel.bodoldjob@esprit.tn";
-            String password ="hxdhgdtthfmjqqfj";
+            String username = "artfuliotn@gmail.com";
+            String password ="artfulio.tn223";
             System.out.println("Envoie de la collaboration par mail en cours !! ");
             // Etape 1 : Création de la session
             Properties props = new Properties();
