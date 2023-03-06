@@ -11,6 +11,9 @@ import tn.esprit.artfulio.services.ProfileService;
 import tn.esprit.artfulio.services.skillsservice;
 import tn.esprit.artfulio.entites.skills;
 import tn.esprit.artfulio.entites.sous_categorie;
+import tn.esprit.artfulio.entites.reclamation;
+import tn.esprit.artfulio.entites.parrainage;
+
 
 
 import tn.esprit.artfulio.entites.commentaire;
@@ -19,7 +22,8 @@ import tn.esprit.artfulio.services.ArtworkService;
 import tn.esprit.artfulio.services.UserService;
 import tn.esprit.artfulio.services.commentaireservice;
 import tn.esprit.artfulio.services.SouscategorieService;
-
+import tn.esprit.artfulio.services.ReclamationCRUD;
+import tn.esprit.artfulio.services.parrainageCRUD;
 import tn.esprit.artfulio.api.QR;
 
 
@@ -28,41 +32,47 @@ public class Main {
  
   
     public static void main (String []args){
-        
-        SouscategorieService scs=new SouscategorieService();
-       // System.out.print(scs.affichersouscategorie("image"));
-        SouscategorieService sc=new SouscategorieService();
-        sous_categorie liss =new sous_categorie();
+        try {
+            ReclamationCRUD rs=new ReclamationCRUD();
+            parrainageCRUD ps=new parrainageCRUD();
+            parrainage pr=new parrainage( 4, 1,"sofien","sofien@mail.com","artiste");
+            ps.Update(pr);
+//reclamation r=new reclamation( 9,"hh", 9, "aaaaaa", "bahaa2000lol@gmail.com");
+//rs.ajouterEntitee(r);
+//SouscategorieService scs=new SouscategorieService();
+// System.out.print(scs.affichersouscategorie("image"));
+//SouscategorieService sc=new SouscategorieService();
+//sous_categorie liss =new sous_categorie();
 
-  sous_categorie liss2 =new sous_categorie();
-       liss= sc.affichersouscategorienom(3);
-         System.out.print(scs.affichersouscategorie(sc.affichersouscategorienom(liss.getNom_sous_categorie()).getNom_sous_categorie()));
+//sous_categorie liss2 =new sous_categorie();
+//   liss= sc.affichersouscategorienom(3);
+//   System.out.print(scs.affichersouscategorie(sc.affichersouscategorienom(liss.getNom_sous_categorie()).getNom_sous_categorie()));
 //        QR qr= new QR();
 //        qr.Create_QR("path", "2");
-        //        commentaire c= new commentaire( "nice", 5, 9);
+//        commentaire c= new commentaire( "nice", 5, 9);
 //        commentaireservice cs= new commentaireservice();
 //      //  txtcommentpost.getText(),id, User.Current_User.getId_user()
 //       // cs.modifiercommentaire(c);
 //        System.out.println(cs.numcom(5));
 //        //Profile p = new Profile("aaa","aaa","a","aaa","aaa");
-        //ProfileService profileService = new ProfileService();
-       // profileService.ajouterProfile(p);
+//ProfileService profileService = new ProfileService();
+// profileService.ajouterProfile(p);
 //        skills s= new skills("deva","aaaaaaadaz");
 //       skillsservice skillservice= new skillsservice();
-//       
-       
-        ////////////////profile////////////////////
+//
+
+////////////////profile////////////////////
 // System.out.println( profileService.ajouterProfile(p));
-      //  System.out.println(profileService.afficherProfile());
-      //System.out.println( profileService.modifierProfile(p));
-        // System.out.println(profileService.afficherProfile());
-       // System.out.println(profileService.supprimerProfile(p));
-        ///////////////////////skill//////////////
-        //System.out.println( skillservice.ajouterskills(s));
-        //System.out.println( skillservice.afficherskills());
-      //  System.out.println( skillservice.supprimerskills(s));
-        // System.out.println( skillservice.modifierskills(s));
-              //  System.out.println( skillservice.afficherskills("fb"));
+//  System.out.println(profileService.afficherProfile());
+//System.out.println( profileService.modifierProfile(p));
+// System.out.println(profileService.afficherProfile());
+// System.out.println(profileService.supprimerProfile(p));
+///////////////////////skill//////////////
+//System.out.println( skillservice.ajouterskills(s));
+//System.out.println( skillservice.afficherskills());
+//  System.out.println( skillservice.supprimerskills(s));
+// System.out.println( skillservice.modifierskills(s));
+//  System.out.println( skillservice.afficherskills("fb"));
 // p=profileService.afficherProfilefb("z");
 //        System.out.println(p.getId_profil());
 
@@ -81,7 +91,10 @@ public class Main {
 ////       User list = new User();
 ////       list=us.afficherProfilefb(10);
 //       System.out.println("a");
-////     
+////
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }
     
 }

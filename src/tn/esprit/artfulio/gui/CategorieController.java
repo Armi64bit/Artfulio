@@ -61,6 +61,7 @@ public class CategorieController implements Initializable {
         // TODO
         feedmusic();
         feedimg();
+        feedimgg();
     }    
 
     @FXML
@@ -75,23 +76,60 @@ public class CategorieController implements Initializable {
     private void changemode(ActionEvent event) {
     }
     
-    public void feedimg() {
+    public void feedimgg() {//feedimg
 
-        ArtworkService as = new ArtworkService();
+       ArtworkService as = new ArtworkService();
 
         List<artwork> listart = new ArrayList<>();
+        sous_categorie liss =new sous_categorie();
+        List<sous_categorie> liss2 =new ArrayList<>();
+        
+        
         // users();
         try {
 
+ SouscategorieService sc=new SouscategorieService();
             listart = as.afficherartwork(2);
             for (int i = 0; i < listart.size(); i++) {
-
+             //   liss= sc.affichersouscategorienom(listart.get(i).getId_type());
+           //liss2= sc.affichersouscategorie(sc.affichersouscategorienom(liss.getNom_sous_categorie()).getNom_sous_categorie());
+             // nom_sous_cat.setText(liss2.getType_sous_categorie());  
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("categorieitem.fxml"));
-                HBox vbox = loader.load();
+                loader.setLocation(getClass().getResource("portfolioitem.fxml"));
+                Pane vbox = loader.load();
                 PortfolioitemController artcont = loader.getController();
                 artcont.setdata(listart.get(i));
-                portfoliocontainer.getChildren().add(vbox);
+                musiccontainer.getChildren().add(vbox);
+
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+    public void feedimg() {//feedmusic
+
+       ArtworkService as = new ArtworkService();
+
+        List<artwork> listart = new ArrayList<>();
+        sous_categorie liss =new sous_categorie();
+        List<sous_categorie> liss2 =new ArrayList<>();
+        
+        
+        // users();
+        try {
+
+ SouscategorieService sc=new SouscategorieService();
+            listart = as.afficherartwork(4);
+            for (int i = 0; i < listart.size(); i++) {
+                //liss= sc.affichersouscategorienom(listart.get(i).getId_type());
+           //liss2= sc.affichersouscategorie(sc.affichersouscategorienom(liss.getNom_sous_categorie()).getNom_sous_categorie());
+             // nom_sous_cat.setText(liss2.getType_sous_categorie());  
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("portfolioitem.fxml"));
+                Pane vbox = loader.load();
+                PortfolioitemController artcont = loader.getController();
+                artcont.setdata(listart.get(i));
+                musiccontainer.getChildren().add(vbox);
 
             }
         } catch (Exception e) {
@@ -111,10 +149,10 @@ public class CategorieController implements Initializable {
         try {
 
  SouscategorieService sc=new SouscategorieService();
-            listart = as.afficherartwork();
+            listart = as.afficherartwork(3);
             for (int i = 0; i < listart.size(); i++) {
-                liss= sc.affichersouscategorienom(listart.get(i).getId_type());
-           liss2= sc.affichersouscategorie(sc.affichersouscategorienom(liss.getNom_sous_categorie()).getNom_sous_categorie());
+             //   liss= sc.affichersouscategorienom(listart.get(i).getId_type());
+          // liss2= sc.affichersouscategorie(sc.affichersouscategorienom(liss.getNom_sous_categorie()).getNom_sous_categorie());
              // nom_sous_cat.setText(liss2.getType_sous_categorie());  
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("portfolioitem.fxml"));

@@ -56,6 +56,8 @@ public class FeedController implements Initializable {
     private ImageView darkorlight;
     @FXML
     private HBox taketocollabbtn;
+    @FXML
+    private HBox cate;
 
     /**
      * Initializes the controller class.
@@ -267,6 +269,27 @@ public class FeedController implements Initializable {
            // ArtworkService as= new ArtworkService();
             stage.setTitle("collab");
             stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void gottocat(MouseEvent event) {
+        try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+           // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("categorie.fxml"));
+            Parent root = loaderp.load();
+           
+           // FeedimageController fic =loaderp.getController();
+            //fic.feed();
+            //fic.users();
+             Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);

@@ -140,7 +140,33 @@ static Connection myconnex
             return false;
         }
     }
+public List<artwork> afficherartworkC() {
+          List<artwork> list = new ArrayList<>();
+    try {
+            String req = "SELECT * FROM `artwork`";
+            Statement ste = myconnex.createStatement();
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+                artwork s = new artwork();
+                s.setId_artwork(res.getInt("id_artwork"));
+                s.setNom_artwork(res.getString("nom_artwork"));
+                s.setDescription_artwork(res.getString("description_artwork"));
+                s.setLien_artwork(res.getString("lien_artwork"));
+                s.setImg_artwork(res.getString("img_artwork"));
+                s.setPrix_artwork(res.getFloat("prix_artwork"));
+                s.setId_artist(res.getInt("id_artist"));
+                s.setDimension_artwork(res.getFloat("dimension_artwork"));
+                s.setDate(res.getDate("date"));
+                s.setId_type(res.getInt("id_type"));
 
+  
+
+               list.add(s);
+            }
+       } catch (SQLException ex) {
+        }
+        return list;
+    }
     @Override
     public List<artwork> afficherartwork() {
           List<artwork> list = new ArrayList<>();

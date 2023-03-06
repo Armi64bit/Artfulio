@@ -362,6 +362,10 @@ u=us.afficherProfilefb(id);
         }
     }
 
+    @FXML
+    private void GoToprofile(MouseEvent event) {
+    }
+
    
     
 }

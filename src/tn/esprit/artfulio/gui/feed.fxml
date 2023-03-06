@@ -203,7 +203,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox fx:id="cate" alignment="CENTER" onMouseClicked="#gottocat" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -237,14 +237,14 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox fx:id="reclam" alignment="CENTER" onMouseClicked="#reclam" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/lead.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="Leadboard">
+                        <Label prefHeight="18.0" prefWidth="220.0" text="Reclamer">
                            <font>
                               <Font size="18.0" />
                            </font>
