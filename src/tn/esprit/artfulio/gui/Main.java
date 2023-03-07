@@ -21,8 +21,8 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         
         System.out.println("chemin");
-        System.out.println(getClass().getResource("Inscription.fxml"));
-       Parent root = FXMLLoader.load(getClass().getResource("Inscription.fxml")); 
+        System.out.println(getClass().getResource("feedadmin.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("feedadmin.fxml")); 
         
     //     System.out.println(getClass().getResource("menuCollaboration.fxml"));
     //   Parent root = FXMLLoader.load(getClass().getResource("menuCollaboration.fxml")); 

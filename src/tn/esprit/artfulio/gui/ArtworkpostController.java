@@ -169,7 +169,6 @@ setpdp(a.getId_artist());
     datepost.setText(dateString);
     txtcaption.setText(a.getDescription_artwork());
         setartistename(a.getId_artist());
-   
             id_user.setText(""+a.getId_artist()+"");
             int numcom=cs.numcom(a.getId_artwork());
             nbcomments.setText(numcom+"  commentaire(s)");

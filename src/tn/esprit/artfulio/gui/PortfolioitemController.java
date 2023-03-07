@@ -23,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import tn.esprit.artfulio.entites.User;
 import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.entites.sous_categorie;
 import tn.esprit.artfulio.services.ArtworkService;
@@ -78,7 +79,8 @@ setImage(a.getImg_artwork());
         sous_categorie liss =new sous_categorie();
 
   sous_categorie liss2 =new sous_categorie();
-  
+     if (User.getCurrent_User().getId_user()!=a.getId_artist()){sell.setVisible(false);}
+
   
   
        liss= sc.affichersouscategorienom(a.getId_type());

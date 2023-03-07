@@ -100,6 +100,8 @@ public class ProfileController implements Initializable {
     private Button profile;
     @FXML
     private Button logout;
+    @FXML
+    private VBox port;
 
     /**
      * Initializes the controller class.
@@ -109,7 +111,8 @@ public class ProfileController implements Initializable {
         //feedimg();
       //  feedaudio();
     //    feedmusic();
-
+  
+    
     }
 
     public void feedaudio(int id) {
@@ -283,6 +286,12 @@ public class ProfileController implements Initializable {
         User u = new User();
         UserService us = new UserService();
         u = us.afficherProfilefb(id);
+if (User.getCurrent_User().getId_user()==id){collabwitth.setVisible(false);}
+if (User.getCurrent_User().getId_user()!=id){editprofile.setVisible(false);}
+if (User.getCurrent_User().getRole().equals("client")){port.setVisible(false);}
+
+
+
 
         setpdp(id);
 
@@ -333,7 +342,6 @@ u=us.afficherProfilefb(id);
         }
     }
 
-     @FXML
     private void GoTofeed(ActionEvent event) throws IOException {
 
         Node node = (Node) event.getSource();

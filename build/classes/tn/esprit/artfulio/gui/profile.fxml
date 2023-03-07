@@ -359,7 +359,7 @@
                            </VBox.margin>
                         </HBox>
                         <HBox fx:id="skillcontainer" onMouseClicked="#taketoprofile" prefHeight="100.0" prefWidth="200.0" />
-                        <VBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
+                        <VBox fx:id="port" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
                            <children>
                               <Label text="Images">
                                  <font>
