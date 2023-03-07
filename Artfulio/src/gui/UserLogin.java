@@ -7,29 +7,24 @@ package gui;
 
 import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  *
  * @author WINDOWS 10
  */
 public class UserLogin extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) throws IOException {
-      
+
         Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
         Scene scene = new Scene(root);
         //  primaryStage.initStyle(StageStyle.UNDECORATED);
-             primaryStage.setScene(scene);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
@@ -39,5 +34,5 @@ public class UserLogin extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

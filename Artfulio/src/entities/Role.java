@@ -41,8 +41,10 @@ public class Role {
 
     @Override
     public String toString() {
-        return "Role{" + "id_role=" + id_role + ", type_role=" + type_role + '}';
+        return "Role{" + "type_role=" + type_role + '}';
     }
+
+   
 
     @Override
     public int hashCode() {

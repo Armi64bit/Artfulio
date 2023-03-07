@@ -22,10 +22,16 @@ public class User {
     private String type_role;
     private boolean is_pro;
     private String img_user;
+    public static User Current_User;
+
 
     public User() {
     }
 
+    public User(String username, String password_user) {
+        this.username = username;
+        this.password_user = password_user;
+    }
     public User(String username, String cin_user, String adresse_user, String password_user, String email_user, String type_role, boolean is_pro, String img_user) {
         this.username = username;
         this.cin_user = cin_user;
@@ -113,7 +119,13 @@ public class User {
     public void setImg_user(String img_user) {
         this.img_user = img_user;
     }
+ public static User getCurrent_User() {
+        return Current_User;
+    }
 
+    public static void setCurrent_User(User Current_User) {
+        User.Current_User = Current_User;
+    }
     @Override
     public int hashCode() {
         int hash = 5;
@@ -147,7 +159,6 @@ public class User {
         return "User{" + "id_user=" + id_user + ", username=" + username + ", cin_user=" + cin_user + ", adresse_user=" + adresse_user + ", password_user=" + password_user + ", email_user=" + email_user + ", type_role=" + type_role + ", is_pro=" + is_pro + ", img_user=" + img_user + '}';
     }
 
-    
     
 
   

@@ -25,9 +25,9 @@ public class MyConnection {
         
   try {
             myconnex = DriverManager.getConnection(url, login, password);
-            System.out.println("connexion reussi");
+            System.out.println("connexion reussite");
         } catch (SQLException ex) {
-            System.out.println("connexion non reussi");
+            System.out.println("connexion non reussite");
         }
     }
     

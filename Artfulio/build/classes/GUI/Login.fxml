@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -11,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="globale" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@Artfulio.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginController">
@@ -19,7 +19,7 @@
             <children>
                 <AnchorPane fx:id="panel__" styleClass="bodybg" stylesheets="@Artfulio.css">
                     <children>
-                  <ImageView fitHeight="433.0" fitWidth="717.0" layoutX="-99.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="404.0" fitWidth="719.0" layoutX="-101.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/background.jpg" />
                      </image>
@@ -42,23 +42,27 @@
                             </image>
                         </ImageView>
                   <ButtonBar layoutX="271.0" layoutY="291.0" />
-                  <Hyperlink fx:id="link" layoutX="173.0" layoutY="280.0" prefHeight="23.0" prefWidth="112.0" text="Mot de passe oublié?">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </Hyperlink>
                   <HBox layoutX="262.0" layoutY="313.0" />
-                  <Button fx:id="btnSignIn" layoutX="288.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#seConnecter" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #B8236E;" text="Se connecter" textFill="#e4dcdc">
+                  <Button fx:id="btnSignIn" layoutX="248.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#seConnecter" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #B8236E; -fx-background-radius: 10;" text="Se connecter" textFill="#e4dcdc">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnInscri" layoutX="179.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#inscription" prefHeight="34.0" prefWidth="266.0" style="-fx-background-color: #B8236E;" text="Vous n’avez pas de compte? Inscrivez-vous" textFill="#e4dcdc">
+                  <Button fx:id="btnInscri" layoutX="179.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#inscription" prefHeight="30.0" prefWidth="266.0" style="-fx-background-color: tranparent; -fx-background-radius: 10;" text="Vous n’avez pas de compte? Inscrivez-vous" textFill="#e4c133" underline="true">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label fx:id="msg" layoutX="220.0" layoutY="256.0" textFill="#f81919" />
+                  <Label fx:id="msg" layoutX="209.0" layoutY="142.0" prefHeight="17.0" prefWidth="226.0" textFill="#f2ecec">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Line endX="384.0" fill="#b5abab1a" layoutX="205.0" layoutY="342.0" startX="-186.0" stroke="#8078783f" />
+                  <Button fx:id="btnMdp" layoutX="255.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#Resetpwd" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: tranparent; -fx-background-radius: 10;" text="Mot de passe oublié" textFill="#e4c133" underline="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                     </children>
                 </AnchorPane>
             </children>
