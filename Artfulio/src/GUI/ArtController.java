@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
  import entities.Artwork;
+import java.io.File;
 import services.MyListener;
 
 /**
@@ -35,14 +36,16 @@ public class ArtController {
     public void Click(MouseEvent mouseEvent){
     myListener.onClickListener(artwork);
     }
-    
+    public void setImage(String imagePath) {
+    File file = new File(imagePath);
+    Image image = new Image(file.toURI().toString());
+    img.setImage(image);
+}
     public void setData(Artwork artwork, MyListener myListener){
     this.artwork = artwork;
     this.myListener= myListener;
     nameLabel.setText(artwork.getNom_artwork());
     priceLabel.setText(String.valueOf(artwork.getPrix_artwork()));
-//    Image image = new Image(getClass().getResourceAsStream(artwork.getImg_artwork()));
-//    img.setImage(image);
-            }
+    setImage(artwork.getImg_artwork());
 
-}
+}}

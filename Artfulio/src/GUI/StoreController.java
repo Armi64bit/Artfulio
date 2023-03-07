@@ -26,21 +26,39 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
-
 import entities.Artwork;
+import entities.Cart;
+import java.io.File;
 import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import services.MyListener;
-
 
 /**
  *
  * @author Asus
  */
-public class StoreController implements Initializable{
-    
+public class StoreController implements Initializable {
 
+    private Artwork selectedArtwork;
+    private Image image;
+    public static ObservableList<Artwork> Items = FXCollections.observableArrayList();
     @FXML
     private ImageView artImg;
 
@@ -52,110 +70,186 @@ public class StoreController implements Initializable{
 
     @FXML
     private VBox chosenArtcard;
-      @FXML
+    @FXML
     private GridPane grid;
 
     @FXML
     private ScrollPane scroll;
+
+    @FXML
+    private TextField txtBarSearch;
+    @FXML
+   
+private void handleCartButton(MouseEvent event) throws IOException {
     
+        
+         try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Cart.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            //QrController q=fxmlLoader.getController();
+           // ArtworkService as= new ArtworkService();
+            stage.setTitle("Cart");
+            stage.setScene(new Scene(root1));
+            stage.show();
+             System.out.println(Items);
+        } catch (IOException ex) {
+            Logger.getLogger(StoreController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private Button addTocart;
+    public static Cart cart = new Cart();
     private MyListener MyListener;
     public static Connection myconnex
-           = MyConnection.getInstance().getConnection();
-    
-    
-    
+            = MyConnection.getInstance().getConnection();
+
+
+    @FXML
+    private void addToCart() {
+        
+        if (selectedArtwork == null) {
+            // No artwork selected, show an error message to the user
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("No artwork selected");
+            alert.setContentText("Please select an artwork to add to your cart.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Add the selected artwork to the cart
+        cart.addItem(selectedArtwork);
+
+        // Show a confirmation message to the user
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setHeaderText("Artwork added to cart");
+        alert.setContentText(selectedArtwork.getNom_artwork() + " has been added to your cart.");
+        alert.showAndWait();
+        
+        Items = cart.getItems();
+        System.out.println(Items);
+    }
     private List<Artwork> list = new ArrayList<>();
+
     public List<Artwork> afficherartwork() {
-        
-          
-    try {
-        
-            String req = "SELECT * FROM `artwork`";
+
+        try {
             
+            String req = "SELECT * FROM `store`";
+
             Statement ste = myconnex.createStatement();
             ResultSet res = ste.executeQuery(req);
-           
-            while (res.next()) {
-                Artwork s = new Artwork();
-                s.setNom_artwork(res.getString("nom_artwork"));
-                s.setDescription_artwork(res.getString("description_artwork"));
-                s.setLien_artwork(res.getString("lien_artwork"));
-                s.setImg_artwork(res.getString("img_artwork"));
-                s.setPrix_artwork(res.getFloat("prix_artwork"));
-                s.setId_artist(res.getInt("id_artist"));
-                s.setDimension_artwork(res.getFloat("dimension_artwork"));
-                s.setDate(res.getDate("date"));
-                s.setId_type(res.getInt("id_type"));
 
-  
+           while (res.next()) {
+                Artwork p = new Artwork();
+                p.setId_artwork(res.getInt("id_produit"));
+                p.setNom_artwork(res.getString("nom_artwork"));
+                p.setPrix_artwork(res.getFloat("prix_artwork"));
+                p.setImg_artwork(res.getString("img_artwork"));
+               
 
-               list.add(s);
+                list.add(p);
             }
-       
-       } catch (SQLException ex) {
+        } catch (SQLException ex) {
         }
         return list;
     }
-    private void setChosenArt(Artwork artwork){
-    artNamelabe.setText(artwork.getNom_artwork());
-    artPricelabel.setText(String.valueOf(artwork.getPrix_artwork()));
-   // image = new Image(getClass().getResourceAsStream(artwork.getImg_artwork()));
-   //fruitImg.setImage(image);
+
+   
+public void setImage(String imagePath) {
+    File file = new File(imagePath);
+    Image image = new Image(file.toURI().toString());
+    artImg.setImage(image);
+}
+    private void setChosenArt(Artwork artwork) {
+        artNamelabe.setText(artwork.getNom_artwork());
+        artPricelabel.setText(String.valueOf(artwork.getPrix_artwork()));
+         setImage(artwork.getImg_artwork());
+         selectedArtwork = artwork;
+    }
+
+    @FXML
+    private void handleSearch() {
+        String searchText = txtBarSearch.getText().toLowerCase();
+
+        
+        FilteredList<Artwork> filteredList = new FilteredList<>(FXCollections.observableArrayList(list));
+        filteredList.setPredicate(artwork -> artwork.getNom_artwork().toLowerCase().contains(searchText));
+
+       
+        grid.getChildren().clear();
+        int column = 0;
+        int row = 1;
+        for (Artwork artwork : filteredList) {
+            FXMLLoader fxmlloader = new FXMLLoader();
+            fxmlloader.setLocation(getClass().getResource("../GUI/Art_FXML.fxml"));
+
+            try {
+                AnchorPane anchorPane = fxmlloader.load();
+
+                ArtController artController = fxmlloader.getController();
+                artController.setData(artwork, MyListener);
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       
-        list= afficherartwork();
+
+        list = afficherartwork();
         if (list.size() > 0) {
             setChosenArt(list.get(0));
             MyListener = new MyListener() {
                 @Override
                 public void onClickListener(Artwork artwork) {
                     setChosenArt(artwork);
-                }
-            
-          
 
-                };
-                    }
-            
-        
-      
+                }
+
+            };
+        }
+
         int column = 0;
         int row = 1;
         try {
-            System.out.println(  list.size());
-         
-        for (int i=0; i<list.size(); i++){
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("../Presentation/Art_FXML.fxml"));
-            System.out.println(fxmlloader.getLocation());
-            AnchorPane anchorPane = fxmlloader.load();
-           
-            ArtController artController = fxmlloader.getController();
-            artController.setData(list.get(i),MyListener);
-            if(column == 3){
-                column =0;
-                row++;
+
+            for (int i = 0; i < list.size(); i++) {
+                FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("../GUI/Art_FXML.fxml"));
+
+                AnchorPane anchorPane = fxmlloader.load();
+
+                ArtController artController = fxmlloader.getController();
+                artController.setData(list.get(i), MyListener);
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+                grid.add(anchorPane, column++, row);
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
             }
-            grid.add(anchorPane, column++, row);
-            grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-            grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-            grid.setMaxWidth(Region.USE_PREF_SIZE);
-            grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-            grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-            grid.setMaxHeight(Region.USE_PREF_SIZE);
-            
-            
-            GridPane.setMargin(anchorPane, new Insets(10));
-        }}
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    
-    
 
+    }
 
 }

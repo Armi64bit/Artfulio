@@ -17,7 +17,7 @@ public class MyConnection {
      Connection myconnex ;
      static MyConnection macon;
      
-     String url="jdbc:mysql://localhost:3306/store";
+     String url="jdbc:mysql://localhost:3306/artfulio";
     String login="root";
     String password="";
 
