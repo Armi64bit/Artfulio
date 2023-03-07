@@ -101,7 +101,7 @@ id_artiste.setText(""+id);}
         c.setDate_sortie(date_sortie.getValue());
         c.setType_collaboration(type.getValue());
         c.setDescription(description.getText());
-        //############## ajouter le nom et lemail du profil ############################
+        //############## p.get nom profile ############################
        c.setNom_user(User.getCurrent_User().getUsername());
         c.setEmail_user(User.getCurrent_User().getEmail_user());
         

@@ -166,7 +166,78 @@ return true;}
         }
         return p;
     }
-         
+    public User afficherProfilefb(String fb) {
+         User p = new User();
+        try {
+            String req = "SELECT * FROM `user` WHERE `username` ='"+fb+"' ";
+            Statement ste = myconnex.createStatement();
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+               p.setId_user(res.getInt("id_user"));
+                p.setUsername(res.getString("username"));
+               
+                p.setCin_user(res.getString("cin_user"));
+                p.setAdresse_user(res.getString("adresse_user"));
+                p.setPassword_user(res.getString("password_user"));
+                p.setEmail_user(res.getString("email_user"));
+                p.setRole(res.getString("type_role"));
+                 p.setImg_user(res.getString("img_user"));
+                 p.setIs_pro(res.getInt("is_pro"));
+
+               
+                return p;
+            }
+        } catch (SQLException ex) {
+        }
+        return p;
+    }
      
+public User afficherparmail(String fb) {
+         User p = new User();
+        try {
+            String req = "SELECT * FROM `user` WHERE `email_user` ='"+fb+"' ";
+            Statement ste = myconnex.createStatement();
+            ResultSet res = ste.executeQuery(req);
+            while (res.next()) {
+               p.setId_user(res.getInt("id_user"));
+                p.setUsername(res.getString("username"));
+               
+                p.setCin_user(res.getString("cin_user"));
+                p.setAdresse_user(res.getString("adresse_user"));
+                p.setPassword_user(res.getString("password_user"));
+                p.setEmail_user(res.getString("email_user"));
+                p.setRole(res.getString("type_role"));
+                 p.setImg_user(res.getString("img_user"));
+                 p.setIs_pro(res.getInt("is_pro"));
+
+               
+                return p;
+            }
+        } catch (SQLException ex) {
+        }
+        return p;
+    }
+    
+      public Boolean is_existe(String ch) throws SQLException {
+        Boolean ok_pour_avancer = false;
+        Statement stmt;
+        ResultSet rset;
+        try {
+
+            stmt = myconnex.createStatement();
+            String query = "select * from user where username='" + ch + "' ;";
+            rset = stmt.executeQuery(query);
+            if (rset.next()) {
+                if ((ch.equals(rset.getString("username")))) {
+                    ok_pour_avancer = true;
+                }
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        return ok_pour_avancer;
+
+    }
     
 }

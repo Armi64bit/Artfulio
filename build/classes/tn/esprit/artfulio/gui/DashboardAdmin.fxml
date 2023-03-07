@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DashboardAdminController">
+   <children>
+      <TableView fx:id="uSerTab" layoutX="55.0" layoutY="49.0" prefHeight="200.0" prefWidth="503.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="id" />
+          <TableColumn prefWidth="75.0" text="UserName" />
+            <TableColumn prefWidth="75.0" text="Password" />
+            <TableColumn prefWidth="75.0" text="Role" />
+            <TableColumn prefWidth="75.0" text="Email" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

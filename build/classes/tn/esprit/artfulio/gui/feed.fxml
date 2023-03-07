@@ -26,9 +26,7 @@
                      </image>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+               
             </Button>
             <Button fx:id="chnagemode" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
@@ -38,9 +36,7 @@
                      </image>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+               
             </Button>
             <Pane prefHeight="66.0" prefWidth="362.0" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" spacing="50.0">
@@ -58,9 +54,7 @@
                            </font>
                         </Label>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </HBox>
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#videofeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
@@ -75,9 +69,7 @@
                            </font>
                         </Label>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </HBox>
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#musicfeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
                      <children>
@@ -90,9 +82,7 @@
                            <font>
                               <Font size="17.0" />
                            </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+                           
                         </Label>
                      </children>
                   </HBox>
@@ -109,9 +99,7 @@
                            </font>
                         </Label>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </HBox>
                </children>
             </HBox>
@@ -122,9 +110,7 @@
                      <image>
                         <Image url="@../img/brightness.png" />
                      </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </ImageView>
                </graphic>
             </Button>
@@ -134,14 +120,10 @@
                      <image>
                         <Image url="@heart.png" />
                      </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+               
             </Button>
             <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
@@ -149,14 +131,10 @@
                      <image>
                         <Image url="@heart.png" />
                      </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+              
             </Button>
          </children>
          <padding>
@@ -182,9 +160,7 @@
                            </font>
                         </Label>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </HBox>
                   <HBox fx:id="taketocollabbtn" alignment="CENTER" onMouseClicked="#taketocollab" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
@@ -199,9 +175,7 @@
                            </font>
                         </Label>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </HBox>
                   <HBox fx:id="cate" alignment="CENTER" onMouseClicked="#gottocat" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
@@ -216,9 +190,7 @@
                            </font>
                         </Label>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
@@ -233,15 +205,13 @@
                            </font>
                         </Label>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                     
                   </HBox>
-                  <HBox fx:id="reclam" alignment="CENTER" onMouseClicked="#reclam" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox fx:id="reclam" alignment="CENTER"  prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/lead.png" />
+                              <Image url="@../img/avertissement.png" />
                            </image>
                         </ImageView>
                         <Label prefHeight="18.0" prefWidth="220.0" text="Reclamer">
@@ -250,10 +220,7 @@
                            </font>
                         </Label>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </HBox>
+                                     </HBox>
                </children>
                <padding>
                   <Insets top="20.0" />
@@ -301,9 +268,7 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
+                                       
                                     </HBox>
                                     <HBox alignment="CENTER" onMouseClicked="#addartimg" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
                                        <children>
@@ -318,9 +283,7 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
+                                       
                                     </HBox>
                                     <HBox alignment="CENTER" onMouseClicked="#addartimg" prefHeight="100.0" spacing="10.0" styleClass="elementt" HBox.hgrow="ALWAYS">
                                        <children>
@@ -335,9 +298,7 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
+                                       
                                     </HBox>
                                  </children>
                               </HBox>
