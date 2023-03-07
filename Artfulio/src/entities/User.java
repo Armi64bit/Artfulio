@@ -43,6 +43,17 @@ public class User {
         this.img_user = img_user;
     }
 
+    public User(int id_user, String username, String cin_user, String adresse_user, String password_user, String email_user, String type_role, boolean is_pro) {
+        this.id_user = id_user;
+        this.username = username;
+        this.cin_user = cin_user;
+        this.adresse_user = adresse_user;
+        this.password_user = password_user;
+        this.email_user = email_user;
+        this.type_role = type_role;
+        this.is_pro = is_pro;
+    }
+
    
 
 

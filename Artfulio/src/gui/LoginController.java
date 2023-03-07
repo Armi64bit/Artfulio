@@ -18,11 +18,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -84,26 +82,22 @@ public class LoginController implements Initializable {
         } else {
 
             UserService user = new UserService();
-            if(txtUserName.getText().equals("artfuliotn@gmail.com") && txtPWD.getText().equals("mdvztnyyyycnexok") )
-        {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            if (txtUserName.getText().equals("imen") && txtPWD.getText().equals("0000")) {
+               /* Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                      alert.setTitle("Artfulio :: Success Message");
                      alert.setHeaderText(null);
-                     alert.setContentText("Bienvenu Admin");
-                     alert.showAndWait();
-                       GoPage("/gui/DashboardAdmin.fxml", event);
-                 
-           
+                     alert.setContentText("Bienvenue Admin");
+                     alert.showAndWait();*/
+                GoPage("/gui/DashboardAdmin.fxml", event);
+
                 User u = user.afficherCurrent_User(txtUserName.getText());
                 User.setCurrent_User(u);
                 // ok
-
             } else {
                 msg.setText("Login ou PWD incorrecte");
                 // incorrecte
 
             }
-
 
         }
 
@@ -117,9 +111,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void Resetpwd(MouseEvent event) throws IOException {
-         GoPage("/gui/reinitialisationMDP.fxml", event);
+        GoPage("/gui/reinitialisationMDP.fxml", event);
     }
-
- 
 
 }

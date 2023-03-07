@@ -53,7 +53,7 @@ public class UserService implements IUserService {
     @Override
     public void modifierUtilisateur(User u) throws SQLException {
 
-        String req = "UPDATE user SET username = ?,cin_user = ?,adresse_user = ?,password_user = ?,email_user = ?,type_role = ?,is_pro =?,img_user =?";
+        String req = "UPDATE user SET username = ?,cin_user = ?,adresse_user = ?,password_user = ?,email_user = ?,type_role = ?,is_pro =?,img_user =? where username=?";
         PreparedStatement ps = myconnex.prepareStatement(req);
 
         ps.setString(1, u.getUsername());
@@ -63,7 +63,8 @@ public class UserService implements IUserService {
         ps.setString(5, u.getEmail_user());
         ps.setString(6, u.getRole());
         ps.setBoolean(7, u.isIs_pro());
-        ps.setString(6, u.getImg_user());
+        ps.setString(8, u.getImg_user());
+      
         ps.executeUpdate();
         System.out.println("Utilisateur Modifié");
 

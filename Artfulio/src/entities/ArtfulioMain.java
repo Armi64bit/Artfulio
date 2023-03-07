@@ -23,14 +23,16 @@ public class ArtfulioMain {
         RoleService role_service2 = new RoleService();
         role_service2.ajouterRole(r2); 
         Role r3 = new Role("client"); */
-        RoleService role_service3 = new RoleService();
+       // RoleService role_service3 = new RoleService();
         //role_service3.ajouterRole(r3);
-        role_service3.afficherRole();
-       /* User u1 = new User("imen", "07895648", "mourouj", "0000", "imen.abassi@esprit.tn", "admin", false,"C:\\Users\\WINDOWS 10\\Documents\\GitHub\\Artfulio\\Artfulio\\src\\img\\imen.jpg");
+        //role_service3.afficherRole();
+        User u1 = new User("abassi", "07895648", "mourouj", "123", "imen.abassi@esprit.tn", "artiste", false,"C:\\Users\\WINDOWS 10\\Documents\\GitHub\\Artfulio\\Artfulio\\src\\img\\imen.jpg");
         UserService user_service1 = new UserService();
-        user_service1.ajouterUtilisateur(u1);
-        user_service1.afficherUtilisateur();*/
+       // user_service1.ajouterUtilisateur(u1);
+       // user_service1.afficherUtilisateur();
+        //user_service1.modifierUtilisateur(u1);
 
+        
      
 
     }
