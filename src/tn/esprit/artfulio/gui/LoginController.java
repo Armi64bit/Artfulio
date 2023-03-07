@@ -98,7 +98,7 @@ public class LoginController implements Initializable {
                      alert.setHeaderText(null);
                      alert.setContentText("Bienvenu Admin");
                      alert.showAndWait();
-                       GoPage("DashboardAdmin.fxml", event);
+                       GoPage("feedadmin.fxml", event);
                  
            
                

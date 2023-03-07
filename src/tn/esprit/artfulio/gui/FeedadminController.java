@@ -69,6 +69,8 @@ public class FeedadminController implements Initializable {
     private Button profile;
     @FXML
     private Button refrech;
+    @FXML
+    private HBox useradmin;
 
     /**
      * Initializes the controller class.
@@ -191,7 +193,6 @@ public class FeedadminController implements Initializable {
         }
     }
 
-    @FXML
     private void imagefeed(MouseEvent event) {
         
         
@@ -218,7 +219,6 @@ public class FeedadminController implements Initializable {
     }
     
 
-    @FXML
     private void videofeed(MouseEvent event) {
         
         
@@ -244,7 +244,6 @@ public class FeedadminController implements Initializable {
     
     }
     
-    @FXML
     private void musicfeed(MouseEvent event) {
         
         
@@ -289,19 +288,14 @@ public class FeedadminController implements Initializable {
 
     @FXML
     private void gottocat(MouseEvent event) {
-        try {
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            
-           // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
-            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("categorie.fxml"));
-            Parent root = loaderp.load();
-           
-           // FeedimageController fic =loaderp.getController();
-            //fic.feed();
-            //fic.users();
-             Scene scene = new Scene(root);
-            stage.setScene(scene);
+         try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("admin.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            //QrController q=fxmlLoader.getController();
+           // ArtworkService as= new ArtworkService();
+            stage.setTitle("collab");
+            stage.setScene(new Scene(root1));
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(FeedadminController.class.getName()).log(Level.SEVERE, null, ex);
@@ -423,6 +417,23 @@ public class FeedadminController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FeedadminController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void adminuser(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DashboardAdmin.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            //QrController q=fxmlLoader.getController();
+           // ArtworkService as= new ArtworkService();
+            stage.setTitle("collab");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedadminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }
 

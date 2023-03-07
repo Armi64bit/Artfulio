@@ -87,9 +87,11 @@ u=us.afficherProfilefb(id);
        
    }
    public void setinvis(){
-       delete.setVisible(false);
-               edit.setVisible(false);
-   }
+    
+         delete.setVisible(false);
+         edit.setVisible(false);
+        }
+   
 
    
    

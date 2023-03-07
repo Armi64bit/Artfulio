@@ -30,51 +30,11 @@
             <Pane prefHeight="66.0" prefWidth="41.0" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="784.0" spacing="50.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#imagefeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt" visible="false">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/galerie.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Images">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#videofeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt" stylesheets="@feed.css" visible="false">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/lecteur-multimedia.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Videos">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#musicfeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt" visible="false">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/musique.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Musique">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           
-                        </Label>
-                     </children>
-                  </HBox>
+                  <Label prefHeight="27.0" prefWidth="478.0" text="ADMIN">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
                      <children>
                         <Button fx:id="shop" mnemonicParsing="false" onAction="#gotshop" style="-fx-background-color: transparennt;">
@@ -135,14 +95,14 @@
          <content>
             <VBox prefHeight="463.0" prefWidth="324.0" spacing="12.0" stylesheets="@feed.css">
                <children>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
+                  <HBox fx:id="useradmin" alignment="CENTER" onMouseClicked="#adminuser" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
                      <children>
                         <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/maison.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="Acceuil">
+                        <Label prefHeight="18.0" prefWidth="220.0" text="Users">
                            <font>
                               <Font size="18.0" />
                            </font>

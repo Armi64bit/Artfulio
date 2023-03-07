@@ -36,7 +36,7 @@ public class MainWindow extends Application {
 
 
             Parent root = FXMLLoader.
-                    load(getClass().getResource("feedadmin.fxml"));
+                    load(getClass().getResource("Login.fxml"));
             
             Scene scene = new Scene(root);
            String css;

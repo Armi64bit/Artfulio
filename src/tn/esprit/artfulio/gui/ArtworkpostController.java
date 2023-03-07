@@ -351,7 +351,8 @@ reactionsContainer.setVisible(true);
                 HBox vbox = loader.load();
          
                 CommentController artcont = loader.getController();
-                if(listcom.get(k).getId_util()!=User.getCurrent_User().getId_user()){artcont.setinvis();}
+                if(listcom.get(k).getId_util()!=User.getCurrent_User().getId_user()){
+                    artcont.setinvis();}
 
                 artcont.loadcom(listcom.get(k));
                 commentcontainer.getChildren().add(vbox);
