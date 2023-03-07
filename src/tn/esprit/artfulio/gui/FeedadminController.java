@@ -67,6 +67,8 @@ public class FeedadminController implements Initializable {
     private HBox pro;
     @FXML
     private Button profile;
+    @FXML
+    private Button refrech;
 
     /**
      * Initializes the controller class.
@@ -137,10 +139,10 @@ public class FeedadminController implements Initializable {
                 artcont.coms(listart.get(i).getId_artwork());
  
                 postscontainer.getChildren().add(vbox);
-                 if(listart.get(i).getId_artist()!=User.getCurrent_User().getId_user()){artcont.setdelvis();
+                // if(listart.get(i).getId_artist()!=User.getCurrent_User().getId_user()){artcont.setdelvis();
 }
             
-            }
+            //}
             
         } catch (Exception e) {
         }
@@ -272,7 +274,7 @@ public class FeedadminController implements Initializable {
     private void taketocollab(MouseEvent event) {
         
          try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuCollaboration.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuCollaborationadmin.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             //QrController q=fxmlLoader.getController();
@@ -328,7 +330,7 @@ public class FeedadminController implements Initializable {
     @FXML
     private void reclam(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddReclamation.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminReclamation.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             //QrController q=fxmlLoader.getController();
@@ -344,7 +346,7 @@ public class FeedadminController implements Initializable {
     @FXML
     private void pro(MouseEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Parrainage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminParrainage.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             //QrController q=fxmlLoader.getController();
@@ -387,6 +389,29 @@ public class FeedadminController implements Initializable {
             
            // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
             FXMLLoader loaderp = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent root = loaderp.load();
+           
+           // FeedimageController fic =loaderp.getController();
+            //fic.feed();
+            //fic.users();
+             Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedadminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void refrech(ActionEvent event) {
+         User u= new User();
+        User.setCurrent_User(u);
+         try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+           // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("feedadmin.fxml"));
             Parent root = loaderp.load();
            
            // FeedimageController fic =loaderp.getController();
