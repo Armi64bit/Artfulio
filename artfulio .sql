@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 06, 2023 at 11:54 PM
+-- Generation Time: Mar 07, 2023 at 10:23 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `artwork` (
   PRIMARY KEY (`id_artwork`),
   KEY `fk_id_type` (`id_type`),
   KEY `fk_id_artist` (`id_artist`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `artwork`
@@ -85,8 +85,9 @@ CREATE TABLE IF NOT EXISTS `artwork` (
 
 INSERT INTO `artwork` (`id_artwork`, `nom_artwork`, `description_artwork`, `prix_artwork`, `id_type`, `date`, `id_artist`, `lien_artwork`, `dimension_artwork`, `img_artwork`) VALUES
 (38, 'Xiivi', '1312', 22, 4, '2023-03-04', 9, 'https://www.youtube.com/watch?v=12mVTQ17L-Q&ab_channel=XIIVI-Topic', 22, 'C:\\Users\\msi\\Documents\\artworkimg\\400x400cc.jpg'),
-(39, 'disney', 'suite life on deck', 22, 3, '2023-03-05', 9, 'https://www.youtube.com/watch?v=kjZqydFs-IM&ab_channel=DisneyChannel', 22, 'C:\\Users\\msi\\Downloads\\4701_5_PINETREE_Aerial_1.1513368907.jpg'),
-(42, 'haja', 'daz', 22, 6, '2023-02-26', 9, 'aa', 1, 'ZZ');
+(39, 'disney', 'suite life on deck', 22, 3, '2023-03-05', 14, 'https://www.youtube.com/watch?v=kjZqydFs-IM&ab_channel=DisneyChannel', 22, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\avertissement.png'),
+(45, 'disney', 'suite life on deck', 22, 3, '2023-03-05', 14, 'https://www.youtube.com/watch?v=kjZqydFs-IM&ab_channel=DisneyChannel', 22, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\avertissement.png'),
+(46, 'ggg', 'ggg', 22, 2, '2023-03-07', 16, 'dada', 22, 'C:\\Users\\msi\\Documents\\GitHub\\Artfulio\\src\\tn\\esprit\\artfulio\\img\\327771596_1156253308397426_6805221060823898730_n.png');
 
 -- --------------------------------------------------------
 
@@ -188,16 +189,17 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   PRIMARY KEY (`Id_com`),
   KEY `fk_id_artwork` (`id_artwork`),
   KEY `fk_id_user` (`id_util`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id_util`, `Texte`, `Id_com`, `id_artwork`, `Date_post`) VALUES
-(9, 'batta', 61, 38, '2023-03-05 17:09:05'),
-(9, 'nice one', 62, 39, '2023-03-05 18:04:27'),
-(10, 'disney', 63, 39, '2023-03-05 18:20:25');
+(14, 'aa', 70, 39, '2023-03-07 16:31:14'),
+(9, 'aa', 71, 39, '2023-03-07 16:33:03'),
+(9, 'aa', 73, 39, '2023-03-07 16:54:56'),
+(9, 'v', 75, 45, '2023-03-07 20:50:33');
 
 -- --------------------------------------------------------
 
@@ -300,14 +302,15 @@ CREATE TABLE IF NOT EXISTS `role` (
   `type_role` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_role`),
   UNIQUE KEY `type_role` (`type_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`id_role`, `type_role`) VALUES
-(13, 'artiste');
+(13, 'artiste'),
+(14, 'client');
 
 -- --------------------------------------------------------
 
@@ -377,7 +380,7 @@ CREATE TABLE IF NOT EXISTS `store` (
   `img_artwork` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_produit`),
   KEY `fk_id_produit` (`id_piece_art`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `store`
@@ -385,7 +388,7 @@ CREATE TABLE IF NOT EXISTS `store` (
 
 INSERT INTO `store` (`id_produit`, `id_piece_art`, `nom_artwork`, `prix_artwork`, `img_artwork`) VALUES
 (1, 38, 'xivii', 50, 'C:\\Users\\msi\\Documents\\artworkimg\\400x400cc.jpg'),
-(2, 39, 'ca', 50, 'vdsvs');
+(5, 39, 'disney', 22, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\avertissement.png');
 
 -- --------------------------------------------------------
 
@@ -403,13 +406,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email_user` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `type_role` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `is_pro` tinyint(1) NOT NULL DEFAULT '0',
-  `img_user` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `img_user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_user`),
   KEY `role` (`type_role`),
   KEY `email_user` (`email_user`),
   KEY `is_pro` (`is_pro`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -418,7 +421,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id_user`, `username`, `cin_user`, `adresse_user`, `password_user`, `email_user`, `type_role`, `is_pro`, `img_user`) VALUES
 (9, 'armidea', '66666666', 'ariana', '1234456G', 'bahaa2000lol@gmail.com', 'artiste', 1, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\281033536_5199183936825135_719357441632610083_n.jpg'),
 (10, 'sofiene', '66666667', 'sofiene@esprit.tn', '1234456G', 'sofiene@esprit.tn', 'artiste', 0, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\331422033_717698123237566_8025820810295345656_n.jpg'),
-(11, 'yessine', '66666668', 'yessine@esprit.tn', '1234456G', 'yessine@esprit.tn', 'artiste', 1, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\128031848_3563748170408569_6112004551603132267_n.jpg');
+(11, 'yessine', '66666668', 'yessine@esprit.tn', '1234456G', 'yessine@esprit.tn', 'artiste', 1, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\128031848_3563748170408569_6112004551603132267_n.jpg'),
+(14, 'hamza', '13870096', 'gabes', '12345678', 'hamzahhajbelgacem@gmail.com', 'artiste', 0, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\hamza.jpg'),
+(16, 'michel', '11111111', 'hhhda@gmail.com', '11111111', 'hhhda@gmail.com', 'artiste', 0, 'C:\\Users\\msi\\Documents\\artworkimg\\pdp\\tft.png'),
+(19, 'imen', '11111111', 'ariana', '11111111', 'dada@gmail.com', 'client', 0, 'C:\\Users\\msi\\Documents\\GitHub\\Artfulio\\src\\tn\\esprit\\artfulio\\img\\101541780_2578258805609200_3499042863151316992_n.jpg');
 
 --
 -- Constraints for dumped tables
