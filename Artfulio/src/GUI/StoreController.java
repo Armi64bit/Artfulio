@@ -87,12 +87,11 @@ private void handleCartButton(MouseEvent event) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Cart.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
-            //QrController q=fxmlLoader.getController();
-           // ArtworkService as= new ArtworkService();
+           
             stage.setTitle("Cart");
             stage.setScene(new Scene(root1));
             stage.show();
-             System.out.println(Items);
+             
         } catch (IOException ex) {
             Logger.getLogger(StoreController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -128,7 +127,7 @@ private void handleCartButton(MouseEvent event) throws IOException {
         alert.showAndWait();
         
         Items = cart.getItems();
-        System.out.println(Items);
+        
     }
     private List<Artwork> list = new ArrayList<>();
 

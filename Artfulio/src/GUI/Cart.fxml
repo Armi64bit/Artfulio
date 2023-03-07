@@ -15,16 +15,16 @@
          <font>
             <Font name="Calibri Bold" size="32.0" />
          </font></Label>
-        <TableView fx:id="cartTable" layoutX="15.0" layoutY="60.0" prefHeight="326.0" prefWidth="319.0" styleClass="shadow" stylesheets="@../Style/Style.css">
+        <TableView fx:id="cartTable" layoutX="15.0" layoutY="60.0" prefHeight="326.0" prefWidth="315.0">
             <columns>
                 <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Name" />
-                <TableColumn fx:id="priceColumn" prefWidth="106.0" text="Price" />
+                <TableColumn fx:id="priceColumn" prefWidth="102.0" text="Price" />
                 
             </columns>
         </TableView>
       <VBox layoutX="329.0" layoutY="92.0" prefHeight="216.0" prefWidth="263.0">
          <children>
-            <HBox prefHeight="171.0" prefWidth="263.0">
+            <HBox prefHeight="71.0" prefWidth="263.0">
                <children>
                   <VBox prefHeight="128.0" prefWidth="131.0">
                      <children>
@@ -49,6 +49,11 @@
                         <Font name="System Bold" size="31.0" />
                      </font>
                   </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="ConfirmOrder" alignment="CENTER" mnemonicParsing="false" onAction="#handleConfirmOrderButton" prefHeight="42.0" prefWidth="133.0" text="Confirm Order" />
                </children>
             </HBox>
          </children>
