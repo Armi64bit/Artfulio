@@ -1,0 +1,98 @@
+/*
+ * Empty Stylesheet file.
+ */
+.round-button{
+    -fx-background : grey;
+    -fx-background-radius :50;
+    
+    
+}
+.texfield{
+     -fx_border-color:#F0F2F5; 
+    
+}
+.navbar{
+    
+    -fx-border-color:#FFF;
+   -fx-background : #E1D1CE;
+    -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),5.0,0.0,0.0,5);
+
+}
+.background{
+    -fx-background-color : #E6DDDB;
+}
+
+.scroll-pane .viewport {
+       -fx-background-color: transparent;
+}
+.post-background{
+    
+    -fx-background-color : #E1D1CE;
+ 
+
+}
+
+.post-backgroundwithshadow{
+    
+    -fx-background-color : #E6DDDB;
+    -fx-background-radius :15;
+-fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.1),5.0,0.0,0.0,5);
+ -fx-border-color:#FFF;
+
+}
+.texfield{
+    -fx-background-color : #F0F2F5;
+      -fx-background-radius :10;
+    
+}
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: transparent;
+    -fx-background-radius: 3em;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #B8236E;
+    -fx-background-radius: 3em;
+}
+.scroll-bar:horizontal  {
+    -fx-background-color: transparent;
+    -fx-background-radius: 3em;
+}
+
+.scroll-bar:vertical  {
+    -fx-background-color: transparent;
+    -fx-background-radius: 3em;
+}
+.elementt:hover{
+        -fx-background-color: #E1D1CE;
+
+}
+.elementtdarker:hover{
+        -fx-background-color: #C7A9A3;
+
+}
+
+* {
+	-fx-primary-color: #E1D1CE;
+	-fx-secondary-color: #4B6EAF;
+	-fx-grey-color: #b9b9b9;
+    
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.text-field {
+	-fx-accent: -fx-primary-color;
+	-fx-background-color:  #E1D1CE;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-background-radius: 0;
+}
+.text-field:focused {
+	-fx-background-color: -fx-primary-color, #C7A9A3;
+}
+.imgpr:hover{
+         -fx-border-color: blue ;
+    -fx-border-width: 5 ; 
+    -fx-border-style: segments(10, 15, 15, 15)  line-cap round ;
+    
+}
+
+

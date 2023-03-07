@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" spacing="13.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.CommentController">
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <ImageView fx:id="imgprofile" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../artworkimg/pdp/128031848_3563748170408569_6112004551603132267_n.jpg" />
+               </image>
+            </ImageView>
+         </children>
+         <HBox.margin>
+            <Insets left="7.0" />
+         </HBox.margin>
+      </HBox>
+      <Pane styleClass="round-button" stylesheets="@feed.css" />
+      <VBox prefHeight="98.0" prefWidth="468.0" styleClass="post-backgroundwithshadow" stylesheets="@feed.css" HBox.hgrow="ALWAYS">
+         <children>
+            <HBox alignment="TOP_RIGHT" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER" spacing="3.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label fx:id="usernamecom" text="Username">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="imgbadge" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/pngwing.com%20(1).png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="id_user" text="id_user" visible="false">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="id_com" text="id_com" visible="false">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label fx:id="datepost" text="1h" textFill="GREY">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <Pane prefHeight="50.0" prefWidth="99.0">
+                     <children>
+                        <ImageView fx:id="delete" fitHeight="68.0" fitWidth="32.0" layoutX="58.0" layoutY="3.0" onMouseClicked="#delcom" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/supprimer.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="edit" fitHeight="68.0" fitWidth="32.0" layoutX="22.0" layoutY="3.0" onMouseClicked="#delcom" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/crayon.png" />
+                           </image>
+                        </ImageView>
+                     </children></Pane>
+               </children>
+               <VBox.margin>
+                  <Insets left="11.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Pane prefHeight="46.0" prefWidth="289.0" styleClass="round-button" stylesheets="@feed.css">
+                     <children>
+                        <Label fx:id="txtcom" layoutX="14.0" layoutY="13.0" text="nice owrk buddy">
+                           <padding>
+                              <Insets bottom="15.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox />
+   </children>
+</HBox>

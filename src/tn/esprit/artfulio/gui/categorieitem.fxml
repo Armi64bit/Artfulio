@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.CategorieitemController">
+   <children>
+      <Label fx:id="nom_sous_cat" text="nom_sous_cat">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <HBox fx:id="items" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" />
+   </children>
+</VBox>

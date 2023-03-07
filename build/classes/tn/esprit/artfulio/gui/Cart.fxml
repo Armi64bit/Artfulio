@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.CartController">
+    <children>
+        <Label layoutX="15.0" layoutY="14.0" prefHeight="40.0" prefWidth="195.0" text="Shopping Cart">
+         <font>
+            <Font name="Calibri Bold" size="32.0" />
+         </font></Label>
+        <TableView fx:id="cartTable" layoutX="15.0" layoutY="60.0" prefHeight="326.0" prefWidth="315.0">
+            <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Name" />
+                <TableColumn fx:id="priceColumn" prefWidth="102.0" text="Price" />
+                
+            </columns>
+        </TableView>
+      <VBox layoutX="329.0" layoutY="92.0" prefHeight="216.0" prefWidth="263.0">
+         <children>
+            <HBox prefHeight="71.0" prefWidth="263.0">
+               <children>
+                  <VBox prefHeight="128.0" prefWidth="131.0">
+                     <children>
+                        <HBox prefHeight="68.0" prefWidth="131.0">
+                           <children>
+                              <Button fx:id="removeButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Remove" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="57.0" prefWidth="170.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="60.0" prefWidth="132.0" text="Total Price:">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="TotPrice" alignment="CENTER" prefHeight="59.0" prefWidth="130.0" text="222" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="ConfirmOrder" alignment="CENTER" mnemonicParsing="false" onAction="#handleConfirmOrderButton" prefHeight="42.0" prefWidth="133.0" text="Confirm Order" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="565.0" styleClass="post-backgroundwithshadow" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.PortfolioitemController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="13.0">
+         <children>
+            <VBox alignment="CENTER" spacing="3.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label fx:id="datepost" text="1h" textFill="GREY">
+                           <font>
+                              <Font size="25.0" />
+                           </font></Label>
+                        <Label fx:id="id_art" text="1h" textFill="GREY" visible="false">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#qr" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/share-457-64.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox fx:id="nom_sous_cat" VBox.vgrow="ALWAYS">
+         <children>
+            <Label fx:id="noms" text="Label">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="0.0" prefWidth="355.0" />
+            <Button fx:id="sell" mnemonicParsing="false" onAction="#sell" styleClass="add-btn" stylesheets="@Style.css" text="vendre">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="40.0" />
+         </VBox.margin>
+      </HBox>
+      <ImageView fx:id="Imgpost" fitHeight="535.0" fitWidth="535.0" onMouseClicked="#preview" pickOnBounds="true" preserveRatio="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+   </children>
+</VBox>
