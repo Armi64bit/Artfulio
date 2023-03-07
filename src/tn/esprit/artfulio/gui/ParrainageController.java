@@ -42,10 +42,10 @@ public class ParrainageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        //displayImage();
-        UserService us = new UserService();
-        User u = us.afficherProfilefb(10);
-        User.setCurrent_User(u);
-        SessionManager.getInstace(u.getId_user(), u.getCin_user(), u.getUsername(), u.getImg_user(), u.getEmail_user(), u.getAdresse_user(), u.getType_role(), u.getIs_pro());
+       // UserService us = new UserService();
+        //User u = us.afficherProfilefb(10);
+        //User.setCurrent_User(u);
+        //SessionManager.getInstace(u.getId_user(), u.getCin_user(), u.getUsername(), u.getImg_user(), u.getEmail_user(), u.getAdresse_user(), u.getType_role(), u.getIs_pro());
  
     }    
 

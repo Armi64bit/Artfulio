@@ -63,7 +63,7 @@ public class FeedimageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println(User.getCurrent_User().getUsername());
+       // System.out.println(User.getCurrent_User().getUsername());
         feed();
       users();
     }

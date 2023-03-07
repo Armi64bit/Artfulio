@@ -37,7 +37,7 @@ public class UserService implements IServiceuser {
     @Override
     public int ajouteruser(User u) {
  try {
-            String res = "INSERT INTO user (id_user,username,cin_user,adresse_user,password_user,email_user,type_role) VALUES (?,?, ?,?, ?, ?, ?)";
+            String res = "INSERT INTO user (id_user,username,cin_user,adresse_user,password_user,email_user,type_role,img_user) VALUES (?,?, ?,?, ?, ?, ?,?)";
 
             PreparedStatement ps = myconnex.prepareStatement(res);
             ps.setInt(1, u.getId_user());
@@ -47,6 +47,8 @@ public class UserService implements IServiceuser {
             ps.setString(5, u.getPassword_user());
             ps.setString(6, u.getEmail_user());
             ps.setString(7, u.getRole());
+            ps.setString(8, u.getImg_user());
+            
             ps.executeUpdate();
             System.out.println("Utlisateur Ajouté");
         } catch (SQLException ex) {

@@ -70,7 +70,7 @@ public class InscriptionController implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBoxRole;
     @FXML
-    private PasswordField path;
+    private TextField path;
     @FXML
     private ImageView pdp;
 

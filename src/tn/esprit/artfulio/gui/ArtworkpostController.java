@@ -114,12 +114,15 @@ public class ArtworkpostController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    //coms ();   
+        
+      //ArtworkService as=new ArtworkService();
+     //artwork a=as.afficherartwork1(39);
+      //  setdata(a);
+    //coms (a.getId_artwork());   
     
     
           //   System.out.println("id art = ");
     postcom.setOnAction(new EventHandler() {
-
         @Override
         public void handle(Event event) {
  int id= Integer.parseInt( id_art.getText());

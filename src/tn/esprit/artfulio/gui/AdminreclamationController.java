@@ -96,10 +96,10 @@ public class AdminreclamationController implements Initializable {
         emailc.setCellValueFactory(new PropertyValueFactory<>("email"));
         tableServices.setItems(olp);
         search_user();
-        UserService us = new UserService();
-        User u = us.afficherProfilefb(12);
-        User.setCurrent_User(u);
-        SessionManager.getInstace(u.getId_user(), u.getCin_user(), u.getUsername(), u.getImg_user(), u.getEmail_user(), u.getAdresse_user(), u.getType_role(), u.getIs_pro());
+        //UserService us = new UserService();
+        //User u = us.afficherProfilefb(12);
+       // User.setCurrent_User(u);
+        //SessionManager.getInstace(u.getId_user(), u.getCin_user(), u.getUsername(), u.getImg_user(), u.getEmail_user(), u.getAdresse_user(), u.getType_role(), u.getIs_pro());
 
     }
 

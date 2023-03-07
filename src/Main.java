@@ -33,11 +33,15 @@ public class Main {
  
   
     public static void main (String []args){
-        
-        UserService us=new UserService();
-        User u=new User("username", "cin_user", "adresse_user", "pwd", "mail", "img", "artiste");
-        us.ajouteruser(u);
-        
+       UserService us=new UserService();
+       commentaireservice cs= new commentaireservice();
+       commentaire c= new commentaire("nice", 42, 14);
+        System.out.println(cs.affichercommentaire(42));
+         System.out.println(User.getCurrent_User().getUsername());
+//        UserService us=new UserService();
+//        User u=new User("username", "cin_user", "adresse_user", "pwd", "mail", "img", "artiste");
+//        us.ajouteruser(u);
+//        
         
         
 //        try {

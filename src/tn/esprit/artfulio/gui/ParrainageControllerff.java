@@ -110,10 +110,10 @@ public class ParrainageControllerff implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        UserService us = new UserService();
-        User u = us.afficherProfilefb(9);
-        User.setCurrent_User(u);
-        SessionManager.getInstace(u.getId_user(), u.getCin_user(), u.getUsername(), u.getImg_user(), u.getEmail_user(), u.getAdresse_user(), u.getType_role(), u.getIs_pro());
+//        UserService us = new UserService();
+//        User u = us.afficherProfilefb(9);
+//        User.setCurrent_User(u);
+//        SessionManager.getInstace(u.getId_user(), u.getCin_user(), u.getUsername(), u.getImg_user(), u.getEmail_user(), u.getAdresse_user(), u.getType_role(), u.getIs_pro());
     }
 
     Image myImage = new Image(getClass().getResourceAsStream("up.png"));

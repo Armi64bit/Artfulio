@@ -58,6 +58,10 @@ public class FeedController implements Initializable {
     private HBox taketocollabbtn;
     @FXML
     private HBox cate;
+    @FXML
+    private Button logout;
+    @FXML
+    private HBox reclam;
 
     /**
      * Initializes the controller class.
@@ -66,11 +70,11 @@ public class FeedController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
       feed();
       users();
-      UserService us= new UserService();
-      User u=us.afficherProfilefb(9);
-       User.setCurrent_User(u);
-       SessionManager.getInstace(u.getId_user(),u.getCin_user(),u.getUsername(),u.getImg_user(),u.getEmail_user(),u.getAdresse_user(),u.getType_role(),u.getIs_pro());
-                 //    System.out.println(User.Current_User.getUsername());
+//      UserService us= new UserService();
+//      User u=us.afficherProfilefb(9);
+//       User.setCurrent_User(u);
+//      SessionManager.getInstace(u.getId_user(),u.getCin_user(),u.getUsername(),u.getImg_user(),u.getEmail_user(),u.getAdresse_user(),u.getType_role(),u.getIs_pro());
+//                 //    System.out.println(User.Current_User.getUsername());
     
     }
 
@@ -294,6 +298,12 @@ public class FeedController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) {
+        User u= new User();
+        User.setCurrent_User(u);
     }
     
    

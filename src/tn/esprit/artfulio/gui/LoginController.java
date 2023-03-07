@@ -91,7 +91,7 @@ public class LoginController implements Initializable {
         } else {
 
            
-            if(txtUserName.getText().equals("artfuliotn@gmail.com") && txtPWD.getText().equals("mdvztnyyyycnexok") )
+            if(txtUserName.getText().equals("admin") && txtPWD.getText().equals("admin") )
         {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                      alert.setTitle("Artfulio :: Success Message");
@@ -114,8 +114,9 @@ public class LoginController implements Initializable {
                        GoPage("feed.fxml", event);
                  
            
-               // User u = user.afficherCurrent_User(txtUserName.getText());
+              // User u = user.afficherProfilefb(txtUserName.getText());
                 User.setCurrent_User(u);
+                System.out.println(User.getCurrent_User().getUsername());
                 
             }else {
                 msg.setText("Login ou PWD incorrecte");
