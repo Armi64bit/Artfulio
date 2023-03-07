@@ -1,13 +1,19 @@
 package tn.esprit.artfulio.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -16,6 +22,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import tn.esprit.artfulio.entites.User;
 
 import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.entites.sous_categorie;
@@ -52,6 +60,10 @@ public class CategorieController implements Initializable {
     private HBox sousvid;
     @FXML
     private Label nom_sous_cat;
+    @FXML
+    private Button profile;
+    @FXML
+    private Button logout;
 
     /**
      * Initializes the controller class.
@@ -68,9 +80,6 @@ public class CategorieController implements Initializable {
     private void GoToprofile(MouseEvent event) {
     }
 
-    @FXML
-    private void GoTofeed(ActionEvent event) {
-    }
 
     @FXML
     private void changemode(ActionEvent event) {
@@ -163,6 +172,91 @@ public class CategorieController implements Initializable {
 
             }
         } catch (Exception e) {
+        }
+    }
+
+    
+    private void GoTofeed(MouseEvent event) {
+         try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+           // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("feed.fxml"));
+            Parent root = loaderp.load();
+           
+           // FeedimageController fic =loaderp.getController();
+            //fic.feed();
+            //fic.users();
+             Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }}
+
+    
+ @FXML
+    private void profile(ActionEvent event) {
+        try {
+            int id= User.getCurrent_User().getId_user();
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("profile.fxml"));
+            Object root = loaderp.load();
+            ProfileController pc = loaderp.getController();
+            pc.setdata(id);
+            pc.feedaudio(id);
+            pc.feedimg(id);
+            pc.feedmusic(id);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene((Parent) root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ArtworkpostController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+   @FXML
+    private void logout(ActionEvent event) {
+        User u= new User();
+        User.setCurrent_User(u);
+         try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+           // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent root = loaderp.load();
+           
+           // FeedimageController fic =loaderp.getController();
+            //fic.feed();
+            //fic.users();
+             Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void GoTofeedf(ActionEvent event) {
+    try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+           // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("feed.fxml"));
+            Parent root = loaderp.load();
+           
+           // FeedimageController fic =loaderp.getController();
+            //fic.feed();
+            //fic.users();
+             Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.FeedimageController">
+<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1151.0" styleClass="background" stylesheets="@feed.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.artfulio.gui.FeedimageController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="200.0" spacing="10.0" styleClass="post-background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
          <children>
@@ -30,19 +30,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="chnagemode" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-                     <image>
-                        <Image url="@../img/loupe.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Pane prefHeight="66.0" prefWidth="362.0" HBox.hgrow="ALWAYS" />
+            <Pane prefHeight="66.0" prefWidth="141.0" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" spacing="50.0">
                <children>
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#imagefeed" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
@@ -96,7 +84,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="elementt">
+                  <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="163.0" spacing="10.0" styleClass="elementt">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -115,7 +103,7 @@
                   </HBox>
                </children>
             </HBox>
-            <Pane prefHeight="66.0" prefWidth="182.0" HBox.hgrow="ALWAYS" />
+            <Pane prefHeight="66.0" prefWidth="107.0" HBox.hgrow="ALWAYS" />
             <Button mnemonicParsing="false" onAction="#changemode" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
                   <ImageView fx:id="darkorlight" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
@@ -128,29 +116,23 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+            <Button fx:id="profile" mnemonicParsing="false" onAction="#profile" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@heart.png" />
+                        <Image url="@../img/user.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@heart.png" />
+                        <Image url="@../img/turn-off.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
          </children>
          <padding>
@@ -158,104 +140,6 @@
          </padding>
       </HBox>
    </top>
-   <left>
-      <ScrollPane prefHeight="825.0" prefWidth="291.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
-         <content>
-            <VBox prefHeight="463.0" prefWidth="324.0" spacing="12.0" stylesheets="@feed.css">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/maison.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="Acceuil">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/collaboration.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="Collaboration">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/interface.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="Categorie">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="Croud sourcing">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="12.0" styleClass="elementt" stylesheets="@feed.css">
-                     <children>
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/lead.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="18.0" prefWidth="220.0" text="Leadboard">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-            </VBox>
-         </content>
-      </ScrollPane>
-   </left>
    <center>
       <HBox prefHeight="664.0" prefWidth="528.0" styleClass="background" stylesheets="@feed.css" BorderPane.alignment="CENTER">
          <children>

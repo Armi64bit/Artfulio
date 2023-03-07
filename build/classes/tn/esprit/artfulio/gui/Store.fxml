@@ -91,7 +91,7 @@
                         <VBox fx:id="chosenArtcard" prefHeight="69.0" prefWidth="335.0" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="addTocart" mnemonicParsing="false"  prefHeight="72.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@../Style/Style.css" text="ADD TO CART">
+                              <Button fx:id="addTocart" mnemonicParsing="false" onMouseClicked="#addToCart" prefHeight="72.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@../Style/Style.css" text="ADD TO CART">
                                  <HBox.margin>
                                     <Insets bottom="20.0" top="30.0" />
                                  </HBox.margin>

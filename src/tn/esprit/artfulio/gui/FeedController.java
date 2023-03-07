@@ -18,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -49,8 +50,6 @@ public class FeedController implements Initializable {
     @FXML
     private VBox postscontainer;
     @FXML
-    private Button chnagemode;
-    @FXML
     private VBox usercontainer;
     @FXML
     private ImageView darkorlight;
@@ -62,12 +61,19 @@ public class FeedController implements Initializable {
     private Button logout;
     @FXML
     private HBox reclam;
+    @FXML
+    private Button shop;
+    @FXML
+    private HBox pro;
+    @FXML
+    private Button profile;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+     //   user_name.setText(User.getCurrent_User().getUsername());
       feed();
       users();
 //      UserService us= new UserService();
@@ -300,13 +306,99 @@ public class FeedController implements Initializable {
         }
     }
 
+    
+
     @FXML
+    private void gotshop(ActionEvent event) {
+        
+         try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Store.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            //QrController q=fxmlLoader.getController();
+           // ArtworkService as= new ArtworkService();
+            stage.setTitle("collab");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void reclam(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddReclamation.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            //QrController q=fxmlLoader.getController();
+           // ArtworkService as= new ArtworkService();
+            stage.setTitle("collab");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void pro(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Parrainage.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            //QrController q=fxmlLoader.getController();
+           // ArtworkService as= new ArtworkService();
+            stage.setTitle("collab");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void profile(ActionEvent event) {
+        try {
+            int id= User.getCurrent_User().getId_user();
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("profile.fxml"));
+            Object root = loaderp.load();
+            ProfileController pc = loaderp.getController();
+            pc.setdata(id);
+            pc.feedaudio(id);
+            pc.feedimg(id);
+            pc.feedmusic(id);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene((Parent) root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ArtworkpostController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+   @FXML
     private void logout(ActionEvent event) {
         User u= new User();
         User.setCurrent_User(u);
+         try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            
+           // Parent root = FXMLLoader.load(getClass().getResource("feedimage.fxml"));/* Exception */
+            FXMLLoader loaderp = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent root = loaderp.load();
+           
+           // FeedimageController fic =loaderp.getController();
+            //fic.feed();
+            //fic.users();
+             Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
-   
 }
 
 

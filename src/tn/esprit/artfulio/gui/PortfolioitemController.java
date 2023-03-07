@@ -8,11 +8,15 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,6 +27,7 @@ import tn.esprit.artfulio.entites.artwork;
 import tn.esprit.artfulio.entites.sous_categorie;
 import tn.esprit.artfulio.services.ArtworkService;
 import tn.esprit.artfulio.services.SouscategorieService;
+import tn.esprit.artfulio.services.StoreService;
 
 /**
  * FXML Controller class
@@ -41,6 +46,8 @@ public class PortfolioitemController implements Initializable {
     private HBox nom_sous_cat;
     @FXML
     private Label noms;
+    @FXML
+    private Button sell;
 
     /**
      * Initializes the controller class.
@@ -123,6 +130,20 @@ public void setImage(String imagePath) {
         } catch (IOException ex) {
             Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void sell(ActionEvent event) {
+        StoreService ss= new StoreService();
+        ArtworkService as= new ArtworkService();
+        int idart= Integer.parseInt(id_art.getText());
+        artwork a= as.afficherartwork1(idart);
+        if(ss.ajouterArt(a)!=-1){
+        Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Artwork ajouté");
+           // alert.setContentText("Please select an artwork to add to your cart.");
+            alert.showAndWait();}
+        
     }
     
 }

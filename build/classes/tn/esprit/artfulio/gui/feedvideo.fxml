@@ -30,7 +30,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="chnagemode" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+            <Button fx:id="chnagemode" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4" visible="false">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                      <image>
@@ -128,29 +128,23 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+            <Button fx:id="profile" mnemonicParsing="false" onAction="#profile" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@heart.png" />
+                        <Image url="@../img/user.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: transparent;" styleClass="round-button" stylesheets="@feed.css" textFill="#a4a4a4">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@heart.png" />
+                        <Image url="@../img/turn-off.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
          </children>
          <padding>
@@ -159,7 +153,7 @@
       </HBox>
    </top>
    <left>
-      <ScrollPane prefHeight="825.0" prefWidth="291.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="654.0" prefWidth="46.0" style="-fx-background-color: transparent;" visible="false" BorderPane.alignment="CENTER">
          <content>
             <VBox prefHeight="463.0" prefWidth="324.0" spacing="12.0" stylesheets="@feed.css">
                <children>

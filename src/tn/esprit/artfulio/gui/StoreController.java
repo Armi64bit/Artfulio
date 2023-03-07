@@ -27,7 +27,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import tn.esprit.artfulio.entites.artwork;
-//import entities.Cart;
+import tn.esprit.artfulio.entites.Cart;
 import java.io.File;
 import java.sql.Connection;
 import java.util.logging.Level;
@@ -58,7 +58,7 @@ public class StoreController implements Initializable {
 
     private artwork selectedArtwork;
     private Image image;
-    public static ObservableList<artwork> Items;
+    public static ObservableList<artwork> Items = FXCollections.observableArrayList();
     @FXML
     private ImageView artImg;
 
@@ -78,11 +78,9 @@ public class StoreController implements Initializable {
 
     @FXML
     private TextField txtBarSearch;
-     public static Connection myconnex
-            = MyConnection.getInstance().getConnection();
-    
     @FXML
-    private void handleCartButton(MouseEvent event) throws IOException {
+   
+private void handleCartButton(MouseEvent event) throws IOException {
     
         
          try {
@@ -94,7 +92,7 @@ public class StoreController implements Initializable {
             stage.setTitle("Cart");
             stage.setScene(new Scene(root1));
             stage.show();
-             System.out.println(Items);
+             
         } catch (IOException ex) {
             Logger.getLogger(StoreController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -102,33 +100,36 @@ public class StoreController implements Initializable {
 
     @FXML
     private Button addTocart;
-    //public static Cart cart = new Cart();
+    public static Cart cart = new Cart();
     private MyListener MyListener;
-  
+    public static Connection myconnex
+            = MyConnection.getInstance().getConnection();
 
 
-//    @FXML
-//    private void addToCart() {
-//        if (selectedArtwork == null) {
-//            // No artwork selected, show an error message to the user
-//            Alert alert = new Alert(AlertType.ERROR);
-//            alert.setHeaderText("No artwork selected");
-//            alert.setContentText("Please select an artwork to add to your cart.");
-//            alert.showAndWait();
-//            return;
-//        }
-//
-//        // Add the selected artwork to the cart
-//        cart.addItem(selectedArtwork);
-//
-//        // Show a confirmation message to the user
-//        Alert alert = new Alert(AlertType.INFORMATION);
-//        alert.setHeaderText("Artwork added to cart");
-//        alert.setContentText(selectedArtwork.getNom_artwork() + " has been added to your cart.");
-//        alert.showAndWait();
-//        Items = cart.getItems();
-//        System.out.println(Items);
-//    }
+    @FXML
+    private void addToCart() {
+        
+        if (selectedArtwork == null) {
+            // No artwork selected, show an error message to the user
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("No artwork selected");
+            alert.setContentText("Please select an artwork to add to your cart.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Add the selected artwork to the cart
+        cart.addItem(selectedArtwork);
+
+        // Show a confirmation message to the user
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setHeaderText("Artwork added to cart");
+        alert.setContentText(selectedArtwork.getNom_artwork() + " has been added to your cart.");
+        alert.showAndWait();
+        
+        Items = cart.getItems();
+        
+    }
     private List<artwork> list = new ArrayList<>();
 
     public List<artwork> afficherartwork() {
