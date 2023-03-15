@@ -274,7 +274,7 @@
                                     <Font name="System Bold" size="56.0" />
                                  </font>
                               </Label>
-                              <HBox alignment="CENTER_LEFT" maxWidth="1000.0" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="NEVER">
+                              <HBox fx:id="conrainerim" alignment="CENTER_LEFT" maxWidth="1000.0" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="NEVER">
                                  <children>
                                     <HBox fx:id="portfoliocontainer" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="596.0" />
                                  </children>

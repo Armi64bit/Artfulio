@@ -33,11 +33,11 @@ public class Main {
  
   
     public static void main (String []args){
-       UserService us=new UserService();
-       commentaireservice cs= new commentaireservice();
-       commentaire c= new commentaire("nice", 42, 14);
-        System.out.println(cs.affichercommentaire(42));
-         System.out.println(User.getCurrent_User().getUsername());
+//       UserService us=new UserService();
+//       commentaireservice cs= new commentaireservice();
+//       commentaire c= new commentaire("nice", 42, 14);
+//        System.out.println(cs.affichercommentaire(42));
+//         System.out.println(User.getCurrent_User().getUsername());
 //        UserService us=new UserService();
 //        User u=new User("username", "cin_user", "adresse_user", "pwd", "mail", "img", "artiste");
 //        us.ajouteruser(u);
@@ -90,10 +90,10 @@ public class Main {
 //
 //
 //
-////       ArtworkService as =new ArtworkService();
-////        artwork a=new artwork(35);
+       ArtworkService as =new ArtworkService();
+        artwork a=new artwork(46, "hamza");
 ////        
-////as.supprimerartwork(a);
+as.modifierartwork(a);
 //////Date d=new Date(2);
 ////        //a = new artwork ("", "", 0, 4, d, 10, "", 0, "aa");
 ////          //     as.ajouterartwork(a);

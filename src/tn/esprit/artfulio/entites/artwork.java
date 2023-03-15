@@ -29,6 +29,11 @@ public class artwork {
         this.id_artwork = id_artwork;
     }
 
+    public artwork(int id_artwork, String nom_artwork) {
+        this.id_artwork = id_artwork;
+        this.nom_artwork = nom_artwork;
+    }
+
     public artwork(int id_artwork, String nom_artwork, String description_artwork, float prix_artwork, int id_type, Date date, int id_artist, String lien_artwork, float dimension_artwork, String img_artwork) {
         this.id_artwork = id_artwork;
         this.nom_artwork = nom_artwork;

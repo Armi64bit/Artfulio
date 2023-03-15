@@ -68,7 +68,7 @@ static Connection myconnex
     @Override
     public boolean modifierartwork(artwork p) {
          try {
-           int id_artwork = 7;
+          // int id_artwork = 7;
            String nom = p.getNom_artwork();
           String lien_artwork = p.getLien_artwork();
           String img_artwork = p.getImg_artwork();

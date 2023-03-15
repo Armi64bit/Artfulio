@@ -43,7 +43,7 @@
                      </font>
                   </Text>
                   <Button fx:id="buttonSendDemande" layoutX="259.0" layoutY="554.0" mnemonicParsing="false" onAction="#buttonSendDemande" prefHeight="52.0" prefWidth="171.0" text="Envoyer" />
-                  <Label fx:id="id_artiste" layoutX="180.0" layoutY="68.0" text="id_artiste" />
+                  <Label fx:id="id_artiste" layoutX="180.0" layoutY="68.0" text="id_artiste" visible="false" />
                </children>
             </AnchorPane>
          </children>

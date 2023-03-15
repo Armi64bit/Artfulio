@@ -64,6 +64,8 @@ public class CategorieController implements Initializable {
     private Button profile;
     @FXML
     private Button logout;
+    @FXML
+    private HBox conrainerim;
 
     /**
      * Initializes the controller class.
@@ -138,7 +140,7 @@ public class CategorieController implements Initializable {
                 Pane vbox = loader.load();
                 PortfolioitemController artcont = loader.getController();
                 artcont.setdata(listart.get(i));
-                musiccontainer.getChildren().add(vbox);
+                conrainerim.getChildren().add(vbox);
 
             }
         } catch (Exception e) {
